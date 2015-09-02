@@ -1,0 +1,27 @@
+
+<section class="content-header">
+	<h4>Access Report</h4>
+	<div class="breadcrumb">
+		<button type="button" class="cupid-blue" ng-click="getUsers()">Find
+			Users</button>
+
+	</div>
+</section>
+
+<table width="99%" border="1" class="tablesorter">
+	<thead>
+		<tr>
+			<th>shop Id</th>
+			<th>shop name</th>
+			<th>member name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="cgu in groupUsers" ng-class-odd="'odd'"
+			ng-class-even="'even'">
+			<td>{{cgu.id}}</td>
+			<td>{{cgu.name}}</td>
+			<td>{{cgu.emplNumber}}</td>
+		</tr>
+	</tbody>
+</table>

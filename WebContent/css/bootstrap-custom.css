@@ -1,0 +1,19 @@
+.btn {
+    padding: 5px 7px;
+    font-family: verdana;
+	font-size: 9px;
+	font-weight: normal;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #cad9eb;
+  cursor: pointer;
+}
+
+.navbar-default .navbar-brand {
+	color: #dfeffc;
+}
+
+td, th {
+	padding: 2px 2px 2px 2px;
+}

@@ -1,0 +1,196 @@
+
+		<section class="content-header">
+			<h4>
+				Create Member
+			</h4>
+			<div class="breadcrumb">
+				<li><a href="#"><i class="fa fa-dashboard"></i>User Management</a></li>
+				<li class="active">User</li>
+			</div>
+		</section>
+		
+		<table width="90%" cellspacing='2'>
+			  <tr>
+				<td valign="top">
+					<table width="100%">
+						<tr>
+							<td class="textalignr"><font color="red" size="2pt">* </font>First Name </td>		
+							<td> <input type="text" 
+									ng-model="user.firstName" 
+									my-maxlength="50" 
+									class="poc-textfield clearField"></td>
+						</tr>
+						<tr>
+							<td class="textalignr"><font color="red" size="2pt">* </font>Last Name </td>		
+							<td> <input type="text" 
+									ng-model="user.lastName" 
+									my-maxlength="50" 
+									class="poc-textfield clearField"></td>
+						</tr>
+						<tr>
+							<td class="textalignr"> </td>		
+							<td>
+								<input type="radio" name="gender" value="Male" ng-model="user.gender"> Male
+								<input type="radio" name="gender" value="Female" ng-model="user.gender"> Female
+							</td>
+						</tr>
+						
+						<tr>
+							<td class="textalignr">Email Address</td>		
+							<td> <input type="email" 
+									ng-model="user.email" 
+									my-maxlength="50" 
+									class="poc-textfield clearField"></td>
+						</tr>
+						
+						<tr>
+							<td class="textalignr">Contact Number</td>		
+							<td> <input type="text" 
+									ng-model="user.contactnumber" 
+									my-maxlength="50" 
+									class="poc-textfield clearField"></td>
+						</tr>
+						
+						<tr>
+							<td class="textalignr">City</td>		
+							<td> <input type="text" 
+									ng-model="user.city" 
+									my-maxlength="50" 
+									class="poc-textfield clearField"></td>
+						</tr>
+						
+						<tr>
+							<td class="textalignr">State</td>		
+							<td> <input type="text" 
+									ng-model="user.state" 
+									my-maxlength="50" 
+									class="poc-textfield clearField"></td>
+						</tr>
+						
+						<tr>
+							<td class="textalignr">Country</td>		
+							<td> <input type="text" 
+									ng-model="user.country" 
+									my-maxlength="50" 
+									class="poc-textfield clearField"></td>
+						</tr>
+						
+					</table>
+				</td>
+			  	<td valign="top">
+			  		<table width="100%">
+			  			<tr>
+							<td class="textalignr">Tel Num 1 </td>	
+						    <td ><input type="text" 
+									ng-model="user.telNum1" 
+									my-maxlength="50" 
+									class="poc-textfield clearField"></td>
+						</tr>
+						
+			  			<tr>
+			  				<td class="textalignr">Tel Num 2 </td>		
+							<td ><input type="text" 
+									ng-model="user.telNum2" 
+									my-maxlength="50" 
+									class="poc-textfield clearField"></td>
+			  			</tr>
+			  			
+			  			<tr>
+							<td class="textalignr">Fax </td>		
+							<td ><input type="text" 
+									ng-model="user.fax" 
+									my-maxlength="50" 
+									class="poc-textfield clearField"></td>
+						</tr>
+			  			
+			  			<tr>
+					    	<td class="textalignr">PinCode</td>
+					    	<td><input type="text"  class="poc-textfield clearField" ng-model="user.pincode"/></td>
+					    </tr>
+			  			
+					    <tr>
+					    	<td class="textalignr">Address 1</td>
+					    	<td><textarea class="poc-textarea clearField" ng-model="user.address1"></textarea></td>
+					    </tr>
+					    
+					    <tr>
+					    	<td class="textalignr">Address 2</td>
+					    	<td><textarea class="poc-textarea clearField" ng-model="user.address2"></textarea></td>
+					    </tr>
+			  		</table>
+			  	</td>
+			  	<td>
+			  		<table>
+			  			<tr>
+					    	<td class="textalignr"><font color="red" size="2pt">* </font>Login Name</td>
+					    	<td><input type="text"  class="poc-textfield clearField" ng-model="user.loginName"/></td>
+					    </tr>
+					    <tr>
+					    	<td class="textalignr"><font color="red" size="2pt">* </font>Choose Password</td>
+					    	<td><input type="password"  class="poc-textfield clearField" ng-model="user.password"/></td>
+					    </tr>
+					    <tr>
+					    	<td class="textalignr">Active</td>
+					    	<td>
+							  <input type="checkbox" class="checkbox-primary" checked/> 
+							</td>
+					    	
+					    </tr>
+			  		</table>
+			  	</td>
+			 </tr>
+		</table>
+		</br>
+		<!-- <div>          
+		  <table id="tableFilter" border="1">
+		    <thead>
+		      <tr>
+		      	<th>#</th>
+		        <th>User Name</th>
+		        <th>Department</th>
+		        <th>Email Address</th>
+		        <th>Contact</th>
+		        <th>Is Active ?</th>
+		        <th></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr >
+		        <td>1</td>
+		        <td>Siram Ghanta</td>
+		        <td>Disney</td>
+		        <td>ghantas@hcl.com</td>
+		        <td>9791020449</td>
+		        <td>True</td>
+		        <td><a href="#">Edit</a></td>
+		      </tr>
+		      <tr >
+		        <td>2</td>
+		        <td>Madhan</td>
+		        <td>Disney</td>
+		        <td>madhanraj@hcl.com</td>
+		        <td>9600027967</td>
+		        <td>false</td>
+		        <td><a href="#">Edit</a></td>
+		      </tr>
+		      <tr >
+		        <td>3</td>
+		        <td>Sai Krishna</td>
+		        <td>Disney</td>
+		        <td>saikrishnak@hcl.com</td>
+		        <td>9840032382</td>
+		        <td>True</td>
+		        <td><a href="#">Edit</a></td>
+		      </tr>
+		      <tr >
+		        <td>4</td>
+		        <td>Anna</td>
+		        <td>Disney</td>
+		        <td>annasheperd@hcl.com</td>
+		        <td>7799556644</td>
+		        <td>True</td>
+		        <td><a href="#">Edit</a></td>
+		      </tr>
+		    </tbody>
+		  </table>
+		  </div> -->
