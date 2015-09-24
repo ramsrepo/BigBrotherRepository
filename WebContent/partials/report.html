@@ -1,27 +1,47 @@
 
-<section class="content-header">
-	<h4>Access Report</h4>
-	<div class="breadcrumb">
-		<button type="button" class="cupid-blue" ng-click="getUsers()">Find
-			Users</button>
-
-	</div>
-</section>
-
-<table width="99%" border="1" class="tablesorter">
-	<thead>
-		<tr>
-			<th>shop Id</th>
-			<th>shop name</th>
-			<th>member name</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="cgu in groupUsers" ng-class-odd="'odd'"
-			ng-class-even="'even'">
-			<td>{{cgu.id}}</td>
-			<td>{{cgu.name}}</td>
-			<td>{{cgu.emplNumber}}</td>
-		</tr>
-	</tbody>
-</table>
+		<section class="content-header">
+			<h4>
+				Access Report
+			</h4>
+			<div class="breadcrumb">
+				<button type="button" class="cupid-blue" ng-click="getUsers()">Find Users</button>
+			</div>
+		</section>
+		
+		<table>
+			<tr>
+				<td class="textalignr">From Date</td>
+				<td>
+					<input type="date"  datepicker-popup ng-model="dt" 
+							is-open="status.opened" min-date="minDate" max-date="'2020-06-22'" 
+							datepicker-options="dateOptions" date-disabled="disabled(date, mode)" 
+							ng-required="true" close-text="Close" />
+		              
+		                <button type="button" class="btn btn-default" ng-click="open($event)"><i 
+		                	class="glyphicon glyphicon-calendar"></i></button>
+								
+								
+				
+				</td>
+			</tr>
+		</table>
+		<br/>
+		<table width="99%" border="1" class="tablesorter">
+			<thead>
+				<tr>
+					<th>Group Id</th>
+					<th>Person Id</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="cgu in groupUsers" ng-class-odd="'odd'" ng-class-even="'even'">
+					<td>{{cgu.group_id}}</td>
+					<td>{{cgu.person_id}}</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		
+		
+	

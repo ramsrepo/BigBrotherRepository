@@ -13,20 +13,5 @@ factory('reportService', function($http){
 		 	});
 	}; 
 	return reportService;
-}).
-factory('shopService',function($http){
-	
-	var shopService={};
-	shopService.getDetails=function(){
-		var theurl='rest/api/getusers';
-		return $http({
-			method: 'GET', 
-		 		url: theurl
-		 	});
-		
-	};
-	
-	return shopService;
-	
 });
 

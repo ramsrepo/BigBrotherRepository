@@ -1,4 +1,4 @@
-var $dialog;
+
 $(function() {
 	
 	$("#acdnmenu a").click(function() {
@@ -6,6 +6,8 @@ $(function() {
 	    $(this).css("font-weight","bold").css("color","orange");
 	});
 	
+	
+	//Tool-Tip for every button on mouse over.
 	/*$('#justified-button-bar .btn').tooltip({
 		  placement: 'bottom',
 		  container: 'body'});*/
@@ -30,6 +32,6 @@ function popUpOpener(pageUri){
 	childWnd= window.open(pageUri,"",property);
 }	
 
-function saveLine(){
-	alert('save');
+function saveRecord(){
+	 var scope = angular.element(document.getElementById("MainWrap")).scope();
 }

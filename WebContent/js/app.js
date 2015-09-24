@@ -1,6 +1,6 @@
 'use strict';
 
-var pocApp = angular.module('pocApp', ['ui.router', 'ui.bootstrap', 'pocApp.controllers', 'pocApp.services', 'pocApp.directives']);
+var pocApp = angular.module('pocApp', ['ui.router', 'ui.bootstrap', 'pocApp.controllers', 'pocApp.utilityControllers', 'pocApp.services', 'pocApp.directives']);
 /*
  * This is the old configuration for routing
  * 
@@ -34,16 +34,10 @@ pocApp.config(['$routeProvider', function($routeProvider) {
             controller: 'groupController'
         })
         
-       /* .state('dailyreport', {
+        .state('dailyreport', {
             url:'/report',
             templateUrl: 'partials/report.html', 
             controller: 'reportController'
-        })*/
-    
-    	.state('shopreport', {
-    		 url:'/report',
-             templateUrl: 'partials/report.html', 
-             controller: 'shopController'
-    	});
+        });
         
 }]);
