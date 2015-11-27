@@ -1,158 +1,159 @@
-/* Accordion Menu powered by www.menucool.com */
-
-/* ##### Top level items #####*/
-#acdnmenu 
-{
-    /* Note about height: 
-    Set "height:auto;" if flexible height is required. 
-    A fixed height is prefered as content below the menu won't be pulled down/up when the menu is expanding/collapsing. */
-    height: 300px;
-    width: 100%; /*or pixel value*/
-    font-size:0;
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+}
+#cssmenu {
+  width: 227px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+}
+#cssmenu ul ul {
+  display: none;
+}
+.align-right {
+  float: right;
 }
 
-
-#acdnmenu ul.top
-{
-	padding-left:0;
-    /* border:1px solid #0B4E78; */
-    background:none;
+#cssmenu > ul > li > a {
+  padding: 15px 20px;
+  border-left: 1px solid #1682ba;
+  border-right: 1px solid #1682ba;
+  border-top: 1px solid #1682ba;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background: #33bcf2;
 }
 
-#acdnmenu div.heading, #acdnmenu a.link
-{
-    padding:8px; padding-left:32px;
-    text-align:left;
-    font:normal 12px Verdana;
-    color:white; 
-    background:#47A url(../images/appHeader.jpg) left top;
-    text-decoration:none;
-    outline:none;
+#cssmenu > ul > li > a:hover,
+#cssmenu > ul > li.active > a,
+#cssmenu > ul > li.open > a {
+  color: #eeeeee;
+  background: #1fa0e4;
 }
 
-#acdnmenu div.current, #acdnmenu div:hover, #acdnmenu a.link:hover, #acdnmenu div.current a.link
-{
-    color:#dfeffc;
-    font-weight:normal;
-    text-decoration:none;   
-    background:#47A url(../images/appHeader.jpg) 20% top;
+#cssmenu > ul > li.open > a {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid #1682ba;
 }
 
-/*Top level link without children*/
-#acdnmenu a.current, #acdnmenu a.current:hover
-{
-    color:#FFF;
-    /* text-decoration:underline; */   
+#cssmenu > ul > li:last-child > a,
+#cssmenu > ul > li.last > a {
+  border-bottom: 1px solid #1682ba;
 }
 
-/* arrow image for the top headings */
-#acdnmenu div.arrowImage {
-    width:12px;
-    height:12px;
-    top:9px;
-    right:6px; left:auto; /*Setting "left:8px;right:auto;" will position the arrow image to the left*/
-    background-image:url(../images/arrows_white.gif);
-    background-position:0 0;
+.holder {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
-
-#acdnmenu div.current div.arrowImage {
-    background-position:0 -12px;
+.holder::after,
+.holder::before {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 6px;
+  height: 6px;
+  right: 20px;
+  z-index: 10;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
-
-#acdnmenu li.separator
-{
-    /* border-top:1px solid #dfeffc; */
-    border-bottom:1px solid #dfeffc; 
+.holder::after {
+  top: 17px;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
 }
-
-
-/* ##### Sub level items #####*/
-#acdnmenu ul.sub
-{
-	padding-left:14px; /*This determines the hierarchical offset*/ 
-    background:#47A url(../images/appHeader.jpg) 20% -30px;/**/
+#cssmenu > ul > li > a:hover > span::after,
+#cssmenu > ul > li.active > a > span::after,
+#cssmenu > ul > li.open > a > span::after {
+  border-color: #eeeeee;
 }
-#acdnmenu ul.sub ul.sub
-{
-    background:none; 
+.holder::before {
+  top: 18px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+  border-top-color: inherit;
+  border-left-color: inherit;
 }
-
-#acdnmenu ul.sub div.heading
-{
-    text-align:left;
-    font:normal 12px Arial;
-    padding:5px; padding-left:20px;
-    color:#dfeffc;
-    background:none; 
+#cssmenu ul ul li a {
+  cursor: pointer;
+  border-bottom: 1px solid #32373e;
+  border-left: 1px solid #32373e;
+  border-right: 1px solid #32373e;
+  padding: 10px 20px;
+  z-index: 1;
+  text-decoration: none;
+  font-size: 11px;
+  color: #eeeeee;
+  background: #49505a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
-#acdnmenu ul.sub div.heading a
-{
-    color:#dfeffc;
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li.open > a,
+#cssmenu ul ul li.active > a {
+  background: #424852;
+  color: #ffffff;
 }
-
-#acdnmenu ul.sub div.current
-{
-    color:#dfeffc;
-    background:none; 
+#cssmenu ul ul li:first-child > a {
+  box-shadow: none;
 }
-
-#acdnmenu ul.sub a.link
-{
-    font:normal 11px Arial;
-    color:#dfeffc;
-    padding:5px; padding-left:20px;
-    text-decoration:none;
-    background:none; 
+#cssmenu ul ul ul li:first-child > a {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
-
-#acdnmenu ul.sub a.link:hover, #acdnmenu ul.sub a.current, #acdnmenu ul.sub div.heading a:hover, #acdnmenu ul.sub div.heading a.current
-{
-    color:#FFF;
-    /* text-decoration:underline; */
-    background:none; 
+#cssmenu ul ul li a {
+  padding-left: 30px;
 }
-
-
-#acdnmenu ul.sub div.arrowImage {
-    width:12px;
-    height:12px;
-    top:6px;
-    left:4px;
-    background-image:url(../images/arrows_white.gif);
-    background-position:0 -24px;
+#cssmenu > ul > li > ul > li:last-child > a,
+#cssmenu > ul > li > ul > li.last > a {
+  border-bottom: 0;
 }
-#acdnmenu ul.sub div.current div.arrowImage {
-    background-position:0 -36px;
+#cssmenu > ul > li > ul > li.open:last-child > a,
+#cssmenu > ul > li > ul > li.last.open > a {
+  border-bottom: 1px solid #32373e;
 }
-
-
-
-/* ##### Followings usually don't need modification ###### */
-/*Hack the font-size:0 bug for IE6 */
-#acdnmenu,  #acdnmenu ul
-{
-    display:block;
-    font-size:0px;
-    line-height:0px;
+#cssmenu > ul > li > ul > li.open:last-child > ul > li:last-child > a {
+  border-bottom: 0;
 }
-#acdnmenu li {font-size:12px; line-height:16px;}
-#acdnmenu:after {content:'.';height:0;clear:both;display:block;visibility:hidden;} 
-#acdnmenu ul, #acdnmenu li, #acdnmenu div.heading, #acdnmenu a.smLink, #acdnmenu div.description {*zoom:1;}
-#acdnmenu li {*float:left;*width:100%;}
-
-#acdnmenu ul
-{
-	position:relative;/*!*/
-	overflow:hidden;
-	padding:0;margin:0;list-style-type: none;padding-left:10px;
+#cssmenu ul ul li.has-sub > a::after {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  right: 20px;
+  z-index: 10;
+  top: 11.5px;
+  border-top: 2px solid #eeeeee;
+  border-left: 2px solid #eeeeee;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
-#acdnmenu>ul{visibility: hidden;}
-#acdnmenu li {padding:0;margin:0;}
-
-#acdnmenu div.heading, #acdnmenu div.current
-{
-	position:relative;
-    cursor: pointer;
+#cssmenu ul ul li.active > a::after,
+#cssmenu ul ul li.open > a::after,
+#cssmenu ul ul li > a:hover::after {
+  border-color: #ffffff;
 }
-#acdnmenu div.arrowImage {position:absolute; overflow:hidden;}
-

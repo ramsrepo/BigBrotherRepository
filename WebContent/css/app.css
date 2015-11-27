@@ -10,9 +10,10 @@
 }
 
 .header {
-	/* background-color: #3399FF; */
+	/* background-color: #3399FF;
 	background-image:url("../images/appHeader.jpg");
-	color: #dfeffc;
+	color: #dfeffc; */
+	background-color: #dfeffc;
 }
 
 #wrapper {
@@ -27,7 +28,7 @@
 #main-wrapper {
     height: 100%;
     overflow-y: auto;
-    padding: 50px 0 0px 0;
+    padding: 51px 0 0px 0;
 }
 #main {
     position: relative;
@@ -39,7 +40,7 @@
     height: 100%;
     padding: 50px 0 0px 0;
     position: fixed;
-    border-right: 1px solid gray;
+    /* border-right: 1px solid gray; */
     /* background-color: #3399FF; */
 }
 #sidebar {

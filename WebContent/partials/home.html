@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Always force latest IE rendering engine or request Chrome Frame -->
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>e-Tracker</title>
+<link rel="shortcut icon" href="./images/horselogo.jpg" />
+
+<!-- script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/bootstrap-custom.css" >
+<!-- <link rel="stylesheet" type="text/css" href="./lib/jquery/jquery-ui.css"> -->
+<link rel="stylesheet" type="text/css" href="./css/app.css">
+<link rel="stylesheet" type="text/css" href="./css/tablestyle.css">
+<!-- <link rel="stylesheet" type="text/css" href="./css/buttonstyle.css"> -->
+<link rel="stylesheet" type="text/css" href="./css/accordionmenu.css">
+
+  
+</head>
+
+<body ng-app="pocApp" ng-controller="homeController" >
+	<div>
+		 <div class="navbar navbar-default navbar-fixed-top">
+	       <div class="container">
+	    		<div class="navbar-header">
+		            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		                <span class="sr-only">Toggle navigation</span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		            </button>
+		            <a class="navbar-brand" href="/">Application Name</a>
+		        </div>
+		        <div class="collapse navbar-collapse">
+		            <ul class="nav navbar-nav navbar-right">
+		                <li class="dropdown">
+		                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
+		                    	title="Settings"><i class="fa fa-star text-yellow"></i> Settings <b class="caret"></b></a>
+		                    <ul class="dropdown-menu">
+		                        <li>
+		                            <a href="#"><i class="fa fa-fw fa-paint-brush"></i>Action Items</a>
+		                        </li>
+		                        <li>
+		                            <a href="#"><i class="fa fa-fw fa-shopping-cart"></i>Edit Profile</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		                <li class="dropdown">
+		                    <a href="/BigB/#" title="Settings"><i class="fa fa-star text-yellow"></i>Logout</a>
+		                </li>
+		            </ul>
+		        </div>
+		   </div>
+	    </div> 
+	    
+		 <div id="wrapper">
+		        <div id="sidebar-wrapper" class="col-md-2">
+		            <div id="MainMenu">
+						  <!-- <div class="list-group panel">
+							    <a href="#administration" class="list-group-item list-group-item-default" data-toggle="collapse" data-parent="#MainMenu">Administration</a>
+							    <div class="collapse" id="administration">
+							     	<a ui-sref="changepassword" class="list-group-item">Change Password</a>
+							    </div>
+							    <a href="#usermgmt" class="list-group-item list-group-item-default" data-toggle="collapse" data-parent="#MainMenu">User Management</a>
+							    <div class="collapse" id="usermgmt">
+							      	<a ui-sref="creategroup" class="list-group-item">User Group</a>
+								  	<a ui-sref="createuser" class="list-group-item">User</a>
+							    </div>
+							    <a href="#reportmodule" class="list-group-item list-group-item-default" data-toggle="collapse" data-parent="#MainMenu">Reports</a>
+							    <div class="collapse" id="reportmodule">
+							     	<a ui-sref="dailyreport" class="list-group-item">Daily Report</a>
+							    </div>
+						  </div> -->
+						  <div id='cssmenu'>
+							<ul>
+							   
+							   <li class='has-sub'><a href='#'>Administration</a>
+							      <ul>
+							         <li>
+							         	<a ui-sref="changepassword" >Change Password</a>
+							         </li>
+							      </ul>
+							   </li>
+							   <li class='has-sub'><a href='#'>User Management</a>
+							      <ul>
+							         <li>
+							         	<a ui-sref="creategroup" >User Group</a>
+							         </li>
+							         <li>
+							           	<a ui-sref="createuser">User</a>
+							         </li>
+							      </ul>
+							   </li>
+							   <li class='has-sub'><a href='#'>Reports</a>
+							      <ul>
+							         <li>
+							         	<a ui-sref="dailyreport">Daily Report</a>
+							         </li>
+							      </ul>
+							   </li>
+							   
+							</ul>
+							</div>
+					</div>
+		        </div>
+		        <div id="main-wrapper"  class="col-md-10">
+		           	<div id="requestContent" class="mainContent">
+						<div class="panel panel-info">
+						  <div class="panel-heading">
+						        <!-- <div id="justified-button-bar">
+							        <div class="btn-group">
+							        	<button id="button-dash" title="Save" onclick="save()" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-ok"></span>
+							        	</button>
+							        </div>
+							        
+							        <div class="btn-group">
+							        	<button id="button-delete" title="Delete" onclick="delete()" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-remove"></span>
+							        	</button>
+							        </div>
+							        
+							        <div class="btn-group">
+							        	<button id="button-clear" title="Delete" onclick="$('.clearField').val('');" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-copyright-mark"></span>
+							        	</button>
+							        </div>
+							       
+							        <span class="divider-vertical"></span>
+							        
+							        <div class="btn-group">
+							        	<button id="button-first" title="Go First" onclick="goFirst()" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-step-backward"></span>
+							        	</button>
+							        </div>
+							        
+							        <div class="btn-group">
+							        	<button id="button-previous" title="Go First" onclick="goPrevious()" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-arrow-left"></span>
+							        	</button>
+							        </div>
+							        
+							        <div class="btn-group">
+							        	<button id="button-next" title="Go First" onclick="goNext()" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-arrow-right"></span>
+							        	</button>
+							        </div>
+							        
+							         <div class="btn-group">
+							        	<button id="button-last" title="Go First" onclick="goLast()" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-step-forward"></span>
+							        	</button>
+							        </div>
+							        
+							        <span class="divider-vertical"></span>
+							        
+							        <div class="btn-group">
+							        	<button id="button-refresh" title="Find" onclick="reload()" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-refresh"></span>
+							        	</button>
+							        </div>
+							        
+							        <div class="btn-group">
+							        	<button id="button-attach" title="Find" onclick="attach()" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-paperclip"></span>
+							        	</button>
+							        </div>
+							        
+							        <div class="btn-group">
+							        	<button id="button-search" title="Find" onclick="findRecord()" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-search"></span>
+							        	</button>
+							        </div>
+							        
+							        <div  class="btn-group">
+							        	<button id="button-fav" title="Favourites" onclick="showFavourites()" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-star"></span>
+							        	</button>
+							        </div>
+							        
+							        <div  class="btn-group">
+							        	<button id="button-download" title="Download your data" onclick="loadDownloads()" type="button" class="btn btn-default" data-toggle="tooltip">
+							        		<span class="glyphicon glyphicon-download-alt"></span>
+							        	</button>
+							        </div>
+							    </div> -->
+						  </div>
+						  <div class="panel-body">
+						    <div ui-view id="responseContent">
+					
+							</div>
+						  </div>
+						</div>
+						
+						
+						
+						<div id="popUpDiv">
+				
+						</div>
+						
+					</div>
+		        </div>
+		</div> 
+		
+
+	</div>
+<!-- Jquery Scripts -->
+<script src="./lib/jquery/jquery-1.10.js"></script>
+<script src="./lib/jquery/jquery-ui.js"></script>
+<script src="./lib/jquery/accordionmenu-min.js"></script>
+<script src="./js/utility.js"></script>
+
+<!-- AngularJS, Bootstrap & Application related Scripts -->
+<script src="./lib/angular-1.4.3/angular.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./lib/angular-1.4.3/ui-bootstrap-tpls-0.13.3.js"></script>
+<script src="./lib/angular-1.4.3/angular-ui-router.js"></script>
+
+
+
+<script src="./js/app.js"></script>
+<script src="./js/services.js"></script>
+<script src="./js/controllers.js"></script>
+<script src="./js/utilityControllers.js"></script>
+<script src="./js/directives.js"></script>
+
+<script>
+$('#cssmenu li.active').addClass('open').children('ul').show();
+$('#cssmenu li.has-sub>a').on('click', function(){
+	$(this).removeAttr('href');
+	var element = $(this).parent('li');
+	if (element.hasClass('open')) {
+		element.removeClass('open');
+		element.find('li').removeClass('open');
+		element.find('ul').slideUp(100);
+	}
+	else {
+		element.addClass('open');
+		element.children('ul').slideDown(100);
+		element.siblings('li').children('ul').slideUp(100);
+		element.siblings('li').removeClass('open');
+		element.siblings('li').find('li').removeClass('open');
+		element.siblings('li').find('ul').slideUp(100);
+	}
+});
+</script>
+
+</body>
+
+</html>
+
+<!-- class="ui-state-disabled" To disable any UI element-->
