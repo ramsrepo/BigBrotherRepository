@@ -3,110 +3,60 @@
 			<h4>
 				Create Group  
 			</h4>
-			 
-			<div class="breadcrumb">
-				<li><a href="#"><i class="fa fa-dashboard"></i>User Management</a></li>
-				<li class="active">User Group</li>
-			</div>
 		</section>
 		
-		
-		<table width="60%">
-			  <tr>
-				<td valign="top">
-					<table width="100%">
-						<tr>
-							<td class="textalignr"><font color="red" size="2pt">* </font>Group Code</td>		
-							<td> <input type="text" 
-									ng-model="group.groupCode" 
-									my-maxlength="50" 
-									class="poc-textfield clearField"></td>
-						</tr>
-						<tr>
-							<td class="textalignr"><font color="red" size="2pt">* </font>Group Name </td>		
-							<td> <input type="text" 
-									ng-model="group.Name" 
-									my-maxlength="50" 
-									class="poc-textfield clearField"></td>
-						</tr>
-						<tr>
-							<td class="textalignr">On-Call Number</td>		
-							<td> <input type="text" 
-									ng-model="group.onCallPhNumber" 
-									my-maxlength="15" 
-									class="poc-textfield clearField"></td>
-						</tr>
-						<tr>
-							<td class="textalignr"><font color="red" size="2pt">* </font>Reporting Manager</td>		
-							<td> <input type="text" 
-									ng-model="group.reportingManager" 
-									my-maxlength="50" 
-									class="poc-textfield clearField"></td>
-						</tr>
-						<tr>
-							<td class="textalignr"><font color="red" size="2pt">* </font>Roaster & Tracker Prepared By</td>		
-							<td> <input type="text" 
-									ng-model="group.preparedBy" 
-									my-maxlength="50" 
-									class="poc-textfield clearField"></td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-		</br>
-		
-		<table border="1" class="tablesorter" width="100%"> 
-			<thead> 
-			<tr> 
-			    <th>First Name</th> 
-			    <th>Last Name</th> 
-			    <th>Email</th> 
-			    <th>Due</th> 
-			    <th>Web Site</th> 
-			</tr> 
-			</thead> 
-			<tbody> 
-			<tr > 
-			    <td>Smith</td> 
-			    <td>John</td> 
-			    <td>jsmith@gmail.com</td> 
-			    <td>$50.00</td> 
-			    <td>http://www.jsmith.com</td> 
-			</tr> 
-			<tr class="odd"> 
-			    <td>Bach</td> 
-			    <td>Frank</td> 
-			    <td>fbach@yahoo.com</td> 
-			    <td>$50.00</td> 
-			    <td>http://www.frank.com</td> 
-			</tr> 
-			<tr > 
-			    <td>Doe</td> 
-			    <td>Jason</td> 
-			    <td>jdoe@hotmail.com</td> 
-			    <td>$100.00</td> 
-			    <td>http://www.jdoe.com</td> 
-			</tr> 
-			<tr class="odd"> 
-			    <td>Conway</td> 
-			    <td>Tim</td> 
-			    <td>tconway@earthlink.net</td> 
-			    <td>$50.00</td> 
-			    <td>http://www.timconway.com</td> 
-			</tr> 
-			
-			</tbody> 
-		</table>
-		<table>  
-			<tr>
-				<td colspan="9">
-					<!-- <button type="button" class="popDivButton"  ng-click="open()">Add</button> -->
-					<div class="btn-group">
-			        	<button id="button-addNewMember" title="Add New Member" ng-click="open()" type="button" class="btn btn-primary" data-toggle="tooltip">
-			        		<span class="glyphicon glyphicon-plus"></span>&nbsp; Add
-			        	</button>
-			        </div>
-				</td>
-			</tr>
-		</table> 
+		<div class="container-fluid content-body">
+			<div class="row">					
+				<label class="col-sm-2 control-label">Group Code</label>
+				<div class="col-sm-2"> 
+					<input type="text"  ng-model="group.groupCode" my-maxlength="50" class="form-control clearField">
+				</div>
+				<div class="col-md-9"></div>
+			</div>
+			</br>
+			<div class="row">					
+				<label class="col-sm-2 control-label">Group Name</label>
+				<div class="col-sm-2"> 
+					<input type="text"  ng-model="group.groupName" my-maxlength="50" class="form-control clearField">
+				</div>
+				<div class="col-md-9"></div>
+			</div>
+			</br>
+			<div class="row">					
+				<label class="col-sm-2 control-label">Reporting Manager</label>
+				<div class="col-sm-2"> 
+					<input type="text"  ng-model="group.reportingManager" my-maxlength="50" class="form-control clearField">
+				</div>
+				<div class="col-md-9"></div>
+			</div>
+			</br>
+			<div class="row">					
+				<label class="col-sm-2 control-label">On-Call Number</label>
+				<div class="col-sm-2"> 
+					<input type="text"  ng-model="group.oncallNumber" my-maxlength="10" class="form-control clearField">
+				</div>
+				<div class="col-md-9"></div>
+			</div>
+			<br/>
+			<div class="row">					
+				<label class="col-sm-2 control-label">Group Lead</label>
+				<div class="col-sm-2"> 
+					<input type="text"  ng-model="group.lead" my-maxlength="50" class="form-control clearField">
+				</div>
+				<div class="col-md-9"></div>
+			</div>
+			<br/>
+			<div class="row">					
+				<label class="col-sm-2 control-label">Created On</label>
+				<div class="col-sm-2"> 
+					<input type="date"  datepicker-popup ng-model="group.dt" 
+							is-open="status.opened" min-date="minDate" max-date="'2020-06-22'" 
+							datepicker-options="dateOptions" date-disabled="disabled(date, mode)" 
+							ng-required="true" close-text="Close" />
+		              
+		                <button type="button" class="btn btn-default" ng-click="open($event)"><i 
+		                	class="glyphicon glyphicon-calendar"></i></button>
+				</div>
+				<div class="col-md-9"></div>
+			</div>
+		</div>

@@ -34,4 +34,11 @@ directive('ngConfirmClick', [
                  }
              }
          };
- }]);
+ }]).
+ 
+ directive('myCustomer', function() {
+	  return {
+	    template: 'Template comes here'
+	  };
+});
+ 

@@ -25,12 +25,4 @@ public class HomeController {
     }
 	
 	
-	
-	@RequestMapping(value = "/createuser", method = RequestMethod.POST)
-    public void createUser() {
-        
-		System.out.println("Inside create user");
-		
-    }
-    
 }
