@@ -14,13 +14,13 @@ pocApp.config(['$routeProvider', function($routeProvider) {
 
 	pocApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     
-	$urlRouterProvider.otherwise('/');
+	$urlRouterProvider.otherwise('/changepassword');
  
     $stateProvider
 	    .state('changepassword', {
             url:'/changepassword',
             templateUrl: 'partials/changepassword.html',
-            controller: 'homeController'
+            controller: 'settingsController'
         })
         .state('createuser', {
             url:'/createuser',
@@ -35,7 +35,7 @@ pocApp.config(['$routeProvider', function($routeProvider) {
         })
         
         .state('dailyreport', {
-            url:'/report',
+            url:'/dailyreport',
             templateUrl: 'partials/report.html', 
             controller: 'reportController'
         });

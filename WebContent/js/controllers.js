@@ -4,31 +4,22 @@
 
 angular.module('pocApp.controllers', ["ui.bootstrap"]).
 
+controller('settingsController', function($scope, $window, $modal, $http){
+	
+	var microappscope = angular.element($("#pageheader")).scope();
+	microappscope.page = 'Change Password';
+	
+}).
+
 controller('homeController', function($scope, $window, $modal, $http) {
+	
+	var microappscope = angular.element($("#pageheader")).scope();
+	microappscope.page = 'Dashboard';
 	
 	$scope.customer = {
 		    name: 'Sriam Ghanta',
 		    age: '29'
-		  };
-	
-	
-	$scope.one = true; // setting the first div visible when the page loads
-	$scope.two = false; // hidden
-	$scope.three = false; // hidden
-
-	// Now have three functions that change the ng-show based on the click
-	$scope.showOne = function (){
-	  $scope.one = true;
-	  $scope.two = false;
-	  $scope.three = false;
-	}
-
-	$scope.showTwo = function (){
-	  $scope.one = false;
-	  $scope.two = true; // now show this one
-	  $scope.three = false;
-	}
-	
+	};
 	$scope.getMessage = function() {
         setTimeout(function() {
         	$scope.$apply(function(){
@@ -67,8 +58,10 @@ controller('homeController', function($scope, $window, $modal, $http) {
 }).
 
 controller('groupController', function($scope, $window, $modal, $http) {
-	
-	 $scope.today = function() {
+	var microappscope = angular.element($("#pageheader")).scope();
+	microappscope.page = 'Create Group';
+	 
+	$scope.today = function() {
 		    $scope.dt = new Date();
 		  };
 		 
@@ -104,9 +97,6 @@ controller('groupController', function($scope, $window, $modal, $http) {
 		    opened: false
 		  };
 		  
-	function save(){
-		alert('Inside save');
-	}
 	
 	$scope.openModal = function() {
 	   var modalInstance =  $modal.open({
@@ -130,19 +120,10 @@ controller('groupController', function($scope, $window, $modal, $http) {
 	 
 }).
 
-controller('reportController', function($scope, $window , $http, reportService){
+controller('reportController', function($scope, $window , $http){
 	
-	$scope.getUsers = function(){
-		var responseCatalog = reportService.getUsers();
-		responseCatalog.success(function (response) {
-			$scope.groupUsers = response;
-		});
-		responseCatalog.error(function (data,status) {
-			if(status == 400 || status == 403) {
-				alert('Error while processing!');
-			}
-		});
-	};
+	var microappscope = angular.element($("#pageheader")).scope();
+	microappscope.page = 'Reports';
 	
 	  $scope.today = function() {
 	    $scope.dt = new Date();
@@ -182,12 +163,23 @@ controller('reportController', function($scope, $window , $http, reportService){
 	
 }).	
 
-controller("userController", function($scope, $window , $http, userService){
+controller("userController", function($scope, $window , $http, $modal, userService){
 	
+	var microappscope = angular.element($("#pageheader")).scope();
+	microappscope.page = 'Create User';
+	
+	$scope.userList = [], $scope.totalUsersList = []
+	  ,$scope.currentPage = 1
+	  ,$scope.recordsPerPage = 10
+	  ,$scope.itemsPerPage = 5
+	  ,$scope.maxSize = 5;
+	
+
 	function loadUsers(){
 		var responseCatalog = userService.loadUsers();
 		responseCatalog.success(function (response) {
-			$scope.userList = response;
+			//$scope.userList = response;
+		    setPaginationForList(response);
 		});
 		responseCatalog.error(function (data,status) {
 			if(status == 400 || status == 403) {
@@ -198,18 +190,66 @@ controller("userController", function($scope, $window , $http, userService){
 	
 	loadUsers();
 	
-	$scope.addUser = function(user){
+	function setPaginationForList(response) {
+	 	
+		$scope.totalUsersList = response;
+	 	
+	    $scope.$watch('currentPage + numPerPage', function() {
+		    var begin = (($scope.currentPage - 1) * $scope.recordsPerPage)
+		    , end = begin + $scope.recordsPerPage;
+		    
+		    $scope.userList = $scope.totalUsersList.slice(begin, end);
+		    
+		});
+	}
+	
+	$scope.createOrEditUser = function(user) {
+		var modalInstance = $modal.open({
+				templateUrl : 'popups/popupuser.html',
+				windowClass : 'modal in',
+				backdrop: true,
+		        keyboard: true,
+		        controllerAs : 'userVm',
+				controller : ['$scope', '$modalInstance', 'editUser', 'userService', 
+				              	function($scope, $modalInstance, editUser, userService) {
+									 				var userVm = this;
+									 				userVm.cancel = cancel;
+									 				userVm.addUser = addUser;
+									 				userVm.user = editUser;
+										        	 
+													 function cancel(modalResponse) {
+														 $modalInstance.dismiss('cancel');
+													 }
+													 
+													 function addUser(user){
+															
+														var responseCatalog = userService.addUser(user);
+														responseCatalog.success(function (response) {
+															$modalInstance.close(response);
+														});
+														responseCatalog.error(function (data,status) {
+															if(status == 400 || status == 403) {
+																alert('Error while processing!');
+															}
+														});
+													};
+					           
+                            
+              									}
+				              ],
+				resolve: {
+                  editUser: function () {
+                    return user;
+                  }
+                }
+				 
+				});
 		
-		var responseCatalog = userService.addUser(user);
-		responseCatalog.success(function (response) {
-			$scope.userList = response;
-		});
-		responseCatalog.error(function (data,status) {
-			if(status == 400 || status == 403) {
-				alert('Error while processing!');
-			}
-		});
-	};
-	
-	
+			modalInstance.result.then(function(response){
+				setPaginationForList(response);
+				//$scope.userList = response;
+			});
+		
+		}
+		 
 });

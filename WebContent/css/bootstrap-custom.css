@@ -18,7 +18,7 @@ label {
 }
 
 .navbar-default {
-	background-color: #33bcf2;
+	background-color: #33bcf2;  /* #  #3ca2e0*/
 	background-image: none;
 	background-repeat: no-repeat;
  }
@@ -89,11 +89,22 @@ td, th {
     background-color: green;
 }
 
+
 /********************* Bootstrap  Custom Modal Starts *********************/
 
-.modal-dialog{
-	margin-right: -1px;
-	margin-top: -1px;
+.modal-body {
+    max-height: 350px;
+    overflow: auto;
+}
+
+.modal-header {
+	padding-bottom: 0;
+	padding-top: 10px;
+}
+
+.modal-footer {
+	padding-bottom: 8px;
+	padding-top: 8px;
 }
 
 .modal.fade:not(.in) .modal-dialog {
@@ -101,17 +112,14 @@ td, th {
        transform: translate3d(25%, 0, 0);
 }
 
-.modal-content, .grid{
+.modal-content {
 	/* background-color: #d9edf7; */
     border-bottom-color: #bce8f1;
     border-left-color: #bce8f1;
     border-right-color: #bce8f1;
     border-top-color: #bce8f1;
     color: #31708f;
-    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,0);
-    -moz-box-shadow: 0 5px 15px rgba(0,0,0,0);
-    -o-box-shadow: 0 5px 15px rgba(0,0,0,0);
-    box-shadow: 0 5px 15px rgba(0,0,0,0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px; 

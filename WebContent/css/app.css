@@ -1,10 +1,10 @@
 * {
-   font-size: 12px;
+   font-size: 11px;
 }     
 
 body {
     padding-top: 50px;
-    overflow: hidden;
+    /* overflow: hidden; */
 	font-family: arial;
 	line-height: 0.5cm;
 	font-style: normal;
@@ -23,13 +23,36 @@ body {
 #main-wrapper {
     height: 100%;
     overflow-y: auto;
-    padding: 51px 0 0px 0;
+    padding: 50px 0 0px 0;
 }
-#main {
+
+#sidebar-wrapper {
+    height: 100%;
+    padding: 50px 0 0px 0;
+    position: fixed;
+    border-right: 1px solid gray;
+}
+#sidebar {
     position: relative;
     height: 100%;
-    overflow-y: auto;
-    padding: 0 15px;
+    overflow-x:hidden;
+}
+#sidebar .list-group-item {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+}
+
+.pageHeader {
+	padding: 10px 0 0px 0;
+    position: relative;
+    background-color: #fbfbfb;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.pageHeader > h4 {
+	padding-left: 10px;
 }
 
 @media (max-width: 992px) {
@@ -39,7 +62,7 @@ body {
 }
 @media (min-width: 992px) {
     #main-wrapper {
-        float:left;
+        float:right;
     }
 }
 @media (max-width: 992px) {
@@ -47,41 +70,21 @@ body {
         padding-top: 0px;
     }
 }
+@media (max-width: 992px) {
+    #sidebar-wrapper {
+        position: static;
+        height:auto;
+        max-height: 300px;
+  		border-right:0;
+	}
+}
 
 a, input {
 	outline: none;
 }
 
-.mainContent {
- 	float: left;
-	height: 560px;
-	width: 100%;
-	/*border-radius: 4px;
-	  border: 1px solid #a6c9e2;
-	  margin-top: 60px; 
-	margin-left: 10px;*/
-	position: relative;
-}
-
 #responseContent {
 	padding: 0px 8px 0px 8px;
-}
-
-.mainContent > .content-body {
-	background-color: #fcfdfd;
-	position: relative;
-}
-
-.mainContent > .content-header > h1 {
-  margin: 0;
-  font-size: 24px;
-}
-
-.mainContent > .content-header > h1 > small {
-  font-size: 15px;
-  display: inline-block;
-  padding-left: 4px;
-  font-weight: 300;
 }
 
 #popUpDiv {
@@ -96,12 +99,11 @@ a, input {
 	border-right: 1px solid #ffffff;
 }
 
-.smalldialog .modal-dialog {
-  	max-width: 350px;
+/* .modal-dialog {
   	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   	z-index:9999;
   	border-radius: 4px;
-}
+} */
 
 .favoritesDiv {
 	min-height: 530px;

@@ -1,62 +1,63 @@
 	
-		<section class="content-header">
-			<h4>
-				Create Group  
-			</h4>
-		</section>
-		
-		<div class="container-fluid content-body">
-			<div class="row">					
-				<label class="col-sm-2 control-label">Group Code</label>
-				<div class="col-sm-2"> 
-					<input type="text"  ng-model="group.groupCode" my-maxlength="50" class="form-control clearField">
-				</div>
-				<div class="col-md-9"></div>
-			</div>
-			</br>
-			<div class="row">					
-				<label class="col-sm-2 control-label">Group Name</label>
-				<div class="col-sm-2"> 
-					<input type="text"  ng-model="group.groupName" my-maxlength="50" class="form-control clearField">
-				</div>
-				<div class="col-md-9"></div>
-			</div>
-			</br>
-			<div class="row">					
-				<label class="col-sm-2 control-label">Reporting Manager</label>
-				<div class="col-sm-2"> 
-					<input type="text"  ng-model="group.reportingManager" my-maxlength="50" class="form-control clearField">
-				</div>
-				<div class="col-md-9"></div>
-			</div>
-			</br>
-			<div class="row">					
-				<label class="col-sm-2 control-label">On-Call Number</label>
-				<div class="col-sm-2"> 
-					<input type="text"  ng-model="group.oncallNumber" my-maxlength="10" class="form-control clearField">
-				</div>
-				<div class="col-md-9"></div>
-			</div>
-			<br/>
-			<div class="row">					
-				<label class="col-sm-2 control-label">Group Lead</label>
-				<div class="col-sm-2"> 
-					<input type="text"  ng-model="group.lead" my-maxlength="50" class="form-control clearField">
-				</div>
-				<div class="col-md-9"></div>
-			</div>
-			<br/>
-			<div class="row">					
-				<label class="col-sm-2 control-label">Created On</label>
-				<div class="col-sm-2"> 
-					<input type="date"  datepicker-popup ng-model="group.dt" 
+<form class="form-horizontal" ng-cloak>
+		  <div class="row">
+		  	<div class="col-lg-6">
+	  		  <div class="form-group form-group-sm">
+			    <label for="fname" class="col-sm-6 control-label">Group Code</label>
+			    <div class="col-sm-6">
+			      <input type="text"  ng-model="group.groupCode" my-maxlength="50" class="form-control clearField">
+			    </div>
+			  </div>
+			  <div class="form-group form-group-sm">
+			    <label for="fname" class="col-sm-6 control-label">Group Name</label>
+			    <div class="col-sm-6">
+			      <input type="text"  ng-model="group.groupName" my-maxlength="50" class="form-control clearField">
+			    </div>
+			  </div>
+			  <div class="form-group form-group-sm">
+			    <label for="fname" class="col-sm-6 control-label">Reporting Manager</label>
+			    <div class="col-sm-6">
+			      <input type="text"  ng-model="group.reportingManager" my-maxlength="50" class="form-control clearField">
+			    </div>
+			  </div>
+			  <div class="form-group form-group-sm">
+			    <label for="fname" class="col-sm-6 control-label">Group Lead</label>
+			    <div class="col-sm-6">
+			      <input type="text"  ng-model="group.lead" my-maxlength="50" class="form-control clearField">
+			    </div>
+			  </div>
+			  <div class="form-group form-group-sm">
+			    <label for="fname" class="col-sm-6 control-label">Project</label>
+			    <div class="col-sm-6">
+			      <input type="text"  ng-model="group.project" my-maxlength="50" class="form-control clearField">
+			    </div>
+			  </div>
+			  <div class="form-group form-group-sm">
+			    <label for="fname" class="col-sm-6 control-label">Group Size</label>
+			    <div class="col-sm-6">
+			      <input type="text"  ng-model="group.groupSize" my-maxlength="50" class="form-control clearField">
+			    </div>
+			  </div>
+			  <div class="form-group form-group-sm">
+			    <label for="fname" class="col-sm-6 control-label">Created On</label>
+			    <div class="col-sm-6">
+			      <input type="date" class="clearField"  datepicker-popup ng-model="group.dt" 
 							is-open="status.opened" min-date="minDate" max-date="'2020-06-22'" 
 							datepicker-options="dateOptions" date-disabled="disabled(date, mode)" 
-							ng-required="true" close-text="Close" />
+							close-text="Close" />
 		              
-		                <button type="button" class="btn btn-default" ng-click="open($event)"><i 
+		                <button type="button" class="btn btn-primary" ng-click="open($event)"><i 
 		                	class="glyphicon glyphicon-calendar"></i></button>
-				</div>
-				<div class="col-md-9"></div>
-			</div>
-		</div>
+			    </div>
+			  </div>
+			  <div class="form-group form-group-sm">
+			    <div class="col-sm-6" ></div>
+			    <div class="col-sm-6">
+					<button type="button" class="btn btn-success">Change</button>
+					<button type="button" class="btn btn-danger" onclick="$('.clearField').val('');">Clear</button>
+			    </div>
+			  </div>
+	  	</div>
+  	</div>
+</form>		
+		

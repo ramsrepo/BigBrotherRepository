@@ -38,7 +38,10 @@ directive('ngConfirmClick', [
  
  directive('myCustomer', function() {
 	  return {
-	    template: 'Template comes here'
-	  };
-});
+	    template: 'Template comes here {{customer.name}} - {{customer.age}} '
+ 	  };
+}); 
+
+
+
  
