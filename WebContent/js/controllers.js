@@ -171,7 +171,7 @@ controller("userController", function($scope, $window , $http, $modal, userServi
 	$scope.userList = [], $scope.totalUsersList = []
 	  ,$scope.currentPage = 1
 	  ,$scope.recordsPerPage = 10
-	  ,$scope.itemsPerPage = 5
+	  ,$scope.itemsPerPage = 10
 	  ,$scope.maxSize = 5;
 	
 
@@ -251,5 +251,9 @@ controller("userController", function($scope, $window , $http, $modal, userServi
 			});
 		
 		}
+	
+	$scope.deleteUser = function(user){
+		alert(JSON.stringify(user));
+	}
 		 
 });

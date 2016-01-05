@@ -36,11 +36,19 @@ directive('ngConfirmClick', [
          };
  }]).
  
- directive('myCustomer', function() {
-	  return {
-	    template: 'Template comes here {{customer.name}} - {{customer.age}} '
- 	  };
-}); 
+directive('showonhoverparent',
+		   function() {
+		      return {
+		         link : function(scope, element, attrs) {
+		            element.parent().parent().bind('mouseenter', function() {
+		                element.show();
+		            });
+		            element.parent().parent().bind('mouseleave', function() {
+		                 element.hide();
+		            });
+		       }
+		   };
+});
 
 
 
