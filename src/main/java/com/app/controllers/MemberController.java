@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.app.model.UserModel;
 import com.app.services.UserService;
@@ -32,6 +31,17 @@ public class MemberController {
 	public ResponseEntity<List<UserModel>> addUser(@RequestBody UserModel user){
 		System.out.println("User Data from Screen FN: "+ user.getFirstName());
 		this.userService.addUser(user);
+		List<UserModel> users = this.userService.findAll();
+        if(users.isEmpty()){
+            return new ResponseEntity<List<UserModel>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+        }
+        return new ResponseEntity<List<UserModel>>(users, HttpStatus.OK);
+	}
+	
+	@RequestMapping( value = "/delete", method = RequestMethod.POST)
+	public ResponseEntity<List<UserModel>> deleteUser(@RequestBody UserModel user){
+		System.out.println("User Data from Screen ID: "+ user.getId());
+		this.userService.removeUser(user);
 		List<UserModel> users = this.userService.findAll();
         if(users.isEmpty()){
             return new ResponseEntity<List<UserModel>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND

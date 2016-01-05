@@ -18,7 +18,8 @@
 		  		  <div class="form-group form-group-sm">
 				    <label for="fname" class="col-sm-6 control-label">First Name</label>
 				    <div class="col-sm-6">
-				      <input type="text" class="form-control" id="fname" ng-model="userVm.user.firstName">
+				    	<input type="hidden"  ng-model="userVm.user.id"/>
+				      	<input type="text" class="form-control" id="fname" ng-model="userVm.user.firstName">
 				    </div>
 				  </div>
 				  <div class="form-group form-group-sm">
@@ -36,7 +37,7 @@
 				  <div class="form-group form-group-sm">
 				    <label for="phno" class="col-sm-6 control-label">Phone</label>
 				    <div class="col-sm-6">
-				      <input type="email" class="form-control" id="phno"  ng-model="userVm.user.phone">
+				      <input type="text" class="form-control" id="phno"  ng-model="userVm.user.phone">
 				    </div>
 				  </div>
 				  <div class="form-group form-group-sm">

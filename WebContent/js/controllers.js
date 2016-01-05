@@ -4,17 +4,24 @@
 
 angular.module('pocApp.controllers', ["ui.bootstrap"]).
 
+controller('dashboardController', function($scope, $window, $modal, $http){
+	
+	var selectedPage = angular.element($("#pageheader")).scope();
+	selectedPage.page = 'Dashboard';
+	
+}).
+
 controller('settingsController', function($scope, $window, $modal, $http){
 	
-	var microappscope = angular.element($("#pageheader")).scope();
-	microappscope.page = 'Change Password';
+	var selectedPage = angular.element($("#pageheader")).scope();
+	selectedPage.page = 'Change Password';
 	
 }).
 
 controller('homeController', function($scope, $window, $modal, $http) {
 	
-	var microappscope = angular.element($("#pageheader")).scope();
-	microappscope.page = 'Dashboard';
+	var selectedPage = angular.element($("#pageheader")).scope();
+	selectedPage.page = 'Dashboard';
 	
 	$scope.customer = {
 		    name: 'Sriam Ghanta',
@@ -58,8 +65,8 @@ controller('homeController', function($scope, $window, $modal, $http) {
 }).
 
 controller('groupController', function($scope, $window, $modal, $http) {
-	var microappscope = angular.element($("#pageheader")).scope();
-	microappscope.page = 'Create Group';
+	var selectedPage = angular.element($("#pageheader")).scope();
+	selectedPage.page = 'Create Group';
 	 
 	$scope.today = function() {
 		    $scope.dt = new Date();
@@ -122,8 +129,8 @@ controller('groupController', function($scope, $window, $modal, $http) {
 
 controller('reportController', function($scope, $window , $http){
 	
-	var microappscope = angular.element($("#pageheader")).scope();
-	microappscope.page = 'Reports';
+	var selectedPage = angular.element($("#pageheader")).scope();
+	selectedPage.page = 'Reports';
 	
 	  $scope.today = function() {
 	    $scope.dt = new Date();
@@ -163,10 +170,10 @@ controller('reportController', function($scope, $window , $http){
 	
 }).	
 
-controller("userController", function($scope, $window , $http, $modal, userService){
+controller("userController", function($scope, $window , $http, $modal, userService, loadUsers){
 	
-	var microappscope = angular.element($("#pageheader")).scope();
-	microappscope.page = 'Create User';
+	var selectedPage = angular.element($("#pageheader")).scope();
+	selectedPage.page = 'User';
 	
 	$scope.userList = [], $scope.totalUsersList = []
 	  ,$scope.currentPage = 1
@@ -174,21 +181,7 @@ controller("userController", function($scope, $window , $http, $modal, userServi
 	  ,$scope.itemsPerPage = 10
 	  ,$scope.maxSize = 5;
 	
-
-	function loadUsers(){
-		var responseCatalog = userService.loadUsers();
-		responseCatalog.success(function (response) {
-			//$scope.userList = response;
-		    setPaginationForList(response);
-		});
-		responseCatalog.error(function (data,status) {
-			if(status == 400 || status == 403) {
-				alert('Error while processing!');
-			}
-		});
-	};
-	
-	loadUsers();
+	setPaginationForList(loadUsers.data);
 	
 	function setPaginationForList(response) {
 	 	
@@ -210,12 +203,12 @@ controller("userController", function($scope, $window , $http, $modal, userServi
 				backdrop: true,
 		        keyboard: true,
 		        controllerAs : 'userVm',
-				controller : ['$scope', '$modalInstance', 'editUser', 'userService', 
-				              	function($scope, $modalInstance, editUser, userService) {
+				controller : ['$scope', '$modalInstance', 'editUserData', 'userService', 
+				              	function($scope, $modalInstance, editUserData, userService) {
 									 				var userVm = this;
 									 				userVm.cancel = cancel;
 									 				userVm.addUser = addUser;
-									 				userVm.user = editUser;
+									 				userVm.user = editUserData;
 										        	 
 													 function cancel(modalResponse) {
 														 $modalInstance.dismiss('cancel');
@@ -238,7 +231,7 @@ controller("userController", function($scope, $window , $http, $modal, userServi
               									}
 				              ],
 				resolve: {
-                  editUser: function () {
+                  editUserData: function () {
                     return user;
                   }
                 }
@@ -247,13 +240,23 @@ controller("userController", function($scope, $window , $http, $modal, userServi
 		
 			modalInstance.result.then(function(response){
 				setPaginationForList(response);
-				//$scope.userList = response;
 			});
 		
 		}
 	
 	$scope.deleteUser = function(user){
-		alert(JSON.stringify(user));
+	    if (confirm("Are you sure want to delete the user ?") == true) {
+	    	var responseCatalog = userService.deleteUser(user);
+			responseCatalog.success(function (response) {
+				setPaginationForList(response);
+			});
+			responseCatalog.error(function (data,status) {
+				if(status == 400 || status == 403) {
+					alert('Error while processing!');
+				}
+			});
+	    }
+		
 	}
 		 
 });

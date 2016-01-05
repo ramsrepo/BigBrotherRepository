@@ -14,18 +14,29 @@ pocApp.config(['$routeProvider', function($routeProvider) {
 
 	pocApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     
-	$urlRouterProvider.otherwise('/changepassword');
+	$urlRouterProvider.otherwise('/dashboard');
  
     $stateProvider
-	    .state('changepassword', {
+	    .state('dashboard', {
+	        url:'/dashboard',
+	        templateUrl: 'partials/dashboard.html',
+	        controller: 'dashboardController'
+	    })
+    
+    	.state('changepassword', {
             url:'/changepassword',
             templateUrl: 'partials/changepassword.html',
             controller: 'settingsController'
         })
+        
         .state('createuser', {
             url:'/createuser',
             templateUrl: 'partials/user.html', 
-            controller: 'userController'
+            controller: 'userController',
+            controllerAs: 'vm',
+            resolve: {
+                loadUsers: loadUsers
+            }
         })
         
         .state('creategroup', {
@@ -41,3 +52,7 @@ pocApp.config(['$routeProvider', function($routeProvider) {
         });
         
 }]);
+	
+	function loadUsers(userService){
+		return userService.loadUsers();
+	};

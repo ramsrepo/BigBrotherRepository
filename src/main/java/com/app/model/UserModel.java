@@ -20,7 +20,7 @@ public class UserModel {
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	private Integer phone;
+	private Long phone;
 	private String project;
 	private String address1;
 	private String address2;
@@ -28,7 +28,7 @@ public class UserModel {
 	private String city;
 	private String state;
 	private String country;
-	private Integer pin;
+	private Long pin;
 	private String role;
 	private Boolean active;
 	
@@ -68,10 +68,10 @@ public class UserModel {
 		this.lastName = lastName;
 	}
 	
-	public Integer getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
-	public void setPhone(Integer phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
 	public String getProject() {
@@ -116,10 +116,10 @@ public class UserModel {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public Integer getPin() {
+	public Long getPin() {
 		return pin;
 	}
-	public void setPin(Integer pin) {
+	public void setPin(Long pin) {
 		this.pin = pin;
 	}
 	public String getRole() {

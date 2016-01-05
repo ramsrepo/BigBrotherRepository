@@ -9,7 +9,7 @@ public interface UserDAO {
 	public void addUser(UserModel user);
 	public UserModel getUserById(Integer id);
 	public Integer updateUser(UserModel user);
-	public Integer removeUser(Integer id);
+	public void removeUser(UserModel user);
 	public List<UserModel> findAll();
 
 }

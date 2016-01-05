@@ -21,6 +21,12 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	@Transactional
+	public void removeUser(UserModel user){
+		this.userDao.removeUser(user);
+	}
+	
+	@Override
+	@Transactional
 	public List<UserModel> findAll(){
 		return this.userDao.findAll();
 	}
