@@ -42,7 +42,10 @@ pocApp.config(['$routeProvider', function($routeProvider) {
         .state('creategroup', {
             url:'/creategroup',
             templateUrl: 'partials/group.html', 
-            controller: 'groupController'
+            controller: 'groupController',
+            resolve: {
+            	loadUserGroups: loadUserGroups
+            }
         })
         
         .state('dailyreport', {
@@ -55,4 +58,8 @@ pocApp.config(['$routeProvider', function($routeProvider) {
 	
 	function loadUsers(userService){
 		return userService.loadUsers();
+	};
+	
+	function loadUserGroups(userService){
+		return userService.loadUserGroups();
 	};

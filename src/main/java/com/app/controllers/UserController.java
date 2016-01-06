@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.app.model.UserGroup;
 import com.app.model.UserModel;
 import com.app.services.UserService;
 
 @Controller
 @RequestMapping("/user")
-public class MemberController {
+public class UserController {
 
 	private UserService userService;
 	
@@ -57,4 +58,5 @@ public class MemberController {
         }
         return new ResponseEntity<List<UserModel>>(users, HttpStatus.OK);
     }
+	
 }

@@ -16,10 +16,8 @@ public class HomeController {
 	@RequestMapping(method = RequestMethod.POST, params = {"uname", "pwd"})
     public String goToLogin(@RequestParam(value = "uname") String user, @RequestParam(value = "pwd") String pwd) {
         
-		System.out.println(user+"---"+pwd);
-		
 		ResourceBundle bundle = ResourceBundle.getBundle("application_zh", Locale.CHINESE );
-		System.out.println(bundle.getString("SAMPLE_KEY"));
+		//System.out.println(bundle.getString("SAMPLE_KEY"));
 		
 		return "home";
     }

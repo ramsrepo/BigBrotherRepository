@@ -64,66 +64,61 @@ controller('homeController', function($scope, $window, $modal, $http) {
 		 
 }).
 
-controller('groupController', function($scope, $window, $modal, $http) {
+controller('groupController', function($scope, $window, $modal, $http, userService, loadUserGroups) {
 	var selectedPage = angular.element($("#pageheader")).scope();
 	selectedPage.page = 'Create Group';
-	 
-	$scope.today = function() {
-		    $scope.dt = new Date();
-		  };
-		 
-		  $scope.today();
-
-		  $scope.clear = function () {
-		    $scope.dt = null;
-		  };
-
-		  // Disable weekend selection
-		  $scope.disabled = function(date, mode) {
-		    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-		  };
-
-		  $scope.toggleMin = function() {
-		    $scope.minDate = $scope.minDate ? null : new Date();
-		  };
-		  $scope.toggleMin();
-
-		  $scope.open = function($event) {
-		    $scope.status.opened = true;
-		  };
-
-		  $scope.dateOptions = {
-		    formatYear: 'yy',
-		    startingDay: 1
-		  };
-
-		  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-		  $scope.format = $scope.formats[0];
-
-		  $scope.status = {
-		    opened: false
-		  };
-		  
 	
-	$scope.openModal = function() {
-	   var modalInstance =  $modal.open({
-	      templateUrl: 'addviews/addgroupmember.html',
-	      controller: [
-                       '$scope', '$modalInstance', function($scope, $modalInstance){
-                           $scope.ok = function () {
-                               $modalInstance.close();
-                           };
-                           $scope.cancel = function(){
-                        	   $modalInstance.dismiss('cancel');
-                           };
-                       }
-                   ],
-	      windowClass: 'modal fade in',
-	      backdrop: false,
-          keyboard: true
-          
-	    });
-	  };
+	jQuery(function () {
+	    jQuery('#myTab a:first').tab('show');
+	});
+	
+	$scope.userGroupList = [], $scope.totalUserGroupsList = []
+	  ,$scope.currentPage = 1
+	  ,$scope.recordsPerPage = 5
+	  ,$scope.itemsPerPage = 5
+	  ,$scope.maxSize = 5;
+	
+	setPaginationForList(loadUserGroups.data);
+	
+	function setPaginationForList(data) {
+	 	
+		$scope.totalUserGroupsList = data;
+	 	
+	    $scope.$watch('currentPage + numPerPage', function() {
+		    var begin = (($scope.currentPage - 1) * $scope.recordsPerPage)
+		    , end = begin + $scope.recordsPerPage;
+		    
+		    $scope.userGroupList = $scope.totalUserGroupsList.slice(begin, end);
+		    
+		});
+	}
+			  
+	$scope.saveGroup = function(group) {
+	  var responseCatalog = userService.addUserGroup(group);
+		responseCatalog.success(function (response) {
+			setPaginationForList(response);
+		});
+		responseCatalog.error(function (data,status) {
+			if(status == 400 || status == 403) {
+				alert('Error while processing!');
+			}
+		});
+	}
+	
+	$scope.deleteGroup = function(group){
+	    if (confirm("Are you sure want to delete this User Group ?") == true) {
+	    	var responseCatalog = userService.deleteUserGroup(group);
+			responseCatalog.success(function (response) {
+				setPaginationForList(response);
+			});
+			responseCatalog.error(function (data,status) {
+				if(status == 400 || status == 403) {
+					alert('Error while processing!');
+				}
+			});
+	    }
+		
+	}
 	 
 }).
 

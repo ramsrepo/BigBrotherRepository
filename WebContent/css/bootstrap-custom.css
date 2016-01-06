@@ -156,3 +156,8 @@ td, th {
 }
 
 /********************* Bootstrap  Tab Manipulations Ends *********************/
+
+.pagination {
+	margin-top : 0px;
+	margin-bottom: 0px;
+}
