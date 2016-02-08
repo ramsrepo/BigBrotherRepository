@@ -4,11 +4,12 @@
 
 body {
     padding-top: 50px;
-    /* overflow: hidden; */
 	font-family: arial;
 	line-height: 0.5cm;
 	font-style: normal;
 	color: #333333;
+	margin-top: 10px;
+	height: 100%;
 }
 
 #wrapper {
@@ -20,6 +21,7 @@ body {
     left: 0;
     display: inline-block;
 }
+
 #main-wrapper {
     height: 100%;
     overflow-y: auto;
@@ -37,12 +39,6 @@ body {
     height: 100%;
     overflow-x:hidden;
 }
-#sidebar .list-group-item {
-    border-radius: 0;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-}
 
 .pageHeader {
 	padding: 10px 0 0px 0;
@@ -55,28 +51,29 @@ body {
 	padding-left: 10px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 767px) {
     body {
         padding-top: 0px;
     }
 }
-@media (min-width: 992px) {
+@media (min-width: 767px) {
     #main-wrapper {
         float:right;
     }
 }
-@media (max-width: 992px) {
+@media (max-width: 767px) {
     #main-wrapper {
         padding-top: 0px;
     }
 }
-@media (max-width: 992px) {
+@media screen and (max-width: 767px) {
     #sidebar-wrapper {
         position: static;
         height:auto;
         max-height: 300px;
   		border-right:0;
 	}
+	 
 }
 
 a, input {
@@ -113,5 +110,10 @@ a, input {
 	padding-top:20px;
 }
 
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background-color: #33bcf2;
+	background-image: none;
+	color: #fff;
+	text-align: left;
 
-
+	}

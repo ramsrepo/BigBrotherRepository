@@ -52,6 +52,12 @@ pocApp.config(['$routeProvider', function($routeProvider) {
             url:'/dailyreport',
             templateUrl: 'partials/report.html', 
             controller: 'reportController'
+        })
+        
+        .state('enroll', {
+            url:'/enroll',
+            templateUrl: 'partials/enrollment.html', 
+            controller: 'enrollController'
         });
         
 }]);

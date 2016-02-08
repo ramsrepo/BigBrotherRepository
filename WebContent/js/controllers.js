@@ -68,10 +68,6 @@ controller('groupController', function($scope, $window, $modal, $http, userServi
 	var selectedPage = angular.element($("#pageheader")).scope();
 	selectedPage.page = 'Create Group';
 	
-	jQuery(function () {
-	    jQuery('#myTab a:first').tab('show');
-	});
-	
 	$scope.userGroupList = [], $scope.totalUserGroupsList = []
 	  ,$scope.currentPage = 1
 	  ,$scope.recordsPerPage = 5
@@ -254,4 +250,11 @@ controller("userController", function($scope, $window , $http, $modal, userServi
 		
 	}
 		 
+}).
+
+
+controller('enrollController',function($scope, $window , $http){
+
 });
+
+

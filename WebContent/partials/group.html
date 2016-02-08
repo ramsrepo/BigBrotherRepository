@@ -70,7 +70,6 @@
 			  <table st-table="rowCollection" class="table table-bordered table-striped table-condensed table-hover">
 		  			<thead style="background-color: #33bcf2; color: white;">
 		  				<tr>
-		  					<th>#</th>
 		  					<th>Group Code</th>
 		  					<th>Group Name</th>
 		  					<th>Group Size</th>
@@ -84,7 +83,6 @@
 			  			 	<li ng-show="!totalUserGroupsList.length" style="color: red;margin-left:10px;">No User Groups found.</li>
 			  			 </tr>
 			  			<tr ng-repeat="group in userGroupList">
-			  				<td>{{$index + 1}}</td>
 			  				<td>{{group.groupCode}}</td>
 			  				<td>{{group.groupName}}</td>
 			  				<td>{{group.groupSize}}</td>
