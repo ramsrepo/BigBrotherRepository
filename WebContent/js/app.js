@@ -54,10 +54,10 @@ pocApp.config(['$routeProvider', function($routeProvider) {
             controller: 'reportController'
         })
         
-        .state('enroll', {
-            url:'/enroll',
-            templateUrl: 'partials/enrollment.html', 
-            controller: 'enrollController'
+        .state('trackingtemplate', {
+            url:'/tracking',
+            templateUrl: 'partials/efforttrackertemplate.html', 
+            controller: 'effortTrackController'
         });
         
 }]);

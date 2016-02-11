@@ -1,0 +1,87 @@
+<form class="form-horizontal">
+	<div class="form-group">
+		<label class="col-xs-1"><b>Application</b></label>
+		<div class="col-xs-3">
+			<!-- <div class="dropdown" id="appdropdownMenu">
+				<button class="btn btn-default" data-toggle="dropdown">
+					<span id="app_dropdown_title2" class="selected-app" ng-model="appSelect">Select</span> <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a tabindex="-1" href="#">Android</a></li>
+					<li><a tabindex="-1" href="#">IOS</a></li>
+					<li><a tabindex="-1" href="#">Windows Phone</a></li>
+				</ul>
+			</div> -->
+			<select class="form-control" ng-model="appSelect">
+			  <option>Android</option>
+			  <option>IOS</option>
+			  <option>Windows</option>
+			  <option>Java</option>
+			  <option>Dot Net</option>
+			</select>
+		</div>
+		<div class="col-xs-3">
+			<div class='input-group date' id='datetimepicker1'>
+				<input type='text' class="form-control" ng-model="selecteddate" /> <span
+					class="input-group-addon"> <span
+					class="glyphicon glyphicon-calendar"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+</form>
+
+<table st-table="rowCollection" class="table table-striped table-bordered table-condensed">
+	<thead style="background-color: #33bcf2; color: white;">
+		<tr>
+			<th>Application</th>
+			<th>Activity</th>
+			<th>Date</th>
+			<th>Week</th>
+			<th>Hours Spend</th>
+			<th>Comments</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr data-ng-repeat="task in tasks">
+			<td>
+				{{task.application}}
+			</td>
+			<td>
+				<select class="form-control input-sm">
+					<option>Minor Enhancement</option>
+					<option>Incident Resolution</option>
+					<option>Preventive Maintenance</option>
+					<option>Problem Resolution</option>
+					<option>Admin / Training</option>
+					<option>Leave</option>
+				</select>
+			</td>
+			<td>
+				{{task.taskdate}}				
+			</td>
+			<td>
+				week
+			</td>
+			<td>
+				<input type="text" class="form-control input-sm" size="1" ng-model="hoursSpent" name="" >
+			</td>
+			<td>
+				<input type="text" class="form-control input-sm" ng-model="comments" name="">
+			</td>
+			<!-- <td>
+				<button class="btn btn-danger btn-xs" ng-show="true" ng-click="removeChoice()">x</button>
+			</td> -->
+		</tr>
+	</tbody>
+</table>
+<button class="btn btn-success btn-xs pull-right" ng-click="addNewTask()">Add</button>
+<script>
+
+ $('#datetimepicker1').datetimepicker();
+
+$("#appdropdownMenu").on("click", "li a", function() {
+    var platform = $(this).text();
+    $("#app_dropdown_title2").html(platform);
+});   
+</script>

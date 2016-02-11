@@ -15,50 +15,46 @@
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
 
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="./css/bootstrap-custom.css" >
+<link rel="stylesheet" type="text/css"
+	href="./lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="./css/bootstrap-datetime.css">
+<link rel="stylesheet" type="text/css" href="./css/bootstrap-custom.css">
 <link rel="stylesheet" type="text/css" href="./lib/jquery/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="./css/app.css">
 
-<style>
-
-.ui-accordion .ui-accordion-content {
-	padding: 1em 0 0 0;
-}
-</style>
-
-
-  
 </head>
 
-<body ng-app="pocApp" ng-controller="homeController" style="overflow: hidden" >
+<body ng-app="pocApp" ng-controller="homeController"
+	style="overflow: hidden">
 	<div>
-		 <div class="navbar navbar-fixed-top navbar-default ">
-	       <div class="container-fluid" >
-	    		<div class="navbar-header">
-		            <a class="navbar-brand" href="/BigB/inme#">Application Name</a>
-		        </div>
-		        <nav class="collapse navbar-collapse">
-		            <ul class="nav navbar-nav pull-right" id="dropMenu">
-		                <li class="dropdown">
-		                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" 
-		                    	title="Settings">System Menu<b class="caret"></b></a>
-		                    <ul class="dropdown-menu">
-	                    	    <li><a ng-click="openProfile();">Favorites</a></li>
-		                    </ul>
-		                </li>
-		                <li class="dropdown">
-		                    <a href="/BigB/#" title="Settings"><i class="fa fa-star text-yellow"></i>Logout</a>
-		                </li>
-		            </ul>
-		        </nav>
-		   </div>
-	    </div> 
-	    
+		<div class="navbar navbar-fixed-top navbar-default ">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/BigB/inme#">e-Tracker</a>
+				</div>
+				<nav class="collapse navbar-collapse">
+					<ul class="nav navbar-nav pull-right" id="dropMenu">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown" title="Settings">System Menu<b
+								class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a ng-click="openProfile();">Favorites</a></li>
+							</ul></li>
+						<li class="dropdown"><a href="/BigB/#" title="Settings"><i
+								class="fa fa-star text-yellow"></i>Logout</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
 		<div class="container-fluid">
-			<div class="row content">
-				
-				<div  class="col-sm-2">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+					<div id="menu-header">
+						<h4>Application Menu</h4>
+					</div>
+					<hr>
 					<div id="accordion">
 						<h3>Administration</h3>
 						<div>
@@ -73,8 +69,9 @@
 						<div>
 							<table class="table">
 								<tr>
-									<td><span class="glyphicon glyphicon-asterisk text-primary"></span>
-										<a ui-sref="creategroup">User Group</a></td>
+									<td><span
+										class="glyphicon glyphicon-asterisk text-primary"></span> <a
+										ui-sref="creategroup">User Group</a></td>
 								</tr>
 								<tr>
 									<td><span class="glyphicon glyphicon-user text-success"></span>
@@ -86,28 +83,13 @@
 						<div>
 							<table class="table">
 								<tr>
-									<td><span class="glyphicon glyphicon-asterisk text-primary"></span>
-										<a ui-sref="creategroup">User Group</a></td>
-								</tr>
-								<tr>
-									<td><span class="glyphicon glyphicon-user text-success"></span>
-										<a ui-sref="createuser">User</a></td>
+									<td><span
+										class="glyphicon glyphicon-asterisk text-primary"></span> <a
+										ui-sref="trackingtemplate">Effort Template</a></td>
 								</tr>
 							</table>
 						</div>
-						<h3>Calendar GUI</h3>
-						<div>
-							<table class="table">
-								<tr>
-									<td><span class="glyphicon glyphicon-asterisk text-primary"></span>
-										<a ui-sref="creategroup">User Group</a></td>
-								</tr>
-								<tr>
-									<td><span class="glyphicon glyphicon-user text-success"></span>
-										<a ui-sref="createuser">User</a></td>
-								</tr>
-							</table>
-						</div>
+
 						<h3>Reports</h3>
 						<div>
 							<table class="table">
@@ -118,10 +100,56 @@
 							</table>
 						</div>
 					</div>
+					<!-- <ul class="list-group sidebar-nav-v1" id="sidebar-nav">
+						Administration
+						<li class="list-group-item list-toggle"><a
+							data-toggle="collapse" data-parent="#sidebar-nav"
+							href="#collapse-administration" class="collapsed"
+							aria-expanded="false">Administration</a>
+							<ul id="collapse-administration" class="collapse"
+								aria-expanded="false" style="height: 0px;">
+								<li><a ui-sref="changepassword"><i
+										class="fa fa-sort-alpha-asc"></i>Change Password</a></li>
+							</ul></li>
+						End Administration
+
+						Masters
+						<li class="list-group-item list-toggle"><a
+							data-toggle="collapse" data-parent="#sidebar-nav"
+							href="#collapse-masters" class="collapsed" aria-expanded="false">Masters</a>
+							<ul id="collapse-masters" class="collapse" aria-expanded="false"
+								style="height: 0px;">
+								<li><a ui-sref="creategroup"><i class="fa fa-flask"></i>User
+										Group</a></li>
+								<li><a ui-sref="createuser"><i class="fa fa-html5"></i>user</a></li>
+							</ul></li>
+						End Masters
+
+						Transactions
+						<li class="list-group-item list-toggle"><a
+							data-toggle="collapse" data-parent="#sidebar-nav"
+							href="#collapse-icons" class="collapsed" aria-expanded="false">Transactions</a>
+							<ul id="collapse-icons" class="collapse" aria-expanded="false">
+								<li><span class="badge badge-u">New</span> <a
+									ui-sref="trackingtemplate"><i
+										class="fa fa-chevron-circle-right"></i> Track Template</a></li>
+							</ul></li>
+						End Transactions
+
+						Reports
+						<li class="list-group-item list-toggle"><a
+							class="accordion-toggle" href="#collapse-components"
+							data-toggle="collapse">Reports</a>
+							<ul id="collapse-components" class="collapse">
+								<li><a Transactions><i class="fa fa-comment"></i> Daily
+										Report</a></li>
+							</ul></li>
+						End Reports
+
+					</ul> -->
 				</div>
 
-
-				<div class="col-sm-10" style="border-left: 1px solid gray;" >
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 					<div id="pageheader" ng-cloak>
 						<h4>{{page}}</h4>
 					</div>
@@ -133,38 +161,40 @@
 
 				</div>
 			</div>
-		
+		</div>
 
 	</div>
-	</div>
-<!-- Jquery Scripts -->
-<script src="./lib/jquery/jquery-1.10.js"></script>
-<script src="./lib/jquery/jquery-ui.js"></script>
-<script src="./lib/jquery/accordionmenu-min.js"></script>
-<script src="./js/utility.js"></script>
+	<!-- Jquery Scripts -->
+	<script src="./lib/jquery/jquery-1.10.js"></script>
+	<script src="./lib/jquery/jquery-ui.js"></script>
+	<script src="./lib/jquery/accordionmenu-min.js"></script>
+	<script src="./js/utility.js"></script>
 
-<!-- AngularJS, Bootstrap & Application related Scripts -->
-<script src="./lib/angular-1.4.3/angular.js"></script>
-<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="./lib/angular-1.4.3/ui-bootstrap-tpls-0.13.3.js"></script>
-<script src="./lib/angular-1.4.3/angular-ui-router.js"></script>
+	<!-- AngularJS, Bootstrap & Application related Scripts -->
+	<script src="./lib/angular-1.4.3/angular.js"></script>
+	<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="./lib/bootstrap/js/moment.js"></script>
+	<script src="./lib/bootstrap/js/bootstrap-datetime.js"></script>
+	<script src="./lib/angular-1.4.3/ui-bootstrap-tpls-0.13.3.js"></script>
+	<script src="./lib/angular-1.4.3/angular-ui-router.js"></script>
 
 
 
-<script src="./js/app.js"></script>
-<script src="./js/services.js"></script>
-<script src="./js/controllers.js"></script>
-<script src="./js/utilityControllers.js"></script>
-<script src="./js/directives.js"></script>
+	<script src="./js/app.js"></script>
+	<script src="./js/services.js"></script>
+	<script src="./js/controllers.js"></script>
+	<script src="./js/utilityControllers.js"></script>
+	<script src="./js/directives.js"></script>
 
-<script>
-  $(function() {
-    $( "#accordion" ).accordion({ 	collapsible: true, 
-    								animate: 150,
-    								heightStyle: "content"
-    							});
-  });
-  </script>
+	<script>
+		$(function() {
+			$("#accordion").accordion({
+				collapsible : true,
+				animate : 150,
+				heightStyle : "content"
+			});
+		});
+	</script>
 
 </body>
 

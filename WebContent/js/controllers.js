@@ -43,9 +43,11 @@ controller('homeController', function($scope, $window, $modal, $http) {
 		
 		var modalInstance = $modal.open({
 				templateUrl : 'popups/favorites.html',
-				windowClass : 'smalldialog',
 				backdrop: true,
+		        backdropClick: true,
+		        dialogFade: false,
 		        keyboard: true,
+		        windowClass: "modal fade in",
 				controllerAs : 'favroiteVm',
 				controller : [
 				              '$modalInstance', 
@@ -190,8 +192,10 @@ controller("userController", function($scope, $window , $http, $modal, userServi
 	$scope.createOrEditUser = function(user) {
 		var modalInstance = $modal.open({
 				templateUrl : 'popups/popupuser.html',
-				windowClass : 'modal in',
 				backdrop: true,
+		        backdropClick: true,
+		        dialogFade: false,
+		        wndowClass: "modal fade in",
 		        keyboard: true,
 		        controllerAs : 'userVm',
 				controller : ['$scope', '$modalInstance', 'editUserData', 'userService', 
@@ -253,8 +257,29 @@ controller("userController", function($scope, $window , $http, $modal, userServi
 }).
 
 
-controller('enrollController',function($scope, $window , $http){
-
+controller('effortTrackController',function($scope, $window , $http){
+	
+	var selectedPage = angular.element($("#pageheader")).scope();
+	selectedPage.page = 'Effort Template';
+	
+	$scope.tasks = []; 
+	  
+	  $scope.addNewTask = function() {
+		 
+		  if($scope.appSelect === "" || $scope.appSelect === undefined) {
+			  alert("Please select Application first");
+		  } else {
+			  var newItemNo = $scope.tasks.length+1;
+			    $scope.tasks.push({'id':'choice'+newItemNo, 'application': $scope.appSelect, 'taskdate': $scope.selecteddate});
+		  } 
+			  
+	    
+	  };
+	    
+	  $scope.removeChoice = function() {
+	    var lastItem = $scope.choices.length-1;
+	    $scope.choices.splice(lastItem);
+	  };
 });
 
 
