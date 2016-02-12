@@ -30,7 +30,7 @@ public class UserController {
 	
 	@RequestMapping( value = "/add", method = RequestMethod.POST)
 	public ResponseEntity<List<UserModel>> addUser(@RequestBody UserModel user){
-		System.out.println("User Data from Screen FN: "+ user.getFirstName());
+		System.out.println("ApplicationUser Data from Screen FN: "+ user.getFirstName());
 		this.userService.addUser(user);
 		List<UserModel> users = this.userService.findAll();
         if(users.isEmpty()){
@@ -41,7 +41,7 @@ public class UserController {
 	
 	@RequestMapping( value = "/delete", method = RequestMethod.POST)
 	public ResponseEntity<List<UserModel>> deleteUser(@RequestBody UserModel user){
-		System.out.println("User Data from Screen ID: "+ user.getId());
+		System.out.println("ApplicationUser Data from Screen ID: "+ user.getId());
 		this.userService.removeUser(user);
 		List<UserModel> users = this.userService.findAll();
         if(users.isEmpty()){

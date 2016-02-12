@@ -125,41 +125,14 @@ controller('reportController', function($scope, $window , $http){
 	var selectedPage = angular.element($("#pageheader")).scope();
 	selectedPage.page = 'Reports';
 	
-	  $scope.today = function() {
-	    $scope.dt = new Date();
-	  };
+	 $scope.alertDate = function() {
+		 alert($scope.selecteddate);
+	 }
 	 
-	  $scope.today();
-
-	  $scope.clear = function () {
-	    $scope.dt = null;
-	  };
-
-	  // Disable weekend selection
-	  $scope.disabled = function(date, mode) {
-	    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-	  };
-
-	  $scope.toggleMin = function() {
-	    $scope.minDate = $scope.minDate ? null : new Date();
-	  };
-	  $scope.toggleMin();
-
-	  $scope.open = function($event) {
-	    $scope.status.opened = true;
-	  };
-
-	  $scope.dateOptions = {
-	    formatYear: 'yy',
-	    startingDay: 1
-	  };
-
-	  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-	  $scope.format = $scope.formats[0];
-
-	  $scope.status = {
-	    opened: false
-	  };
+	 $("#datetimepicker1").on("dp.change", function() {
+	        $scope.selecteddate = $("#selecteddate").val();
+	});
+	 
 	
 }).	
 
