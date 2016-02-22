@@ -24,6 +24,8 @@ xsi:schemaLocation="
 
 
 	<security:http>
+		<security:intercept-url pattern="/home**" access="isAuthenticated()"/>
+	
 		<security:form-login  	login-page="/login" 
 								default-target-url="/home" 
 								authentication-failure-url="/loginError" 

@@ -6,22 +6,17 @@ angular.module('pocApp.controllers', ["ui.bootstrap"]).
 
 controller('dashboardController', function($scope, $window, $modal, $http){
 	
-	var selectedPage = angular.element($("#pageheader")).scope();
-	selectedPage.page = 'Dashboard';
 	
 }).
 
 controller('settingsController', function($scope, $window, $modal, $http){
 	
-	var selectedPage = angular.element($("#pageheader")).scope();
-	selectedPage.page = 'Change Password';
+	/*var selectedPage = angular.element($("#pageheader")).scope();
+	selectedPage.page = 'Change Password';*/
 	
 }).
 
 controller('homeController', function($scope, $window, $modal, $http) {
-	
-	var selectedPage = angular.element($("#pageheader")).scope();
-	selectedPage.page = 'Dashboard';
 	
 	$scope.customer = {
 		    name: 'Sriam Ghanta',
@@ -67,8 +62,6 @@ controller('homeController', function($scope, $window, $modal, $http) {
 }).
 
 controller('groupController', function($scope, $window, $modal, $http, userService, loadUserGroups) {
-	var selectedPage = angular.element($("#pageheader")).scope();
-	selectedPage.page = 'Create Group';
 	
 	$scope.userGroupList = [], $scope.totalUserGroupsList = []
 	  ,$scope.currentPage = 1
@@ -122,10 +115,7 @@ controller('groupController', function($scope, $window, $modal, $http, userServi
 
 controller('reportController', function($scope, $window , $http){
 	
-	var selectedPage = angular.element($("#pageheader")).scope();
-	selectedPage.page = 'Reports';
-	
-	 $scope.alertDate = function() {
+	$scope.alertDate = function() {
 		 alert($scope.selecteddate);
 	 }
 	 
@@ -137,9 +127,6 @@ controller('reportController', function($scope, $window , $http){
 }).	
 
 controller("userController", function($scope, $window , $http, $modal, userService, loadUsers){
-	
-	var selectedPage = angular.element($("#pageheader")).scope();
-	selectedPage.page = 'User';
 	
 	$scope.userList = [], $scope.totalUsersList = []
 	  ,$scope.currentPage = 1
@@ -231,9 +218,6 @@ controller("userController", function($scope, $window , $http, $modal, userServi
 
 
 controller('effortTrackController',function($scope, $window , $http){
-	
-	var selectedPage = angular.element($("#pageheader")).scope();
-	selectedPage.page = 'Effort Template';
 	
 	$scope.tasks = []; 
 	  
