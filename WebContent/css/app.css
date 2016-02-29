@@ -43,6 +43,7 @@ a,input {
 		color: #fff !important;
 		border-rigfht: 1px solid #eee;
 		font-size: 11px !important;
+		padding: 0px;
 	}
 	
 	.main {
@@ -58,15 +59,11 @@ a,input {
 		/* Scrollable contents if viewport is shorter than content. */
 		/* background-color: #f5f5f5;
 		border-right: 1px solid #eee; */
+		border: 10px solid #eee;
+		padding: 5px;
 	}
 }
 
-/*
- * Main content
- */
-.main, .sidebar {
-	padding: 5px;
-}
 
 /* @media ( min-width : 768px) {
 	.main, .sidebar {
@@ -94,10 +91,8 @@ a,input {
 	border-right: 1px;
 	padding: 0 0 1em 0;
 	margin-bottom: 1em;
-	font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif;
 	background-color: #90bade;
-	color: #333;
-	font-size: 14px;
+	font-size: 12px;
 }
 
 #button ul {
@@ -118,7 +113,7 @@ a,input {
 	display: block;
 	padding: 5px 5px 5px 0.5em;
 	border-left: 10px solid #1958b7;
-	border-right: 10px solid #508fc4;
+	/* border-right: 10px solid #508fc4; */
 	background-color: #2175bc;
 	color: white;
 	text-decoration: none;
@@ -131,3 +126,7 @@ a,input {
 	background-color: #2586d7;
 	color: white;
 }
+
+
+
+

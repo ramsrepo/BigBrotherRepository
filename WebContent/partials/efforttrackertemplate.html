@@ -1,5 +1,5 @@
 <div id="pageheader" ng-cloak>
-	<h4>Effor Tracker Template</h4>
+	<h4>Effort Tracker Template</h4>
 </div>
 <hr>
 <form class="form-horizontal">
@@ -16,7 +16,7 @@
 					<li><a tabindex="-1" href="#">Windows Phone</a></li>
 				</ul>
 			</div> -->
-			<select class="form-control" ng-model="appSelect">
+			<select class="form-control input-sm" ng-model="appSelect">
 				<option>Android</option>
 				<option>IOS</option>
 				<option>Windows</option>
@@ -26,58 +26,60 @@
 		</div>
 		<div class="col-xs-3">
 			<div class='input-group date' id='datetimepicker1'>
-				<input type='text' class="form-control" ng-model="selecteddate" />
+				<input type='text' class="form-control input-sm" ng-model="selecteddate" />
 				<span class="input-group-addon"> <span
 					class="glyphicon glyphicon-calendar"></span>
 				</span>
 			</div>
 		</div>
 	</div>
-</form>
-
-<table st-table="rowCollection"
-	class="table table-striped table-bordered table-condensed">
-	<thead style="background-color: #33bcf2; color: white;">
-		<tr>
-			<th>Application</th>
-			<th>Activity</th>
-			<th>Date</th>
-			<th>Week</th>
-			<th>Hours Spend</th>
-			<th>Comments</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr data-ng-repeat="task in tasks">
-			<td>{{task.application}}</td>
-			<td><select class="form-control input-sm">
-					<option>Minor Enhancement</option>
-					<option>Incident Resolution</option>
-					<option>Preventive Maintenance</option>
-					<option>Problem Resolution</option>
-					<option>Admin / Training</option>
-					<option>Leave</option>
-			</select></td>
-			<td>{{task.taskdate}}</td>
-			<td>week</td>
-			<td><input type="text" class="form-control input-sm" size="1"
-				ng-model="hoursSpent" name=""></td>
-			<td><input type="text" class="form-control input-sm"
-				ng-model="comments" name=""></td>
-			<!-- <td>
+	<div>
+		<table st-table="rowCollection"
+			class="table table-striped table-bordered table-condensed">
+			<thead style="background-color: #eee;">
+				<tr>
+					<th>Application</th>
+					<th>Activity</th>
+					<th>Date</th>
+					<th>Week</th>
+					<th>Hours Spend</th>
+					<th>Comments</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="task in tasks">
+					<td>{{task.application}}</td>
+					<td><select class="form-control input-sm">
+							<option>Minor Enhancement</option>
+							<option>Incident Resolution</option>
+							<option>Preventive Maintenance</option>
+							<option>Problem Resolution</option>
+							<option>Admin / Training</option>
+							<option>Leave</option>
+					</select></td>
+					<td>{{task.taskdate}}</td>
+					<td>week</td>
+					<td><input type="text" class="form-control input-sm" size="1"
+						ng-model="hoursSpent" name=""></td>
+					<td><input type="text" class="form-control input-sm"
+						ng-model="comments" name=""></td>
+					<!-- <td>
 				<button class="btn btn-danger btn-xs" ng-show="true" ng-click="removeChoice()">x</button>
 			</td> -->
-		</tr>
-	</tbody>
-</table>
-<button class="btn btn-success btn-xs pull-right"
-	ng-click="addNewTask()">Add</button>
+				</tr>
+			</tbody>
+		</table>
+		<button class="btn btn-default btn-xs pull-right"
+			ng-click="addNewTask()">Add</button>
+	</div>
+</form>
+
+
 <script>
+	$('#datetimepicker1').datetimepicker();
 
- $('#datetimepicker1').datetimepicker();
-
-$("#appdropdownMenu").on("click", "li a", function() {
-    var platform = $(this).text();
-    $("#app_dropdown_title2").html(platform);
-});   
+	$("#appdropdownMenu").on("click", "li a", function() {
+		var platform = $(this).text();
+		$("#app_dropdown_title2").html(platform);
+	});
 </script>
