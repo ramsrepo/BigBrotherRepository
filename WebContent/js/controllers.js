@@ -33,32 +33,7 @@ controller('homeController', function($scope, $window, $modal, $http) {
       }
       
     $scope.getMessage();
-	
-	$scope.openProfile = function(){
-		
-		var modalInstance = $modal.open({
-				templateUrl : 'popups/favorites.html',
-				backdrop: true,
-		        backdropClick: true,
-		        dialogFade: false,
-		        keyboard: true,
-		        windowClass: "modal fade in",
-				controllerAs : 'favroiteVm',
-				controller : [
-				              '$modalInstance', 
-				              function($modalInstance) {
-									 var favroiteVm = this;
-									 favroiteVm.cancel = cancel;
-						        	 function cancel() {
-										 $modalInstance.dismiss('cancel');
-									 }
-					           
-                            
-              					}
-				              ]
-				});
-		}
-		 
+    
 }).
 
 controller('groupController', function($scope, $window, $modal, $http, userService, loadUserGroups) {
@@ -117,12 +92,7 @@ controller('reportController', function($scope, $window , $http){
 	
 	$scope.alertDate = function() {
 		 alert($scope.selecteddate);
-	 }
-	 
-	 $("#datetimepicker1").on("dp.change", function() {
-	        $scope.selecteddate = $("#selecteddate").val();
-	});
-	 
+	}	 
 	
 }).	
 

@@ -16,30 +16,19 @@ public class HomeController {
 				.getAuthentication().getPrincipal();
 		String name = user.getUsername(); // get logged in username
 		System.out.println("System logged in by :  " + name);
-		model.addAttribute("greeting", "Hi, Welcome to mysite");
-		return "partials/home.html";
+		return "home.jsp";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logOut(ModelMap model) {
 		model.addAttribute("logOutMsg", "true");
-		return "main_page.jsp";
+		return "login.jsp";
 	}
-
-	/*
-	 * @RequestMapping(value="/logout", method = RequestMethod.GET) public
-	 * String logoutPage (HttpServletRequest request, HttpServletResponse
-	 * response, ModelMap model) { model.addAttribute("logOutMsg","true");
-	 * Authentication auth =
-	 * SecurityContextHolder.getContext().getAuthentication(); if (auth !=
-	 * null){ new SecurityContextLogoutHandler().logout(request, response,
-	 * auth); } return "redirect:/login?logout"; }
-	 */
 
 	@RequestMapping(value = "/loginError", method = RequestMethod.GET)
 	public String loginError(ModelMap model) {
 		model.addAttribute("error", "true");
-		return "main_page.jsp";
+		return "login.jsp";
 	}
 
 }

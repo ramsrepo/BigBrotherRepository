@@ -6,26 +6,31 @@ body {
 	color: #333333;
 	margin-top: 10px;
 	height: 100%;
-	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #131313;
 }
 
 h4 {
-    font-size: 16px !important;
+    font-size: 15px !important;
     font-weight: bold !important;
-    color: #666 !important;
+    color: #245269 !important;
+}
+
+hr {
+	margin-top: 5px;
+	margin-bottom: 16px;
+	border: 0;
+	border-top: 1px solid #b6d2ee;;
 }
 
 a,input {
 	outline: none !important;
 }
 
-/*
- * Top navigation Hide default border to remove 1px line.
- */
 .navbar-fixed-top {
 	border: 0;
 }
-
 
 @media ( min-width : 768px) {
 	.sidebar {
@@ -39,7 +44,7 @@ a,input {
 		overflow-x: hidden;
 		overflow-y: auto;
 		/* Scrollable contents if viewport is shorter than content. */
-		background-color: #1483BD;
+		background-color: #f4f4f4;  
 		color: #fff !important;
 		border-rigfht: 1px solid #eee;
 		font-size: 11px !important;
@@ -57,9 +62,9 @@ a,input {
 		overflow-x: hidden;
 		overflow-y: auto;
 		/* Scrollable contents if viewport is shorter than content. */
-		/* background-color: #f5f5f5;
-		border-right: 1px solid #eee; */
-		border: 10px solid #eee;
+		/* border-right: 1px solid #eee; */
+		/* background-color: #f4f4f4; */
+		border: 5px solid #eee;
 		padding: 5px;
 	}
 }
@@ -89,10 +94,7 @@ a,input {
 
 #button {
 	border-right: 1px;
-	padding: 0 0 1em 0;
-	margin-bottom: 1em;
-	background-color: #90bade;
-	font-size: 12px;
+	padding: 0 0 0 0;
 }
 
 #button ul {
@@ -103,30 +105,23 @@ a,input {
 }
 	
 #button li {
-	/* border-bottom: 1px solid #90bade; */
 	margin: 0;
 	list-style: none;
 	list-style-image: none;
+	font-size: 11px;
+	border-top: 1px solid #fff;
+    border-bottom: 1px solid #dbdbdb;
 }
 	
 #button li a {
 	display: block;
-	padding: 5px 5px 5px 0.5em;
-	border-left: 10px solid #1958b7;
-	/* border-right: 10px solid #508fc4; */
-	background-color: #2175bc;
-	color: white;
+	padding: 4px 4px 4px 1.5em;
+	border-left: 5px solid #039BE6;
 	text-decoration: none;
 	width: 100%;
 }
 
-#button li a:hover {
-	border-left: 10px solid #1c64d1;
-	border-right: 10px solid #5ba3e0;
-	background-color: #2586d7;
-	color: white;
+.selected {
+	background-color: #cfe5fa;
+	border-right: 5px solid #039BE6;
 }
-
-
-
-

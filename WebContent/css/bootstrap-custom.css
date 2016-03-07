@@ -9,26 +9,60 @@ label {
 }
 
 .form-group {
-	margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.form-field {
+    min-height: 24px;
+}
+
+.form-control {
+    font-size: 12px;
+    height: 25px;
+    min-height: 25px;
+    padding-bottom: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 4px;
+    border-color: #b6d2ee;
+    border-width: 1px;
+    border-radius: 0px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #000000;
+}
+
+.form-horizontal .control-label {
+    text-align: right;
+}
+
+.form_attachment_line {
+    border-bottom-color: #b6d2ee;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-	background-color: #FFFFE0;
+	background-color: #cfe5fa;
 	cursor: pointer;
 }
 
 .navbar-default {
-	background-color: #039BE6; /* #229EDC; #1E90FF; #3ca2e0; #039BE6*/
+	background-color: #039BE6; 
 	background-image: none;
 	background-repeat: no-repeat;
-	/* font-family: "Open Sans",sans-serif,arial; */
  }
 
 .navbar .nav > li > a {
     line-height: 19px;
     text-decoration: none;
     color:  white;
-    font-weight: bold;
 }
 
 .navbar-default .navbar-brand {
@@ -47,23 +81,6 @@ td, th {
     visibility: hidden;
     margin-top: -1px;
 }
-
-/* .dropdown-menu > li > a:hover {
-	background-color: #33bcf2;
-	color: white;
-}
-
-.dropdown-menu li:hover .sub-menu {
-    visibility: visible;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-.nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, .navbar .dropdown-menu {
-    margin-top: 0;
-} */
 
 .navbar .sub-menu:before {
     border-bottom: 7px solid transparent;
@@ -148,24 +165,33 @@ td, th {
 
 /********************* Bootstrap  Tab Manipulations Starts *********************/
 
-.nav-tabs > .active > a, .nav-tabs > .active > a:hover { 
-	outline: 0;
-	color: #555555;
-	background-color: #ffffff;
-	border: 1px solid #ddd;
-	border-bottom-color: transparent;
-	cursor: default;
+.nav-tabs > li > a {
+	background-color: #90bade;
+	border-radius: 15px 0px 0px 0px ; /*top right bottom left*/
+	height: 20px;
+	line-height: 1px;
+	cursor: pointer;
+	color: #fff;
+	border: 1px solid #b6d2ee;
+}
+
+nav-tabs > li.active > a  {
+    color: #555;
+    cursor: default;
+    background-color: #039BE6;
+    border: 1px solid #b6d2ee;
+    border-bottom-color: transparent;
 }
 
 .tab-pane{
-	/* background-color: #f7f7f9; */
-	position: absolute;
-	top: 42px;
-	bottom: 0;
-	right: 10px;
-	left: 10px;
+	padding-top: 10px;
 	overflow:auto;
+	height: 475px;
+	border: 1px solid #b6d2ee;
+	border-top: 0;
 }
+
+
 
 /********************* Bootstrap  Tab Manipulations Ends *********************/
 
@@ -178,3 +204,54 @@ td, th {
 /* .dropdown .caret {position:absolute; left:470px; margin-top:10px;} */
 .selected-app {padding-right:10px;}
 .dropdown-menu {width:auto;}
+
+
+/********* Bootstrap Button Customizaion ******************/
+.btn-default, .btn-destructive-subdued, .btn-success-subdued, .nav-segmented > li {
+    background-color: rgba(255, 255, 255, 0.45);
+    border-bottom-color: #b6d2ee;
+    border-left-color: #b6d2ee;
+    border-right-color: #b6d2ee;
+    border-top-color: #b6d2ee;
+    color: #14293e;
+    padding-block-end: 0;
+    padding-block-start: 0;
+    padding-inline-end: 6px;
+    padding-inline-start: 6px;
+}
+
+.btn-default:focus {
+	background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 3px #ffffff inset, 0 4px 11px 0.22px rgba(0, 0, 0, 0.17);
+    outline-color: -moz-use-text-color;
+    outline-style: none;
+    outline-width: medium;
+}
+
+.input-group-addon {
+    padding: 0 12px;
+    font-size: 14px;
+    color: #245269;
+    text-align: center;
+    background-color: #e6f1fd;
+    border: 1px solid #b6d2ee;
+    border-radius: 0px;
+}
+
+.btn, .nav-segmented > li {
+    background-image: none;
+    border-width: 1px;
+    border-radius: 0px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.42857;
+    text-align: center;
+    vertical-align: middle;
+}
