@@ -1,21 +1,21 @@
-<div id="pageheader" ng-cloak>
-	<h4>User</h4>
+<div class="pageHeader">
+	<p>User</p>
 </div>
-<hr>
-<form class="form-horizontal" ng-cloak>
+
+<form class="form-horizontal" style="margin-top:15px;">
 	<button ng-click="createOrEditUser();" type="button"
-		class="btn btn-default btn-sm">
+		class="formButtons">
 		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
 		User
 	</button>
-	<button type="button" class="btn btn-default btn-sm">
+	<button type="button" class="formButtons">
 		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 		Delete All
 	</button>
 	<br /> <br />
 	<div>
 		<div style="height: 340px;">
-			<table st-table="rowCollection" border="1" class="table table-hover table-condensed">
+			<table st-table="rowCollection" class="table table-bordered table-hover table-condensed">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -30,12 +30,12 @@
 						<th style="width: 5%;"></th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody class="">
 					<tr>
 						<p ng-show="!userList.length"
 							style="color: red; margin-left: 10px;">No Records found.</p>
 					</tr>
-					<tr ng-repeat="user in userList" ng-click="createOrEditUser(user);">
+					<tr ng-repeat="user in userList" ng-click="createOrEditUser(user);" >
 						<td>{{user.firstName}} {{user.middleName}} {{user.lastName}}</td>
 						<td>{{user.role}}</td>
 						<td>{{user.project}}</td>

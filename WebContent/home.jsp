@@ -34,10 +34,9 @@
 				<nav class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right" id="dropMenu">
 						<li class="dropdown">
-							<a href="#" data-toggle="modal"  
-								data-target=".bs-example-modal-sm" title="Logout">
-								Log Out
-							</a>
+							<a href="#" data-toggle="modal" data-target=".bs-example-modal-sm"  
+								class="btn btn-outline btn-sm">Logout</a>
+								
 						</li>
 					</ul>
 				</nav>
@@ -99,6 +98,15 @@
 		</div>
 
 	</div>
+	
+	<!-- Date.js -->
+	<script src="lib/date/date.js"></script>
+	<script src="lib/date/moment.js"></script>
+	
+	<!-- Scripts to support HTML5 date input -->
+	<script src="lib/date/better-dom.js"></script>
+	<script src="lib/date/better-i18n-plugin.js"></script>
+	<script src="lib/date/better-dateinput-polyfill.js"></script>
 
 	<!-- AngularJS, Bootstrap & Application related Scripts -->
 	<script src="./lib/angular-1.4.3/angular.js"></script>

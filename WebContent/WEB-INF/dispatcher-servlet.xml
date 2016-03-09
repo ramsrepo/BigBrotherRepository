@@ -22,7 +22,6 @@ xsi:schemaLocation="
 	<mvc:default-servlet-handler/>
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
-
 	<security:http>
 		<security:intercept-url pattern="/home**" access="isAuthenticated()"/>
 	
@@ -88,6 +87,14 @@ xsi:schemaLocation="
     <bean id="userGroupService" class="com.app.services.UserGroupServiceImpl">
         <property name="userGroupDao" ref="userGroupDao"></property>
     </bean>
+    
+    <bean id="effortTrackerDao" class="com.app.dao.EffortTrackerDaoImpl">
+    	<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="effortTrackService" class="com.app.services.EffortTrackerServiceImpl">
+    	<property name="effortTrackerDao" ref="effortTrackerDao"></property>
+    </bean>
+    
     
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />

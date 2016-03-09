@@ -57,7 +57,10 @@ pocApp.config(['$routeProvider', function($routeProvider) {
         .state('trackingtemplate', {
             url:'/tracking',
             templateUrl: 'partials/efforttrackertemplate.html', 
-            controller: 'effortTrackController'
+            controller: 'effortTrackController',
+            resolve: {
+                loadApplications: loadApplications
+            }
         });
         
 }]);
@@ -69,3 +72,7 @@ pocApp.config(['$routeProvider', function($routeProvider) {
 	function loadUserGroups(userService){
 		return userService.loadUserGroups();
 	};
+	
+	function loadApplications(effortTrackerService) {
+		return effortTrackerService.loadApplicationsList();
+	}

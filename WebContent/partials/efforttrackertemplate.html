@@ -1,86 +1,86 @@
-<div id="pageheader" ng-cloak>
-	<h4>Effort Tracker Template</h4>
+<div class="pageHeader">
+	<p>Effort Tracker Template</p>
 </div>
-<hr>
-<form class="form-horizontal">
-	<div class="form-group">
-		<label class="col-xs-1"><b>Application</b></label>
-		<div class="col-xs-3">
-			<!-- <div class="dropdown" id="appdropdownMenu">
-				<button class="btn btn-default" data-toggle="dropdown">
-					<span id="app_dropdown_title2" class="selected-app" ng-model="appSelect">Select</span> <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu">
-					<li><a tabindex="-1" href="#">Android</a></li>
-					<li><a tabindex="-1" href="#">IOS</a></li>
-					<li><a tabindex="-1" href="#">Windows Phone</a></li>
-				</ul>
-			</div> -->
-			<select class="form-control" ng-model="appSelect">
-				<option>Android</option>
-				<option>IOS</option>
-				<option>Windows</option>
-				<option>Java</option>
-				<option>Dot Net</option>
-			</select>
-		</div>
-		<div class="col-xs-3">
-			<div class='input-group date' id='datetimepicker1'>
-				<input type='text' class="form-control" ng-model="selecteddate" />
-				<span class="input-group-addon"> <span
-					class="glyphicon glyphicon-calendar"></span>
-				</span>
+
+<div style="margin-top: 15px;">
+	<form class="form-inline"">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<label for="application" class="sr-only">Application</label>
+				<div>
+					<select class="form-control" id="application" ng-model="appSelect">
+						<option value="">- Please Choose Application -</option>
+						<option ng-repeat="app in applicationList"
+							value="{{app.applicationName}}">{{app.applicationName}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="date" class="sr-only">Activity Date</label>
+				<div>
+					<input type="date" class="form-control" id="date" name="date"
+						ng-model="selecteddate">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="add" class="sr-only"></label>
+				<button type="button" class="formButtons" id="add"
+					ng-click="addNewTask()">Add</button>
+			</div>
+			<div class="form-group">
+				<label for="savetemplate" class="sr-only"></label>
+				<button type="button" class="formButtons" id="savetemplate">Save
+					Template</button>
 			</div>
 		</div>
-		<div class="col-xs-2">
-			<button class="btn btn-default btn-xs" ng-click="addNewTask()">Add</button>
+	</form>
+</div>
+<br />
+<br />
+<br />
+<div>
+	<div>
+		<div>
+			<div class="table-responsive">
+				<table st-table="rowCollection" class="table table-bordered table-hover table-condensed">
+					<thead>
+						<tr>
+							<th>Application</th>
+							<th>Activity</th>
+							<th>Date</th>
+							<th>Week</th>
+							<th>Hours Spend</th>
+							<th>Comments</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-ng-repeat="task in tasks">
+							<td style="width: 22%">{{task.application}}</td>
+							<td><select class="form-control" ng-model="activity">
+									<option value="">- Please choose Activity -</option>
+									<option>Minor Enhancement</option>
+									<option>Incident Resolution</option>
+									<option>Preventive Maintenance</option>
+									<option>Problem Resolution</option>
+									<option>Admin / Training</option>
+									<option>Leave</option>
+							</select></td>
+							<td>{{ task.taskdate | date: 'dd-MM-yyyy' }}</td>
+							<td>{{ task.taskweeknumber }}</td>
+							<td><input type="number" min="0" max="24"
+								class="form-control input-sm" ng-model="hours_$index"></td>
+							<td><input type="text" class="form-control input-sm"
+								ng-model="coments_$index"></td>
+							<td><button type="button" class="formButtons"
+									ng-click="deleteTask($index);">
+									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+								</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
 		</div>
 	</div>
-	<br>
-	<div>
-		<table st-table="rowCollection" class="table table-condensed">
-			<thead>
-				<tr>
-					<th>Application</th>
-					<th>Activity</th>
-					<th>Date</th>
-					<th>Week</th>
-					<th>Hours Spend</th>
-					<th>Comments</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr data-ng-repeat="task in tasks">
-					<td>{{task.application}}</td>
-					<td><select class="form-control">
-							<option>Minor Enhancement</option>
-							<option>Incident Resolution</option>
-							<option>Preventive Maintenance</option>
-							<option>Problem Resolution</option>
-							<option>Admin / Training</option>
-							<option>Leave</option>
-					</select></td>
-					<td>{{task.taskdate}}</td>
-					<td>week</td>
-					<td><input type="text" class="form-control input-sm" size="1"
-						ng-model="hoursSpent" name=""></td>
-					<td><input type="text" class="form-control input-sm"
-						ng-model="comments" name=""></td>
-					<!-- <td>
-				<button class="btn btn-danger btn-xs" ng-show="true" ng-click="removeChoice()">x</button>
-			</td> -->
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</form>
-
-
-<script>
-	$('#datetimepicker1').datetimepicker();
-
-	$("#appdropdownMenu").on("click", "li a", function() {
-		var platform = $(this).text();
-		$("#app_dropdown_title2").html(platform);
-	});
-</script>
+</div>

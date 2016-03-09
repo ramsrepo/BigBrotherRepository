@@ -8,10 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
-
-
-
 @Entity
 @Table( name = "ETT_USER" )
 public class UserModel {

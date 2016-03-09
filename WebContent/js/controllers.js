@@ -187,26 +187,33 @@ controller("userController", function($scope, $window , $http, $modal, userServi
 }).
 
 
-controller('effortTrackController',function($scope, $window , $http){
+controller('effortTrackController',function($scope, $window , $http, effortTrackerService, loadApplications){
 	
 	$scope.tasks = []; 
+	$scope.selecteddate = new Date();
+	$scope.applicationList = loadApplications.data;
+	
+	$scope.addNewTask = function() {
+		
+		if($scope.appSelect === "" || $scope.appSelect === undefined) {
+			alert("Please select Application first");
+		} else {
+			var weekNumber = getWeekInaMonth(new Date($scope.selecteddate).getMonth(), new Date($scope.selecteddate).getDate());
+		    $scope.tasks.push({ 'application': $scope.appSelect, 
+		    					'taskdate': $scope.selecteddate,
+		    					'taskweeknumber': weekNumber});
+		} 
+	  };
 	  
-	  $scope.addNewTask = function() {
-		 
-		  if($scope.appSelect === "" || $scope.appSelect === undefined) {
-			  alert("Please select Application first");
-		  } else {
-			  var newItemNo = $scope.tasks.length+1;
-			    $scope.tasks.push({'id':'choice'+newItemNo, 'application': $scope.appSelect, 'taskdate': $scope.selecteddate});
-		  } 
-			  
-	    
+	  $scope.deleteTask = function(taskIndexToDelete) {
+		  $scope.tasks.splice(taskIndexToDelete,1);
 	  };
-	    
-	  $scope.removeChoice = function() {
-	    var lastItem = $scope.choices.length-1;
-	    $scope.choices.splice(lastItem);
-	  };
+	  
 });
 
 
+ function getWeekInaMonth(month, day) {
+ 	var weekNumber = Math.ceil((day + 1)/7)
+    return weekNumber;
+}
+ 
