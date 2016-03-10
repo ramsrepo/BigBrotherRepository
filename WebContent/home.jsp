@@ -23,8 +23,8 @@
 <script src="./lib/jquery/jquery-1.10.js"></script>
 </head>
 
-<body ng-app="pocApp" ng-controller="homeController"
-	style="overflow: hidden">
+<body ng-app="pocApp" ng-controller="homeController" style="overflow: hidden">
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	<div>
 		<div class="navbar navbar-fixed-top navbar-default ">
 			<div class="container-fluid">
@@ -96,12 +96,10 @@
 		    </div>
 		  </div>
 		</div>
-
 	</div>
 	
 	<!-- Date.js -->
 	<script src="lib/date/date.js"></script>
-	<script src="lib/date/moment.js"></script>
 	
 	<!-- Scripts to support HTML5 date input -->
 	<script src="lib/date/better-dom.js"></script>

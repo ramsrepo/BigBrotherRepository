@@ -2,6 +2,17 @@
 
 angular.module('pocApp.services',[]).
 
+factory('httpRequestInterceptor', function () {
+	  return {
+	    request: function (config) {
+	      // use this to destroying other existing headers
+	      config.headers = { 'X-CSRF-TOKEN' : $("input[name=_csrf]").val(),
+	    		  			 'Content-Type': 'application/json;charset=UTF-8' };
+	      return config;
+	    }
+	  };
+}).
+
 factory('userService', function($http){
 
 	var userService = {};
@@ -53,6 +64,12 @@ factory('effortTrackerService', function($http) {
 	effortTrackerService.loadApplicationsList = function() { 
 		var theUrl = '/BigB/eft/findAllApps';
 		return $http.get(theUrl);
+	};
+	
+	// Service to Get all the Tower based applications.
+	effortTrackerService.saveEfforts = function(postData) {
+		var theUrl = '/BigB/eft/saveEfforts';
+		return $http.post(theUrl, postData);
 	};
 	
 	return effortTrackerService;

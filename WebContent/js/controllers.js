@@ -199,14 +199,30 @@ controller('effortTrackController',function($scope, $window , $http, effortTrack
 			alert("Please select Application first");
 		} else {
 			var weekNumber = getWeekInaMonth(new Date($scope.selecteddate).getMonth(), new Date($scope.selecteddate).getDate());
-		    $scope.tasks.push({ 'application': $scope.appSelect, 
-		    					'taskdate': $scope.selecteddate,
-		    					'taskweeknumber': weekNumber});
+		    $scope.tasks.push({ 'appCode': $scope.appSelect,
+		    					'activity': '',
+		    					'activityDate': $scope.selecteddate,
+		    					'week': weekNumber,
+		    					'spentHours': '',
+		    					'comments': ''});
 		} 
 	  };
 	  
 	  $scope.deleteTask = function(taskIndexToDelete) {
 		  $scope.tasks.splice(taskIndexToDelete,1);
+	  };
+	  
+	  $scope.saveTemplate = function() {
+		 /* alert(JSON.stringify($scope.tasks));*/
+		  var responseCatalog = effortTrackerService.saveEfforts($scope.tasks);
+			responseCatalog.success(function (response) {
+				alert(response);
+			});
+			responseCatalog.error(function (data,status) {
+				if(status == 400 || status == 403) {
+					alert('Error while processing!');
+				}
+			});
 	  };
 	  
 });

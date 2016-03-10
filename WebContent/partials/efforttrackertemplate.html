@@ -29,7 +29,7 @@
 			</div>
 			<div class="form-group">
 				<label for="savetemplate" class="sr-only"></label>
-				<button type="button" class="formButtons" id="savetemplate">Save
+				<button type="button" class="formButtons" id="savetemplate" ng-click="saveTemplate();">Save
 					Template</button>
 			</div>
 		</div>
@@ -56,22 +56,22 @@
 					</thead>
 					<tbody>
 						<tr data-ng-repeat="task in tasks">
-							<td style="width: 22%">{{task.application}}</td>
-							<td><select class="form-control" ng-model="activity">
+							<td style="width: 22%;">{{task.appCode}}</td>
+							<td><select class="form-control" ng-model="task.activity">
 									<option value="">- Please choose Activity -</option>
-									<option>Minor Enhancement</option>
-									<option>Incident Resolution</option>
-									<option>Preventive Maintenance</option>
-									<option>Problem Resolution</option>
-									<option>Admin / Training</option>
-									<option>Leave</option>
+									<option value="Minor Enhancement">Minor Enhancement</option>
+									<option value="Incident Resolution">Incident Resolution</option>
+									<option value="Preventive Maintenance">Preventive Maintenance</option>
+									<option value="Problem Resolution">Problem Resolution</option>
+									<option value="Admin / Training">Admin / Training</option>
+									<option value="Leave">Leave</option>
 							</select></td>
-							<td>{{ task.taskdate | date: 'dd-MM-yyyy' }}</td>
-							<td>{{ task.taskweeknumber }}</td>
+							<td>{{ task.activityDate | date: 'dd-MM-yyyy' }}</td>
+							<td>{{ task.week }}</td>
 							<td><input type="number" min="0" max="24"
-								class="form-control input-sm" ng-model="hours_$index"></td>
+								class="form-control input-sm" ng-model="task.spentHours"></td>
 							<td><input type="text" class="form-control input-sm"
-								ng-model="coments_$index"></td>
+								ng-model="task.comments"></td>
 							<td><button type="button" class="formButtons"
 									ng-click="deleteTask($index);">
 									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
