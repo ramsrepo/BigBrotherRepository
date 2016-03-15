@@ -8,8 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
-@Entity ( name = "ETT_TEMPLATE")
+@Entity
+@Table( name = "ETT_TEMPLATE")
 public class EffortTrackerTemplateModel {
 
 	private Long id;

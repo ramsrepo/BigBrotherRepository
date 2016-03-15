@@ -9,4 +9,5 @@ public interface EffortTrackerDAO {
 
 	public List<EffortTrackerApplicationsModel> findAllApps();
 	public Boolean saveTemplateList(List<EffortTrackerTemplateModel> effortsList);
+	public List<EffortTrackerTemplateModel> findAllEfforts();
 }

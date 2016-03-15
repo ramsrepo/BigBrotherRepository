@@ -26,6 +26,14 @@ private SessionFactory sessionFactory;
 		return appList;
 	}
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<EffortTrackerTemplateModel> findAllEfforts() {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<EffortTrackerTemplateModel> effortList = session.createQuery("from EffortTrackerTemplateModel ORDER BY ACTIVITY_DATE").list();
+		return effortList;
+	}
+	
 	@SuppressWarnings("finally")
 	@Override
 	public Boolean saveTemplateList(List<EffortTrackerTemplateModel> effortsList) {
@@ -55,7 +63,7 @@ private SessionFactory sessionFactory;
 			e.printStackTrace();
 			saveValidate = false;
 		} finally {
-			session.close();
+			//session.close();
 			return saveValidate;
 		}
 	}

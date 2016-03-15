@@ -67,6 +67,12 @@ factory('effortTrackerService', function($http) {
 	};
 	
 	// Service to Get all the Tower based applications.
+	effortTrackerService.loadEffortsList = function() { 
+		var theUrl = '/BigB/eft/findAllEfforts';
+		return $http.get(theUrl);
+	};
+	
+	// Service to Get all the Tower based applications.
 	effortTrackerService.saveEfforts = function(postData) {
 		var theUrl = '/BigB/eft/saveEfforts';
 		return $http.post(theUrl, postData);

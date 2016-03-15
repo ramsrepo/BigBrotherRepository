@@ -1,11 +1,18 @@
 'use strict';
 
-var pocApp = angular.module('pocApp', [ 'ui.router', 'ui.bootstrap',
+var pocApp = angular.module('pocApp', [ 'ui.router', 'ui.bootstrap', 'xeditable', 
 		'pocApp.controllers', 'pocApp.utilityControllers', 'pocApp.services',
 		'pocApp.directives' ]);
 
 pocApp.config(function($httpProvider) {
 	$httpProvider.interceptors.push('httpRequestInterceptor');
+});
+
+//Applying bootstrap theme for angularjs-xeditable fields, 
+//as they are in default browser theme.
+//bootstrap3 theme. Can be also 'bs2', 'default'
+pocApp.run(function(editableOptions) {
+	  editableOptions.theme = 'bs3'; 
 });
 
 pocApp.config([ '$stateProvider', '$urlRouterProvider',
@@ -55,7 +62,8 @@ pocApp.config([ '$stateProvider', '$urlRouterProvider',
 				templateUrl : 'partials/efforttrackertemplate.html',
 				controller : 'effortTrackController',
 				resolve : {
-					loadApplications : loadApplications
+					loadApplications : loadApplications,
+					loadEfforts : loadEfforts
 				}
 			});
 
@@ -71,4 +79,8 @@ function loadUserGroups(userService) {
 
 function loadApplications(effortTrackerService) {
 	return effortTrackerService.loadApplicationsList();
+}
+
+function loadEfforts(effortTrackerService) {
+	return effortTrackerService.loadEffortsList();
 }

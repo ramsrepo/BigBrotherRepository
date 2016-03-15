@@ -32,27 +32,32 @@ public class EffortTrackerController {
 	@RequestMapping( value = "/findAllApps", method = RequestMethod.GET)
 	public ResponseEntity<List<EffortTrackerApplicationsModel>> findAllApplications(){
 		List<EffortTrackerApplicationsModel> applications = this.effortTrackService.findAllApps();
-		//System.out.println(applications);
         if(applications.isEmpty()){
-            return new ResponseEntity<List<EffortTrackerApplicationsModel>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+            return new ResponseEntity<List<EffortTrackerApplicationsModel>>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<List<EffortTrackerApplicationsModel>>(applications, HttpStatus.OK);
 	}
 	
+	@RequestMapping( value = "/findAllEfforts", method = RequestMethod.GET)
+	public ResponseEntity<List<EffortTrackerTemplateModel>> findAllEfforts(){
+		List<EffortTrackerTemplateModel> efforts = this.effortTrackService.findAllEfforts();
+        if(efforts.isEmpty()){
+            return new ResponseEntity<List<EffortTrackerTemplateModel>>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<List<EffortTrackerTemplateModel>>(efforts, HttpStatus.OK);
+	}
+	
 	@RequestMapping( value = "/saveEfforts", method = RequestMethod.POST)
-	public String  saveEffortTemplate(@RequestBody List<EffortTrackerTemplateModel> effortTemplateList){
-		
-		/*for(EffortTrackerTemplateModel ett: effortTemplateList) {
-			System.out.println("AppCode: "+ ett.getAppCode()+"--activity: "+ett.getActivity()+"--spentHours: "+ett.getSpentHours());
-		}*/
-		
+	public ResponseEntity<List<EffortTrackerTemplateModel>>  saveEffortTemplate(@RequestBody List<EffortTrackerTemplateModel> effortTemplateList){
 		boolean saveValidate = this.effortTrackService.saveTemplate(effortTemplateList);
+		List<EffortTrackerTemplateModel> efforts = new ArrayList<EffortTrackerTemplateModel>();
+		if(saveValidate)
+			efforts = this.effortTrackService.findAllEfforts();
 		
-		if (saveValidate){
-	        return "Efforts Template successfully submitted";
-	    }
+		if(efforts.isEmpty())
+			return new ResponseEntity<List<EffortTrackerTemplateModel>>(HttpStatus.NO_CONTENT);
 	    else {
-	        return "Efforts Not Submitted Successfully";  
+	    	return new ResponseEntity<List<EffortTrackerTemplateModel>>(efforts, HttpStatus.OK);  
 	    }
 		
 		

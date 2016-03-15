@@ -14,9 +14,9 @@
 <link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.min.css">
 <!-- Bootstrap Theme css -->
 <link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap-theme.min.css">
-
 <link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap-datetime.css">
 <link rel="stylesheet" type="text/css" href="./css/bootstrap-custom.css">
+<link rel="stylesheet" type="text/css" href="lib/angular-1.4.3/xeditable.css" >
 <!-- <link rel="stylesheet" type="text/css" href="./lib/jquery/jquery-ui.css"> -->
 <link rel="stylesheet" type="text/css" href="./css/app.css">
 
@@ -105,6 +105,7 @@
 	<script src="lib/date/better-dom.js"></script>
 	<script src="lib/date/better-i18n-plugin.js"></script>
 	<script src="lib/date/better-dateinput-polyfill.js"></script>
+	
 
 	<!-- AngularJS, Bootstrap & Application related Scripts -->
 	<script src="./lib/angular-1.4.3/angular.js"></script>
@@ -114,7 +115,9 @@
 	<script src="./lib/angular-1.4.3/ui-bootstrap-tpls-0.13.3.js"></script>
 	<script src="./lib/angular-1.4.3/angular-ui-router.js"></script>
 
-
+	<!-- Angular Editable Grid -->
+	<script src="lib/angular-1.4.3/xeditable.js"></script>
+	<script src="lib/angular-1.4.3/xeditable.min.js"></script>
 
 	<script src="./js/app.js"></script>
 	<script src="./js/services.js"></script>

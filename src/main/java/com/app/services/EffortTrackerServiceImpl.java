@@ -20,6 +20,13 @@ public class EffortTrackerServiceImpl implements EffortTrackerService{
 		return this.effortTrackerDao.findAllApps();
 	}
 	
+	
+	@Override
+	@Transactional
+	public List<EffortTrackerTemplateModel> findAllEfforts(){
+		return this.effortTrackerDao.findAllEfforts();
+	}
+	
 	@Override
 	@Transactional
 	public Boolean saveTemplate(List<EffortTrackerTemplateModel> effortsList) {

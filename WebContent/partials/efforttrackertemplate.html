@@ -1,72 +1,124 @@
 <div class="pageHeader">
-	<p>Effort Tracker Template</p>
+	<div>
+		<span ng-click="addNewTask();"> <img src="././images/add-icon.png"></img> </span> 
+		<span ng-click="saveTemplate();"> <img src="././images/save_accept.png"></img> </span>
+		<span> <img src="././images/submit.png"></img></span>
+		<span> <img src="././images/cross.png"></img></span>
+	</div>
+	
+	<div id="verticalSeperator"> <hr style="width: 1px; height: 22px; background: black;" /> </div>
+	
+	<div>
+		<span> <img src="././images/excel.png"></img></span>
+		<span> <img src="././images/pdf.png"></img></span>
+	</div>
+	
+	<div id="verticalSeperator"> <hr style="width: 1px; height: 22px; background: black;" /> </div>
+	
+	<div>
+		<!-- <span ng-click="addWeek()"> <img src="././images/week.png"></img></span>
+		<span ng-click="addMonth()"> <img src="././images/month.png"></img></span> -->
+		<span ng-click="refreshEfforts();"> <img src="././images/refresh.png"></img></span>
+	</div>
+	
 </div>
 
-<div style="margin-top: 15px;">
-	<form class="form-inline"">
-		<div class="col-sm-12">
-			<div class="form-group">
-				<label for="application" class="sr-only">Application</label>
-				<div>
-					<select class="form-control" id="application" ng-model="appSelect">
-						<option value="">- Please Choose Application -</option>
-						<option ng-repeat="app in applicationList"
-							value="{{app.applicationName}}">{{app.applicationName}}</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="date" class="sr-only">Activity Date</label>
-				<div>
-					<input type="date" class="form-control" id="date" name="date"
-						ng-model="selecteddate">
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="add" class="sr-only"></label>
-				<button type="button" class="formButtons" id="add"
-					ng-click="addNewTask()">Add</button>
-			</div>
-			<div class="form-group">
-				<label for="savetemplate" class="sr-only"></label>
-				<button type="button" class="formButtons" id="savetemplate" ng-click="saveTemplate();">Save
-					Template</button>
-			</div>
-		</div>
-	</form>
-</div>
-<br />
+<form class="form-inline" role="form" style="margin-top: 35px;">
+	<div class="form-group">
+		<label for="date">Activity Date: </label> <input type="date"
+			class="form-control" id="date" name="date" ng-model="selecteddate">
+	</div>
+	&nbsp;&nbsp;
+	<div class="form-group">
+		<label for="date">No of Activities: </label> 
+		<input type="number" min="1" class="form-control input-sm" ng-model="noOfTasks">
+	</div>
+</form>
+
 <br />
 <br />
 <div>
 	<div>
 		<div>
-			<div class="table-responsive">
-				<table st-table="rowCollection" class="table table-bordered table-hover table-condensed">
-					<thead>
-						<tr>
-							<th>Application</th>
-							<th>Activity</th>
-							<th>Date</th>
-							<th>Week</th>
-							<th>Hours Spend</th>
-							<th>Comments</th>
-							<th></th>
-						</tr>
-					</thead>
+			<div>
+				<!-- for this Div: class="table-responsive"-->
+				<table class="table table-bordered table-hover table-condensed">
 					<tbody>
+						<tr class="thStyle">
+							<td>Application</td>
+							<td>Activity</td>
+							<td>Date</td>
+							<td>Week</td>
+							<td>Hours</td>
+							<td>Comments</td>
+							<td>Action</td>
+						</tr>
+						<tr data-ng-repeat="effort in effortList">
+							<td style="width: 25%;"><span
+								editable-select="effort.appCode" e-name="appCode"
+								e-form="rowform"
+								e-ng-options="app.applicationName as app.applicationName for app in applicationList">
+									{{ effort.appCode }} </span></td>
+							<td style="width: 15%;"><span
+								editable-select="effort.activity" e-name="activity"
+								e-form="rowform"
+								e-ng-options="act.value as act.activityName for act in activityList">
+									{{effort.activity}} </span></td>
+							<td style="width: 15%;">{{effort.activityDate | date:
+								'MM-dd-yyyy' }}</td>
+							<td style="width: 5%;">{{effort.week}}</td>
+							<td style="width: 5%;"><span
+								editable-text="effort.spentHours" e-name="spentHours"
+								e-form="rowform" e-required> {{effort.spentHours}} </span></td>
+							<td style="width: 35%;"><span
+								editable-text="effort.comments" e-name="comments"
+								e-form="rowform" e-required> {{effort.comments}} </span></td>
+							<!-- <td><button type="button" class="formButtons"
+									ng-click="editTask($index);">
+									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+								</button></td> -->
+							<td style="white-space: nowrap">
+								<!-- form -->
+								<form editable-form name="rowform"
+									onbeforesave="updateEffort($data);" ng-show="rowform.$visible"
+									class="form-buttons form-inline" shown="inserted == effort">
+									<button type="submit" class="formButtons"
+										ng-disabled="rowform.$waiting">
+										<span class="glyphicon glyphicon-saved" aria-hidden="true"></span>
+									</button>
+									<button type="button" class="formButtons"
+										ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()">
+										C</button>
+								</form>
+								<div class="buttons" ng-show="!rowform.$visible">
+									<button type="button" class="formButtons"
+										ng-click="rowform.$show()">
+										<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+									</button>
+									<button type="button" class="formButtons"
+										ng-click="deleteTask($index);">
+										<span class="glyphicon glyphicon-trash" aria-hidden="true"
+											ng-click="deleteTask($index);"></span>
+									</button>
+								</div>
+							</td>
+						</tr>
 						<tr data-ng-repeat="task in tasks">
-							<td style="width: 22%;">{{task.appCode}}</td>
-							<td><select class="form-control" ng-model="task.activity">
-									<option value="">- Please choose Activity -</option>
-									<option value="Minor Enhancement">Minor Enhancement</option>
-									<option value="Incident Resolution">Incident Resolution</option>
-									<option value="Preventive Maintenance">Preventive Maintenance</option>
-									<option value="Problem Resolution">Problem Resolution</option>
-									<option value="Admin / Training">Admin / Training</option>
-									<option value="Leave">Leave</option>
+							<td style="width: 22%;">
+								<select
+									class="form-control" ng-model="task.appCode">
+									<option value="">- Please Choose Application -</option>
+									<option ng-repeat="app in applicationList"
+										value="{{app.applicationName}}">{{app.applicationName}}</option>
+								</select>
+							</td>
+							<td><select class="form-control" id="activitySelect"
+								ng-model="task.activity">
+									<option value="">- Please Choose Activity -</option>
+									<option ng-repeat="activity in activityList"
+										value="{{activity.value}}">{{activity.activityName}}</option>
 							</select></td>
-							<td>{{ task.activityDate | date: 'dd-MM-yyyy' }}</td>
+							<td>{{ task.activityDate | date: 'MM-dd-yyyy' }}</td>
 							<td>{{ task.week }}</td>
 							<td><input type="number" min="0" max="24"
 								class="form-control input-sm" ng-model="task.spentHours"></td>
@@ -74,7 +126,7 @@
 								ng-model="task.comments"></td>
 							<td><button type="button" class="formButtons"
 									ng-click="deleteTask($index);">
-									<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 								</button></td>
 						</tr>
 					</tbody>

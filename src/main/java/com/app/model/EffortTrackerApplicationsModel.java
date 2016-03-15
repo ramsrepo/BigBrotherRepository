@@ -57,3 +57,10 @@ public class EffortTrackerApplicationsModel {
 }
 
 
+/*static Pattern test= Pattern.compile("(?<!MSG_ID\\s:\\s)(?<!EVT_ID\\s:\\s)(?<!PMT_ID\\s:\\s)
+ * (?<!SERIALNO\\s:\\s)(?<!COMPID\\s:\\s)(?<!DISCID\\s:\\s)
+ * (?<!CHRG_ACCT_CTR_PRFT_CTR_CD\\s:\\s)(?!\\d*(\\d)\1{8,}\\d*)
+ * (?!123456789)\\b([0]+[0-9]|[1]+[0-5]|[2]+[1-9]|[3]+[1-2]|[6]+[1-9]|[7]+[1-2]|[8]+[0])+\\d{7}\\s");*/
+
+
+ 

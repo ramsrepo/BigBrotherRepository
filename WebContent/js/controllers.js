@@ -187,42 +187,78 @@ controller("userController", function($scope, $window , $http, $modal, userServi
 }).
 
 
-controller('effortTrackController',function($scope, $window , $http, effortTrackerService, loadApplications){
+controller('effortTrackController',function($scope, $window , $http, $filter, effortTrackerService, loadApplications, loadEfforts){
 	
 	$scope.tasks = []; 
 	$scope.selecteddate = new Date();
+	$scope.noOfTasks = 1;
 	$scope.applicationList = loadApplications.data;
+	$scope.effortList = loadEfforts.data;
+	
+	$scope.activityList = [ { value:'Minor Enhancement', activityName: 'Minor Enhancement'}, 
+	                        { value:'Incident Resolution', activityName: 'Incident Resolution'}, 
+	                        { value:'Preventive Maintenance', activityName: 'Preventive Maintenance'}, 
+	                        { value:'Problem Resolution', activityName: 'Problem Resolution'}, 
+	                        { value:'Admin / Training', activityName: 'Admin / Training'}, 
+	                        { value:'Leave', activityName: 'Leave'} 
+	                      ];
+	
+	$scope.refreshEfforts = function() {
+		var responseCatalog = effortTrackerService.loadEffortsList();
+		responseCatalog.success(function (response) {
+			$scope.effortList = response;
+			$scope.tasks.length = 0;
+		});
+		responseCatalog.error(function (data,status) {
+			if(status == 400 || status == 403) {
+				alert('Error while getting Efforts!');
+			}
+		});
+	}
 	
 	$scope.addNewTask = function() {
 		
-		if($scope.appSelect === "" || $scope.appSelect === undefined) {
-			alert("Please select Application first");
+		if($scope.selecteddate === "" || $scope.selecteddate === undefined) {
+			alert("Please select Activity Date first");
 		} else {
 			var weekNumber = getWeekInaMonth(new Date($scope.selecteddate).getMonth(), new Date($scope.selecteddate).getDate());
-		    $scope.tasks.push({ 'appCode': $scope.appSelect,
-		    					'activity': '',
-		    					'activityDate': $scope.selecteddate,
-		    					'week': weekNumber,
-		    					'spentHours': '',
-		    					'comments': ''});
+			for(var i=0;i<$scope.noOfTasks;i++) {
+				$scope.tasks.push({ 'appCode': '',
+					'activity': '',
+					'activityDate': $scope.selecteddate,
+					'week': weekNumber,
+					'spentHours': '',
+					'comments': ''});
+			}
 		} 
 	  };
+	  
+	  
+	  $scope.updateEffort = function(effort) {
+		  alert("Updated Effort: "+ JSON.stringify(effort));
+	  }
 	  
 	  $scope.deleteTask = function(taskIndexToDelete) {
 		  $scope.tasks.splice(taskIndexToDelete,1);
 	  };
 	  
 	  $scope.saveTemplate = function() {
-		 /* alert(JSON.stringify($scope.tasks));*/
-		  var responseCatalog = effortTrackerService.saveEfforts($scope.tasks);
-			responseCatalog.success(function (response) {
-				alert(response);
-			});
-			responseCatalog.error(function (data,status) {
-				if(status == 400 || status == 403) {
-					alert('Error while processing!');
-				}
-			});
+		  alert(JSON.stringify($scope.tasks));
+		 if($scope.tasks.length>0) {
+			 var responseCatalog = effortTrackerService.saveEfforts($scope.tasks);
+				responseCatalog.success(function (response) {
+					$scope.effortList = response;
+					$scope.tasks.length = 0;
+				});
+				responseCatalog.error(function (data,status) {
+					if(status == 400 || status == 403) {
+						alert('Error while processing!');
+					}
+				});
+		 } else {
+			 alert("Please add effort to Save");
+		 }
+		  
 	  };
 	  
 });
