@@ -15,23 +15,21 @@
 	<br /> <br />
 	<div>
 		<div style="height: 340px;">
-			<table st-table="rowCollection" class="table table-bordered table-hover table-condensed">
-				<tbody>
-					<tr class="thStyle">
-						<td>Name</td>
-						<td>Role</td>
-						<td>Project</td>
-						<td>Address</td>
-						<td>City</td>
-						<td>State</td>
-						<td>Country</td>
-						<td>Is Active</td>
+			<table st-table="rowCollection" class="table table-bordered table-striped table-condensed">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Role</th>
+						<th>Project</th>
+						<th>Address</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Country</th>
+						<th>Is Active</th>
 						<th style="width: 5%;">Action</th>
 					</tr>
-					<tr>
-						<p ng-show="!userList.length"
-							style="color: red; margin-left: 10px;">No Records found.</p>
-					</tr>
+				</thead>
+				<tbody>
 					<tr ng-repeat="user in userList" ng-click="createOrEditUser(user);" >
 						<td>{{user.firstName}} {{user.middleName}} {{user.lastName}}</td>
 						<td>{{user.role}}</td>

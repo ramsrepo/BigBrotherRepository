@@ -50,27 +50,27 @@
 					  <ul id="menuList">
 					    <li>
 					    	<a ui-sref="changepassword">
-					    		<i class="glyphicon glyphicon-lock"></i>&nbsp;<span>Change Password</span>
+					    		<img src="././images/changepwd.gif" /><span >Change Password</span>
 					   		</a>
 					   	</li>
 					    <li>
 					    	<a ui-sref="creategroup">
-					    		<i class="glyphicon glyphicon-tree-conifer"></i>&nbsp;<span>User Group</span>
+					    		<img src="././images/usergroup.png" /><span >User Group</span>
 					    	</a>
 					    </li>
 					    <li>
 					    	<a ui-sref="createuser">
-					    		<i class="glyphicon glyphicon-user"></i>&nbsp;<span>User</span>
+					    		<img src="././images/user.png" /><span >User</span>
 					    	</a>
 					    </li>
 					    <li>
 					   	 	<a ui-sref="trackingtemplate">
-					   	 		<i class="glyphicon glyphicon-road"></i>&nbsp;<span>Effort Tracker Template</span>
+					   	 		<img src="././images/task.png" /><span >Effort Tracker Template</span>
 					   	 	</a>
 					   	</li>
 					    <li>
 					    	<a ui-sref="dailyreport">
-					    		<i class="glyphicon glyphicon-stats"></i>&nbsp;<span>Reports</span>
+					    		<img src="././images/report.gif" /><span >Reports</span>
 					    	</a>
 					    </li>
 					  </ul>

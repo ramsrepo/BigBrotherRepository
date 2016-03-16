@@ -2,7 +2,7 @@
 
 /* style.css */
 * {
-   font-size: 11px;
+	font-size: 11px;
 }
 
 body {
@@ -12,7 +12,7 @@ body {
 	color: #333333;
 	margin-top: 10px;
 	height: 100%;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-family: Tahoma,Helvetica;
 	font-size: 11px;
 	color: #131313;
 }
@@ -27,7 +27,7 @@ a,input {
 	outline: none !important;
 }
 
-button:focus { 
+button:focus {
 	outline: none !important;
 }
 
@@ -54,15 +54,18 @@ button:focus {
 		left: 0;
 		z-index: 1000;
 		display: block;
-		/* padding: 20px; */
 		overflow-x: hidden;
 		overflow-y: auto;
-		/* Scrollable contents if viewport is shorter than content. */
-		/* background-color: #f4f4f4; */
-		color: #fff !important;
-		border-rigfht: 1px solid #eee;
+		background-color: #f5f5f5;
+		border-style : solid; 
+		border-color : #a4bed4; 
+		border-width : 1px 1px 0 1px;
+		border-right: 1px solid #a4bed4;
 		font-size: 11px !important;
 		padding: 0px;
+		border-style: solid;
+		border-color: #a4bed4;
+		border-width: 1px 1px 0 1px;
 	}
 	.main {
 		position: fixed;
@@ -71,34 +74,31 @@ button:focus {
 		left: 0;
 		z-index: 1000;
 		display: block;
-		/* padding: 20px; */
 		overflow-x: hidden;
 		overflow-y: auto;
-		/* Scrollable contents if viewport is shorter than content. */
-		/* border-right: 1px solid #eee; */
-		/* background-color: #f4f4f4; */
-		border-left: 5px solid #eee;
+		/* border-left: 2px solid #e2efff; */
 		border-top: 0px;
 		padding: 2px;
 	}
 }
 
 .pageHeader {
-	border: 1px solid #bcd8f4;
-	background-color: #bcd8f4;
-	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
-		3px, rgba(255, 255, 255, 0.75) 100%);
-	background-image: -webkit-linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
-		3px, rgba(255, 255, 255, 0.75) 100%);
-	background-image: -o-linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
-		3px, rgba(255, 255, 255, 0.75) 100%);
-	background-image: linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
-		3px, rgba(255, 255, 255, 0.75) 100%);
+	font-weight: normal !important;
+    background-color: #e2efff;
+    background: linear-gradient(#e2efff,#d3e7ff);
+    background: -webkit-linear-gradient(#e2efff,#d3e7ff);
+    filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#e2efff,endColorStr=#d3e7ff) 
+    		progid:DXImageTransform.Microsoft.Alpha(opacity=100);
 	_background-image: none;
+	border: 1px solid #a4bed4;
 	height: 30px;
 }
 
+.pageHeader>p{
+	padding-left: 10px;
+	padding-top: 4px;
+	font-size: 13px;
+}
 .pageHeader div {
 	color: #000000;
 	padding: 5px 0px 0px 5px;
@@ -115,21 +115,21 @@ button:focus {
 
 .pageHeader div>span {
 	padding-left: 5px;
-	height:25px;
+	height: 25px;
 	width: 25px;
 }
 
 #verticalSeperator {
 	margin-top: -2px;
 	margin-left: 5px;
-	float:left;
-	text-align: center;	
+	float: left;
+	text-align: center;
 }
 
-#verticalSeperator hr {	
+#verticalSeperator hr {
 	margin: 0;
-	margin-left:auto;
-	margin-right:auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #verticalSeperator span {
@@ -165,7 +165,7 @@ button:focus {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	border: none;
+	/* border-bottom: 1px solid #a4bed4; */
 }
 
 #button li {
@@ -173,39 +173,33 @@ button:focus {
 	list-style: none;
 	list-style-image: none;
 	font-size: 11px;
-	border-top: 1px solid #fff;
-	border-bottom: 1px solid #dbdbdb;
+	height: 25px;
+	/* border-top: 1px solid #a4bed4; */
 }
 
 #button li a {
 	display: block;
 	padding: 4px 4px 4px 1.5em;
-	border-left: 5px solid #039BE6;
+	/* border-left: 5px solid #039BE6; */
 	text-decoration: none;
 	width: 100%;
 }
 
+#button li a>span {
+	height: 100%;
+	padding: 10px;
+}
+
 .selected {
-	/* background-color: #cfe5fa; */
-	background-color: #bcd8f4;
-	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
-		3px, rgba(255, 255, 255, 0.75) 100%);
-	background-image: -webkit-linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
-		3px, rgba(255, 255, 255, 0.75) 100%);
-	background-image: -o-linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
-		3px, rgba(255, 255, 255, 0.75) 100%);
-	background-image: linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
-		3px, rgba(255, 255, 255, 0.75) 100%);
-	_background-image: none;
-	border-right: 5px solid #4CAF50;
+	border-color: #a4bed4;
+	background-color: #b5deff
 }
 
 .formButtons {
 	border: 1px solid #759dc0;
 	padding: 2px 2px 2px 2px;
 	color: #000000;
-	border-radius: 4px;
+	border-radius: 1px;
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
@@ -221,3 +215,4 @@ button:focus {
 		3px, rgba(255, 255, 255, 0.75) 100%);
 	_background-image: none;
 }
+

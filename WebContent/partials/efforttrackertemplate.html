@@ -42,17 +42,19 @@
 		<div>
 			<div>
 				<!-- for this Div: class="table-responsive"-->
-				<table class="table table-bordered table-hover table-condensed">
-					<tbody>
+				<table class="table table-bordered table-striped table-condensed">
+					<thead>
 						<tr class="thStyle">
-							<td>Application</td>
-							<td>Activity</td>
-							<td>Date</td>
-							<td>Week</td>
-							<td>Hours</td>
-							<td>Comments</td>
-							<td>Action</td>
+							<th>Application</th>
+							<th>Activity</th>
+							<th>Date</th>
+							<th>Week</th>
+							<th>Hours</th>
+							<th>Comments</th>
+							<th>Action</th>
 						</tr>
+					</thead>
+					<tbody>
 						<tr data-ng-repeat="effort in effortList">
 							<td style="width: 25%;"><span
 								editable-select="effort.appCode" e-name="appCode"
@@ -73,33 +75,25 @@
 							<td style="width: 35%;"><span
 								editable-text="effort.comments" e-name="comments"
 								e-form="rowform" e-required> {{effort.comments}} </span></td>
-							<!-- <td><button type="button" class="formButtons"
-									ng-click="editTask($index);">
-									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-								</button></td> -->
 							<td style="white-space: nowrap">
 								<!-- form -->
 								<form editable-form name="rowform"
 									onbeforesave="updateEffort($data);" ng-show="rowform.$visible"
 									class="form-buttons form-inline" shown="inserted == effort">
-									<button type="submit" class="formButtons"
-										ng-disabled="rowform.$waiting">
+									<button class="formButtons" type="submit" ng-disabled="rowform.$waiting">
 										<span class="glyphicon glyphicon-saved" aria-hidden="true"></span>
 									</button>
-									<button type="button" class="formButtons"
-										ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()">
-										C</button>
+									<a href="#" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()">
+										<img src="././images/cross.png"/>
+									</a>
 								</form>
 								<div class="buttons" ng-show="!rowform.$visible">
-									<button type="button" class="formButtons"
-										ng-click="rowform.$show()">
-										<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-									</button>
-									<button type="button" class="formButtons"
-										ng-click="deleteTask($index);">
-										<span class="glyphicon glyphicon-trash" aria-hidden="true"
-											ng-click="deleteTask($index);"></span>
-									</button>
+									<a href="#"  ng-click="rowform.$show()">
+										<img src="././images/edit.png"/>
+									</a>
+									<a href="#" ng-click="deleteTask($index);">
+										<img src="././images/trash.png"/>
+									</a>
 								</div>
 							</td>
 						</tr>
@@ -124,10 +118,9 @@
 								class="form-control input-sm" ng-model="task.spentHours"></td>
 							<td><input type="text" class="form-control input-sm"
 								ng-model="task.comments"></td>
-							<td><button type="button" class="formButtons"
-									ng-click="deleteTask($index);">
-									<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-								</button></td>
+							<td><a href="#" ng-click="deleteTask($index);">
+									<span class="glyphicon glyphicon-trash"></span>
+								</a></td>
 						</tr>
 					</tbody>
 				</table>
