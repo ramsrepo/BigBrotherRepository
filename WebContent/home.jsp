@@ -50,7 +50,7 @@
 					  <ul id="menuList">
 					    <li>
 					    	<a ui-sref="changepassword">
-					    		<img src="././images/changepwd.gif" /><span >Change Password</span>
+					    		<img src="././images/changepwd.png" /><span >Change Password</span>
 					   		</a>
 					   	</li>
 					    <li>
@@ -70,7 +70,7 @@
 					   	</li>
 					    <li>
 					    	<a ui-sref="dailyreport">
-					    		<img src="././images/report.gif" /><span >Reports</span>
+					    		<img src="././images/report.png" /><span >Reports</span>
 					    	</a>
 					    </li>
 					  </ul>
