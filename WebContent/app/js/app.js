@@ -31,13 +31,13 @@ myApp.config([ '$stateProvider', '$urlRouterProvider',
 			
 			.state('changepassword', {
 				url : '/changepassword',
-				templateUrl : 'partials/changepassword.html',
+				templateUrl : 'app/partials/changepassword.html',
 				controller : 'passwordController'
 			})
 
 			.state('createuser', {
 				url : '/createuser',
-				templateUrl : 'partials/user.html',
+				templateUrl : 'app/partials/user.html',
 				controller : 'userController',
 				controllerAs : 'vm',
 				resolve : {
@@ -47,7 +47,7 @@ myApp.config([ '$stateProvider', '$urlRouterProvider',
 
 			.state('creategroup', {
 				url : '/creategroup',
-				templateUrl : 'partials/group.html',
+				templateUrl : 'app/partials/group.html',
 				controller : 'groupController',
 				resolve : {
 					loadUserGroups : loadUserGroups
@@ -56,13 +56,13 @@ myApp.config([ '$stateProvider', '$urlRouterProvider',
 
 			.state('dailyreport', {
 				url : '/dailyreport',
-				templateUrl : 'partials/report.html',
+				templateUrl : 'app/partials/report.html',
 				controller : 'reportController'
 			})
 
 			.state('trackingtemplate', {
 				url : '/trackingtemplate',
-				templateUrl : 'partials/efforttrackertemplate.html',
+				templateUrl : 'app/partials/efforttrackertemplate.html',
 				controller : 'effortTrackController',
 				resolve : {
 					loadApplications : loadApplications,
