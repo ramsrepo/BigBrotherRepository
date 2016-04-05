@@ -1,8 +1,0 @@
-#selectable li > a { list-style: none; display: block; outline: none; text-decoration: none; }
-#selectable .ui-selecting, .ui-selected { background: #33bcf2; color: black; }
-#selectable { list-style-type: none; margin: 0; padding: 0;  }
-#selectable li { margin: 3px; padding: 0px; font-size: 12px; height: 21px; cursor: pointer;  }
-#selectable > li:hover { background: #33bcf2; color: black; }
-  	
-  	
-  
