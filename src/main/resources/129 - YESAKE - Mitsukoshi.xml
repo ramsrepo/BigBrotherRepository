@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?><?mso-infoPathSolution productVersion="14.0.0" PIVersion="1.0.0.0" href="https://financialsystems.disney.com/OTC/NSS/New_Store_Setup/Forms/template.xsn" name="urn:schemas-microsoft-com:office:infopath:New-Store-Setup:-myXSD-2013-10-23T16-07-52" solutionVersion="1.0.0.126" ?><?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<my:myFields xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+	xmlns:dfs="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution"
+	xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2013-10-23T16:07:52"
+	xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" xml:lang="en-us">
+	<my:Start_Section>
+		<my:File_Name>129 - YESAKE - Mitsukoshi</my:File_Name>
+		<my:ID_Num>129</my:ID_Num>
+	</my:Start_Section>
+	<my:NewStoreForm>
+		<my:StoreType>Food</my:StoreType>
+		<my:StoreCampus>WDW</my:StoreCampus>
+		<my:StoreOwner>Participant Location</my:StoreOwner>
+	</my:NewStoreForm>
+	<my:Phase1>
+		<my:Location_Name>YESAKE - Mitsukoshi</my:Location_Name>
+		<my:Go-Live>2016-04-15</my:Go-Live>
+		<my:Location_Info_Section>
+			<my:Discount></my:Discount>
+			<my:CC_Guest_Facing>true</my:CC_Guest_Facing>
+			<my:CC_Phone>false</my:CC_Phone>
+			<my:CC_Internet>false</my:CC_Internet>
+			<my:CC_None>false</my:CC_None>
+			<my:Model_Store_Num>9604</my:Model_Store_Num>
+			<my:Model_Store_Name>Japan F&amp;W</my:Model_Store_Name>
+			<my:Location_Description></my:Location_Description>
+			<my:Origin_Loc_Group>
+				<my:Origin>058</my:Origin>
+				<my:Legacy_Location>47H</my:Legacy_Location>
+			</my:Origin_Loc_Group>
+			<my:Property_Location>Downtown Disney</my:Property_Location>
+			<my:CC_Group>
+				<my:Company_Code>1029</my:Company_Code>
+			</my:CC_Group>
+			<my:BA_Group>
+				<my:Bus_Area>138</my:Bus_Area>
+			</my:BA_Group>
+			<my:Primary_LOB_Group>
+				<my:Primary_LOB>Food</my:Primary_LOB>
+			</my:Primary_LOB_Group>
+			<my:Primary_PC_Group>
+				<my:ProfitCenter1>1145438</my:ProfitCenter1>
+			</my:Primary_PC_Group>
+			<my:Primary_CC_Group>
+				<my:CostCenter1>5158608</my:CostCenter1>
+			</my:Primary_CC_Group>
+			<my:Secondary_LOB_Group>
+				<my:Secondary_LOB></my:Secondary_LOB>
+			</my:Secondary_LOB_Group>
+			<my:Secondary_PC_Group>
+				<my:ProfitCenter2></my:ProfitCenter2>
+			</my:Secondary_PC_Group>
+			<my:Secondary_CC_Group>
+				<my:CostCenter2></my:CostCenter2>
+			</my:Secondary_CC_Group>
+			<my:Third_LOB_Group>
+				<my:Third_LOB></my:Third_LOB>
+			</my:Third_LOB_Group>
+			<my:Third_PC_Group>
+				<my:ProfitCenter3></my:ProfitCenter3>
+			</my:Third_PC_Group>
+			<my:Third_CC_Group>
+				<my:CostCenter3></my:CostCenter3>
+			</my:Third_CC_Group>
+			<my:Parent_Location>Downtown Disney</my:Parent_Location>
+			<my:Address></my:Address>
+			<my:Device_Type>Disney Auth Only (Tablet)</my:Device_Type>
+			<my:Num_Dev>2</my:Num_Dev>
+			<my:Network>Wired</my:Network>
+			<my:Loc_Acc>Terminal</my:Loc_Acc>
+			<my:TCR_EDS>N/A</my:TCR_EDS>
+			<my:Legal_Name>Mitsukoshi (U.S.A.), Inc.</my:Legal_Name>
+			<my:County></my:County>
+			<my:Tax_Type>Tax Inclusive</my:Tax_Type>
+		</my:Location_Info_Section>
+		<my:Food_Settings>
+			<my:Food_Type>QSR</my:Food_Type>
+			<my:Dine_Type>07 - Participant</my:Dine_Type>
+			<my:Menu_Type>29 - Participant</my:Menu_Type>
+			<my:Seating_Type></my:Seating_Type>
+			<my:Kids_Offer></my:Kids_Offer>
+			<my:Seasonal></my:Seasonal>
+			<my:Breakfast>false</my:Breakfast>
+			<my:Lunch>false</my:Lunch>
+			<my:Dinner>false</my:Dinner>
+		</my:Food_Settings>
+		<my:Package_Plans_WDW>
+			<my:MYW_QSR>true</my:MYW_QSR>
+			<my:MYW_TSR>false</my:MYW_TSR>
+			<my:MYW_Snack>true</my:MYW_Snack>
+			<my:Mug_Plan>false</my:Mug_Plan>
+			<my:DLX_Plan>true</my:DLX_Plan>
+			<my:Platinum_Food>true</my:Platinum_Food>
+			<my:Platinum_Rec>false</my:Platinum_Rec>
+			<my:Premium_Food>true</my:Premium_Food>
+			<my:Premium_Rec>false</my:Premium_Rec>
+			<my:Package_Plan_Date>2016-05-13</my:Package_Plan_Date>
+			<my:Sell_Tickets>false</my:Sell_Tickets>
+			<my:Sell_Memory_Maker>false</my:Sell_Memory_Maker>
+		</my:Package_Plans_WDW>
+		<my:DLR_Settings>
+			<my:DLR_D23_Membership>false</my:DLR_D23_Membership>
+		</my:DLR_Settings>
+		<my:Tenders_Accepted>
+			<my:Room_Charge>true</my:Room_Charge>
+			<my:Package_Charge>false</my:Package_Charge>
+			<my:Credit_Card>false</my:Credit_Card>
+			<my:Master_Account>false</my:Master_Account>
+			<my:Rewards_Card>true</my:Rewards_Card>
+			<my:Gift_Card>true</my:Gift_Card>
+			<my:Merch_Return_Card>false</my:Merch_Return_Card>
+			<my:Dining_Card>false</my:Dining_Card>
+			<my:Shopping_Card>false</my:Shopping_Card>
+			<my:Birthday_Card>false</my:Birthday_Card>
+		</my:Tenders_Accepted>
+		<my:Package_Plans_Aulani>
+			<my:Aulani_Breakfast_Plan>false</my:Aulani_Breakfast_Plan>
+		</my:Package_Plans_Aulani>
+		<my:group1>
+			<my:Start_Completed_By>4/29/16</my:Start_Completed_By>
+			<my:Start_Completed_Date>2016-04-29</my:Start_Completed_Date>
+		</my:group1>
+	</my:Phase1>
+	<my:Phase2>
+		<my:FS_Section>
+			<my:Location_Key>05438</my:Location_Key>
+			<my:Loc_Name>YESAKE - MITSUKOSHI</my:Loc_Name>
+			<my:Reg_Number>5438</my:Reg_Number>
+			<my:Store_Number>5438</my:Store_Number>
+			<my:SLD_Number>5438</my:SLD_Number>
+			<my:RTP_Setup>true</my:RTP_Setup>
+			<my:SAP_Retail_Customer_Setup>true</my:SAP_Retail_Customer_Setup>
+			<my:FS_Completed_By>Joe Calcagno</my:FS_Completed_By>
+			<my:FS_Completed_Date>2015-12-07</my:FS_Completed_Date>
+		</my:FS_Section>
+	</my:Phase2>
+	<my:Phase3>
+		<my:CCM_Section>
+			<my:VisaMC_Initials></my:VisaMC_Initials>
+			<my:Amex_Initials></my:Amex_Initials>
+			<my:Disc_Initials></my:Disc_Initials>
+			<my:Diners_Initials></my:Diners_Initials>
+			<my:JCB_Initials></my:JCB_Initials>
+			<my:CCM_MCC></my:CCM_MCC>
+			<my:CCM_Completed_By></my:CCM_Completed_By>
+			<my:CCM_Completed_Date xsi:nil="true"></my:CCM_Completed_Date>
+			<my:Visa_MC></my:Visa_MC>
+			<my:Discover></my:Discover>
+			<my:Amex></my:Amex>
+			<my:Diners></my:Diners>
+			<my:JCB></my:JCB>
+			<my:Day_Gst_Initials></my:Day_Gst_Initials>
+			<my:Day_Guest></my:Day_Guest>
+		</my:CCM_Section>
+		<my:ARR_Section>
+			<my:Rewards_Initials>la</my:Rewards_Initials>
+			<my:Gift_Cards>97413700036</my:Gift_Cards>
+			<my:Gift_Card_Initials>MS</my:Gift_Card_Initials>
+			<my:Rewards>372643524880</my:Rewards>
+			<my:ARR_Completed_By>laurie alexander</my:ARR_Completed_By>
+			<my:ARR_Completed_Date>2016-02-25</my:ARR_Completed_Date>
+		</my:ARR_Section>
+		<my:DTI_Section>
+			<my:DTI_Completed_By></my:DTI_Completed_By>
+			<my:DTI_Completed_Date xsi:nil="true"></my:DTI_Completed_Date>
+		</my:DTI_Section>
+		<my:F_B_Data_Warehouse_Section>
+			<my:FB_Data_Completed_By>Patricia Donahue</my:FB_Data_Completed_By>
+			<my:FB_Data_Completed_Date>2015-12-22</my:FB_Data_Completed_Date>
+		</my:F_B_Data_Warehouse_Section>
+		<my:LILO_Section>
+			<my:LILO_Accounting_Ctr></my:LILO_Accounting_Ctr>
+			<my:OS_Posting></my:OS_Posting>
+			<my:ACB_Setup></my:ACB_Setup>
+			<my:ACPI_Setup>false</my:ACPI_Setup>
+			<my:POS_MM_Setup>false</my:POS_MM_Setup>
+			<my:Rev_Type_Assctn>false</my:Rev_Type_Assctn>
+			<my:ACPM_Setup>false</my:ACPM_Setup>
+			<my:LILO_Completed_By></my:LILO_Completed_By>
+			<my:LILO_Completed_Date xsi:nil="true"></my:LILO_Completed_Date>
+		</my:LILO_Section>
+		<my:Ariel_Section>
+			<my:Ariel_Completed_By></my:Ariel_Completed_By>
+			<my:Ariel_Completed_Date xsi:nil="true"></my:Ariel_Completed_Date>
+		</my:Ariel_Section>
+		<my:Rev_Ops_Setup>
+			<my:Work_List_Updated>true</my:Work_List_Updated>
+			<my:Work_List_Inc>379920</my:Work_List_Inc>
+			<my:ZCM008_Setup>false</my:ZCM008_Setup>
+			<my:Rev_Ops_Completed_By>Laurie Alexander</my:Rev_Ops_Completed_By>
+			<my:Rev_Ops_Completed_Date>2016-03-24</my:Rev_Ops_Completed_Date>
+			<my:Assign_Roles>false</my:Assign_Roles>
+			<my:CPOSI_Report>true</my:CPOSI_Report>
+			<my:Location_Variant>true</my:Location_Variant>
+			<my:field1></my:field1>
+		</my:Rev_Ops_Setup>
+		<my:TCR_Setup>
+			<my:TCR_Completed_By></my:TCR_Completed_By>
+			<my:TCR_Completed_Date xsi:nil="true"></my:TCR_Completed_Date>
+		</my:TCR_Setup>
+		<my:Simba_Setup>
+			<my:Simba_Completed_By></my:Simba_Completed_By>
+			<my:Simba_Completed_Date xsi:nil="true"></my:Simba_Completed_Date>
+		</my:Simba_Setup>
+		<my:Heimlich_Setup>
+			<my:Heimlich_Completed_By></my:Heimlich_Completed_By>
+			<my:Heimlich_Completed_Date xsi:nil="true"></my:Heimlich_Completed_Date>
+		</my:Heimlich_Setup>
+		<my:LMS_Setup>
+			<my:LMS_Completed_By></my:LMS_Completed_By>
+			<my:LMS_Completed_Date xsi:nil="true"></my:LMS_Completed_Date>
+			<my:Revenue_Center></my:Revenue_Center>
+		</my:LMS_Setup>
+		<my:CBW_Setup>
+			<my:CBW_Completed_By></my:CBW_Completed_By>
+			<my:CBW_Completed_Date xsi:nil="true"></my:CBW_Completed_Date>
+		</my:CBW_Setup>
+	</my:Phase3>
+	<my:Phase4>
+		<my:Stratus_Setup>
+			<my:Terminal_ID_1>9019</my:Terminal_ID_1>
+			<my:Terminal_ID_2></my:Terminal_ID_2>
+			<my:Terminal_ID_3></my:Terminal_ID_3>
+			<my:Terminal_ID_5></my:Terminal_ID_5>
+			<my:Terminal_ID_4></my:Terminal_ID_4>
+			<my:Terminal_ID_6></my:Terminal_ID_6>
+			<my:ID_Assigned_By>Robert Wilson</my:ID_Assigned_By>
+			<my:ID_Assigned_Date>2016-03-29</my:ID_Assigned_Date>
+			<my:ID_Turned_On_By></my:ID_Turned_On_By>
+			<my:ID_Turned_On_Date xsi:nil="true"></my:ID_Turned_On_Date>
+		</my:Stratus_Setup>
+		<my:DGCS>
+			<my:DGCS_Completed_By></my:DGCS_Completed_By>
+			<my:DGCS_Completed_Date></my:DGCS_Completed_Date>
+		</my:DGCS>
+	</my:Phase4>
+	<my:Phase5>
+		<my:RTP_Team_Setup>
+			<my:Verify_Store_Operations>false</my:Verify_Store_Operations>
+			<my:Verify_Store_Open>false</my:Verify_Store_Open>
+			<my:Verify_Item_Maintenance>false</my:Verify_Item_Maintenance>
+			<my:Verify_Sales>false</my:Verify_Sales>
+			<my:RTP_Notes></my:RTP_Notes>
+		</my:RTP_Team_Setup>
+		<my:POS_Team_Setup>
+			<my:Access_To_Global_Users>false</my:Access_To_Global_Users>
+			<my:Send_Store_Open>false</my:Send_Store_Open>
+			<my:Unblock_CPOSI>false</my:Unblock_CPOSI>
+			<my:RFC_Number></my:RFC_Number>
+			<my:POS_Store_Name></my:POS_Store_Name>
+			<my:EPAY_Merch_Name></my:EPAY_Merch_Name>
+			<my:Name_on_Receipt></my:Name_on_Receipt>
+			<my:POS_Completed_By></my:POS_Completed_By>
+			<my:POS_Completed_Date xsi:nil="true"></my:POS_Completed_Date>
+		</my:POS_Team_Setup>
+	</my:Phase5>
+</my:myFields>

@@ -1,11 +1,41 @@
-.sidebar a {
-	color: black !important;
+.navbar-fixed-top {
+	border: 0;
+}
+
+.navbar-nav>li>a,.navbar-brand {
+	padding-top: 5px !important;
+	padding-bottom: 0 !important;
+	height: 30px;
+}
+
+.navbar {
+	min-height: 30px !important;
+	/* box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2); */
+}
+
+.navbar-default {
+	background-color: #039BE6;
+	background-image: none;
+	background-repeat: no-repeat;
+}
+
+.navbar-default .navbar-brand {
+	color: #fff;
+}
+
+.dropdown-menu > li > a {
+	font-size: 11px;
+	font-family: Tahoma,Helvetica;
 }
 
 .btn {
 	padding: 5px 7px;
 	font-family: verdana;
 	font-weight: normal;
+}
+
+label {
+	font-weight: normal !important;
 }
 
 .form-group {
@@ -48,144 +78,35 @@
 	margin-top: 15px;
 }
 
-.row-hover tr:hover {
-	background-color: #cfe5fa;
-	cursor: pointer;
-}
-
-.navbar-default {
-	background-color: #039BE6;
-	background-image: none;
-	background-repeat: no-repeat;
-}
-
-.navbar .nav>li>a {
-	line-height: 19px;
-	text-decoration: none;
-	color: white;
-}
-
-.navbar-default .navbar-brand {
-	color: #fff;
-}
-
-td,th {
-	padding: 2px 2px 2px 2px;
-}
-
-.dropdown-menu .sub-menu {
-	left: 100%;
-	position: absolute;
-	top: 0;
-	visibility: hidden;
-	margin-top: -1px;
-}
-
-.navbar .sub-menu:before {
-	border-bottom: 7px solid transparent;
-	border-left: none;
-	border-right: 7px solid rgba(0, 0, 0, 0.2);
-	border-top: 7px solid transparent;
-	left: -7px;
-	top: 10px;
-}
-
-.navbar .sub-menu:after {
-	border-top: 6px solid transparent;
-	border-left: none;
-	border-right: 6px solid #fff;
-	border-bottom: 6px solid transparent;
-	left: 10px;
-	top: 11px;
-	left: -6px;
-}
-
-.panel {
-	height: 100%;
-}
-
-.panel-heading.active {
-	background-color: green;
-}
-
-/********************* Bootstrap  Custom Modal Starts *********************/
-.modal-body {
-	max-height: 350px;
-	overflow: auto;
-	background-color: #f5f5f5;
-}
-
-.panel-heading {
-	padding: 4px 20px;
-	color: #fff;
-	background-color: #428bca;
-	border-color: #428bca;
-}
-
-.panel>.panel-heading>.panel-title>a {
-	text-decoration: none;
-}
-
-.panel-heading .accordion-toggle:after {
-	/* symbol for "opening" panels */
-	font-family: 'Glyphicons Halflings';
-	/* essential for enabling glyphicon */
-	content: "\e114"; /* adjust as needed, taken from bootstrap.css */
-	float: right; /* adjust as needed */
-	font-size: 10px;
-	padding-top: 5px;
-}
-
-.panel-heading .accordion-toggle.collapsed:after {
-	/* symbol for "collapsed" panels */
-	content: "\e080"; /* adjust as needed, taken from bootstrap.css */
-}
-
-.modal-footer {
-	padding-bottom: 8px;
-	padding-top: 8px;
-}
-
-.modal-content {
-	border-bottom-color: #bce8f1;
-	border-left-color: #bce8f1;
-	border-right-color: #bce8f1;
-	border-top-color: #bce8f1;
-	color: #31708f;
-}
-
-.grid tbody tr:hover {
-	cursor: pointer;
-	background-color: #ddd;
-	color: black;
-}
-
-/********************* Bootstrap  Custom Modal Ends *********************/
-
 /********************* Bootstrap  Tab Manipulations Starts *********************/
-.nav-tabs>li>a {
-	background-color: #90bade;
-	border-radius: 15px 0px 0px 0px; /*top right bottom left*/
-	height: 20px;
-	line-height: 1px;
-	cursor: pointer;
-	color: #fff;
-	border: 1px solid #b6d2ee;
+.nav-tabs {
+	border: none !important;
 }
 
-nav-tabs>li.active>a {
-	color: #555;
-	cursor: default;
-	background-color: #039BE6;
-	border: 1px solid #b6d2ee;
-	border-bottom-color: transparent;
+.nav-tabs>li>a {
+	height: 30px;
+	cursor: pointer;
+	color: #fff;
+	margin-right: 2px;
+	line-height: 1.42857143;
+	border-radius: 0px;
+	padding: 8px 15px;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+	background-color: #b5deff !important;
+	border: 0px !important;
+}
+
+.nav-tabs>li>a:hover,.nav-tabs>li>a:active,.nav-tabs>li>a:focus {
+	background-color: #b5deff !important;
+	color: #333;
 }
 
 .tab-pane {
-	padding-top: 10px;
-	overflow: auto;
-	height: 475px;
-	border: 1px solid #b6d2ee;
+	/* padding-top: 10px; */
+	overflow-x: hidden;
+	height: auto;
 	border-top: 0;
 }
 
@@ -199,25 +120,25 @@ nav-tabs>li.active>a {
 	padding-right: 10px;
 }
 
-.dropdown-menu {
-	width: auto;
+td,th {
+	padding: 2px 2px 2px 2px;
 }
 
 .table {
-	border: 1px solid #a4bed4;	
+	border: 1px solid #a4bed4;
 }
 
 .table th {
 	text-align: left;
 	font-weight: normal !important;
-    background-color: #e2efff;
-    background: linear-gradient(#e2efff,#d3e7ff);
-    background: -webkit-linear-gradient(#e2efff,#d3e7ff);
-    filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#e2efff,endColorStr=#d3e7ff) 
-    		progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+	background-color: #e2efff;
+	background: linear-gradient(#e2efff, #d3e7ff);
+	background: -webkit-linear-gradient(#e2efff, #d3e7ff);
+	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,
+		startColorStr=#e2efff, endColorStr=#d3e7ff) progid:DXImageTransform.Microsoft.Alpha(opacity=100);
 }
 
-.table tbody > tr {
+.table tbody>tr {
 	height: 25px;
 }
 
@@ -225,23 +146,16 @@ nav-tabs>li.active>a {
 	vertical-align: middle;
 }
 
-/*Bootstrap table row hover customization*/
-/* .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  	background-color: #b5deff;
-   	border-top: 1px solid #a1ceed;
-    border-bottom: 1px solid #a1ceed;
-    border-right: 1px solid #b5deff;
-} */
-.table-striped>tbody>tr:nth-child(even)>td, .table-striped>tbody>tr:nth-child(even)>th
+.table-striped>tbody>tr:nth-child(even)>td,.table-striped>tbody>tr:nth-child(even)>th
 	{
 	background: #ebf3ff;
 }
 
-.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th
+.table-striped>tbody>tr:nth-child(odd)>td,.table-striped>tbody>tr:nth-child(odd)>th
 	{
 	background: #fff;
 }
 
 .table-bordered>thead>tr>th {
-    border: 1px solid #a4bed4;
+	border: 1px solid #a4bed4;
 }

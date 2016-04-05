@@ -16,7 +16,7 @@ public class HomeController {
 				.getAuthentication().getPrincipal();
 		String name = user.getUsername(); // get logged in username
 		System.out.println("System logged in by :  " + name);
-		return "home.jsp";
+		return "maverickhome.jsp";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

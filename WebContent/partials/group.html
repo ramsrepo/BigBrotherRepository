@@ -1,16 +1,12 @@
-<div class="pageHeader">
-	<p>User Group</p>
-</div>
+<form class="form-horizontal" style="height: 400px;">
 
-
-<form class="form-horizontal" style="height: 340px; margin-top:15px;">
-
-	<div class=" text-center" style="height: 50px;">
+	<!-- <div class=" text-center" style="height: 50px;">
 		<pagination ng-model="currentPage" class="pull-center"
 			total-items="totalUserGroupsList.length" num-pages="noOfPages"
 			max-size="maxSize" boundary-links="true"
 			items-per-page="itemsPerPage"> </pagination>
-	</div>
+	</div> -->
+	<p style="font-weight: bold; color: #0090ff;">List of Groups</p>
 	<br>
 	<table st-table="rowCollection" class="table table-bordered table-striped table-condensed">
 		<thead>
@@ -20,7 +16,7 @@
 				<th>Group Size</th>
 				<th>R.M</th>
 				<th>Project</th>
-				<th>Action</th>
+				<!-- <th>Action</th> -->
 			</tr>
 		</thead>
 		<tbody>
@@ -30,13 +26,12 @@
 				<td>{{group.groupSize}}</td>
 				<td>{{group.reportingManager}}</td>
 				<td>{{group.project}}</td>
-				<td><a href="#" style="display: none"
-					ng-click="editUser(group);" showonhoverparent> <span
-						class="glyphicon glyphicon-edit"></span>
+				<!-- angularjs user directive 'showonhoverparent' for below td-->
+				<!-- <td><a href="#" style="display: none"
+					ng-click="editUser(group);" > <span class="glyphicon glyphicon-edit"></span>
 				</a> <a href="#" style="display: none" ng-click="deleteGroup(group);"
 					showonhoverparent> <span class="glyphicon glyphicon-trash"></span>
-				</a></td>
-
+				</a></td> -->
 			</tr>
 		</tbody>
 	</table>

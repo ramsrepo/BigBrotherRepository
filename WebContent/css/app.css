@@ -1,17 +1,14 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 
-/* style.css */
-* {
-	font-size: 11px;
-}
-
-body {
+html, body {
+	overflow-x: hidden!important;
+	-webkit-font-smoothing: antialiased;
+  	min-height: 100%;
 	padding-top: 50px;
 	line-height: 0.5cm;
 	font-style: normal;
 	color: #333333;
 	margin-top: 10px;
-	height: 100%;
 	font-family: Tahoma,Helvetica;
 	font-size: 11px;
 	color: #131313;
@@ -23,27 +20,8 @@ h4 {
 	color: #245269 !important;
 }
 
-a,input {
+a,input,button:focus {
 	outline: none !important;
-}
-
-button:focus {
-	outline: none !important;
-}
-
-.navbar-fixed-top {
-	border: 0;
-}
-
-.navbar-nav>li>a,.navbar-brand {
-	padding-top: 5px !important;
-	padding-bottom: 0 !important;
-	height: 30px;
-}
-
-.navbar {
-	min-height: 30px !important;
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 @media ( min-width : 768px) {
@@ -52,34 +30,33 @@ button:focus {
 		top: 30px;
 		bottom: 0;
 		left: 0;
-		z-index: 1000;
 		display: block;
 		overflow-x: hidden;
 		overflow-y: auto;
-		background-color: #f5f5f5;
-		border-style : solid; 
-		border-color : #a4bed4; 
-		border-width : 1px 1px 0 1px;
-		border-right: 1px solid #a4bed4;
+		background-color: #ebf3ff;
 		font-size: 11px !important;
 		padding: 0px;
 		border-style: solid;
 		border-color: #a4bed4;
 		border-width: 1px 1px 0 1px;
+		border-right: 1px solid #a4bed4;
 	}
 	.main {
 		position: fixed;
 		top: 30px;
 		bottom: 0;
 		left: 0;
-		z-index: 1000;
 		display: block;
 		overflow-x: hidden;
 		overflow-y: auto;
-		/* border-left: 2px solid #e2efff; */
 		border-top: 0px;
 		padding: 2px;
 	}
+		
+}
+
+.sidebar a {
+	color: black !important;
 }
 
 .pageHeader {
@@ -136,26 +113,6 @@ button:focus {
 	margin: 0;
 }
 
-.thStyle {
-	text-align: center;
-	font-weight: bold;
-}
-
-.modal-dialog {
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-	z-index: 9999;
-	border-radius: 18px;
-}
-
-.favoritesDiv {
-	min-height: 530px;
-}
-
-#popUpDiv {
-	display: none;
-	padding: 0.5em;
-}
-
 #button {
 	border-right: 1px;
 	padding: 0 0 0 0;
@@ -176,6 +133,11 @@ button:focus {
 	height: 25px;
 	/* border-top: 1px solid #a4bed4; */
 }
+
+/* #menuList li:hover {
+	border-color: #a4bed4;
+	background-color: #b5deff
+} */
 
 #button li a {
 	display: block;

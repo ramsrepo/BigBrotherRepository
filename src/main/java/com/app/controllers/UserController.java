@@ -29,7 +29,7 @@ public class UserController {
 	
 	@RequestMapping( value = "/add", method = RequestMethod.POST)
 	public ResponseEntity<List<UserModel>> addUser(@RequestBody UserModel user){
-		System.out.println("ApplicationUser Data from Screen FN: "+ user.getFirstName());
+		System.out.println("ApplicationUser Data from Screen FN: "+ user.getName());
 		this.userService.addUser(user);
 		List<UserModel> users = this.userService.findAll();
         if(users.isEmpty()){

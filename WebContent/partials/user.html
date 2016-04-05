@@ -1,60 +1,46 @@
-<div class="pageHeader">
-	<p>User</p>
-</div>
-
-<form class="form-horizontal" style="margin-top:15px;">
-	<button ng-click="createOrEditUser();" type="button"
-		class="formButtons">
-		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
-		User
-	</button>
-	<button type="button" class="formButtons">
-		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-		Delete All
-	</button>
-	<br /> <br />
-	<div>
-		<div style="height: 340px;">
-			<table st-table="rowCollection" class="table table-bordered table-striped table-condensed">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Role</th>
-						<th>Project</th>
-						<th>Address</th>
-						<th>City</th>
-						<th>State</th>
-						<th>Country</th>
-						<th>Is Active</th>
-						<th style="width: 5%;">Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="user in userList" ng-click="createOrEditUser(user);" >
-						<td>{{user.firstName}} {{user.middleName}} {{user.lastName}}</td>
-						<td>{{user.role}}</td>
-						<td>{{user.project}}</td>
-						<td>{{user.address1}}</td>
-						<td>{{user.city}}</td>
-						<td>{{user.state}}</td>
-						<td>{{user.country}}</td>
-						<td>{{user.active}}</td>
-						<td><a href="#" style="display: none"
-							ng-click="deleteUser(user);" showonhoverparent> <span
-								class="glyphicon glyphicon-trash"></span>
-						</a></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<br>
-		<div class=" text-center" style="height: 50px;">
-			<pagination ng-model="currentPage" class="pull-center"
-				total-items="totalUsersList.length" num-pages="noOfPages"
-				max-size="maxSize" boundary-links="true"
-				items-per-page="itemsPerPage"> </pagination>
-		</div>
+<form class="form-horizontal">
+	<p style="font-size:13px; font-weight: bold; color: #0090ff;">List of Users</p>
+	<br>
+	<div style="height: 340px;">
+		<table st-table="rowCollection"
+			class="table table-bordered table-striped table-condensed">
+			<thead>
+				<tr>
+					<th>Hub Id</th>
+					<th>Name</th>
+					<th>Project</th>
+					<th>Role</th>
+					<th>R.M</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Is Active</th>
+					<!-- <th style="width: 5%;">Action</th> -->
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in userList" ng-click="createOrEditUser(user);">
+					<td>{{user.hubId}}</td>
+					<td>{{user.name}}</td>
+					<td>{{user.project}}</td>
+					<td>{{user.role}}</td>
+					<td>{{user.rm}}</td>
+					<td>{{user.email}}</td>
+					<td>{{user.phone}}</td>
+					<td>{{user.active}}</td>
+					<!-- <td><a href="#" style="display: none"
+						ng-click="deleteUser(user);" > <span class="glyphicon glyphicon-trash"></span>showonhoverparent for td
+					</a></td> -->
+				</tr>
+			</tbody>
+		</table>
 	</div>
+	
+	<!-- <div class=" text-center" style="height: 50px;">
+		<pagination ng-model="currentPage" class="pull-center"
+			total-items="totalUsersList.length" num-pages="noOfPages"
+			max-size="maxSize" boundary-links="true"
+			items-per-page="itemsPerPage"> </pagination>
+	</div> -->
 
 </form>
 

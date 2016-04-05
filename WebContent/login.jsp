@@ -68,7 +68,7 @@ p {
 				String logOut = (String) request.getAttribute("logOutMsg");
 				if (logOut != null && logOut.trim().equals("true")) {
 					out.println("<div class='alert alert-success fade in'>"+
-						  		"<strong>Success:</strong> You were logged out."+
+						  		"You were logged out. Please enter your credentials to login."+
 						  		"</div>");
 				}
 			%>
