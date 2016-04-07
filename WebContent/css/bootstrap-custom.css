@@ -125,17 +125,28 @@ td,th {
 }
 
 .table {
-	border: 1px solid #a4bed4;
+	border-width: 1px 1px 2px;
+    border-style: solid;
+    border-color: #a4bed4;
+    border-top: none !important;
 }
 
 .table th {
 	text-align: left;
 	font-weight: normal !important;
-	background-color: #e2efff;
+	/* background-color: #e2efff;
 	background: linear-gradient(#e2efff, #d3e7ff);
 	background: -webkit-linear-gradient(#e2efff, #d3e7ff);
 	filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,
-		startColorStr=#e2efff, endColorStr=#d3e7ff) progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+		startColorStr=#e2efff, endColorStr=#d3e7ff) progid:DXImageTransform.Microsoft.Alpha(opacity=100); */
+	background-image: -o-linear-gradient(-89deg, #69b1e5 0, #3485d0 100%);
+	background-image: -moz-linear-gradient(-89deg, #69b1e5 0, #3485d0 100%);
+	background-image: -ms-linear-gradient(-89deg, #69b1e5 0, #3485d0 100%);
+	background-image: linear-gradient(-179deg, #69b1e5 0, #3485d0 100%);
+	-moz-box-shadow: 0 -1px 0 0 #5ca4df, inset 0 -1px 0 0 #327ac2, inset 0 1px 0 0 #71b9ea;
+	box-shadow: 0 -1px 0 0 #5ca4df, inset 0 -1px 0 0 #327ac2, inset 0 1px 0 0 #71b9ea;
+	color: #fff;
+	
 }
 
 .table tbody>tr {
@@ -158,4 +169,5 @@ td,th {
 
 .table-bordered>thead>tr>th {
 	border: 1px solid #a4bed4;
+	height: 5px !important;
 }

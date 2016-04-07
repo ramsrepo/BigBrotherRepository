@@ -59,9 +59,21 @@ public class EffortTrackerController {
 	    else {
 	    	return new ResponseEntity<List<EffortTrackerTemplateModel>>(efforts, HttpStatus.OK);  
 	    }
+	}
+	
+	@RequestMapping( value = "/updateEfforts", method = RequestMethod.POST)
+	public ResponseEntity<List<EffortTrackerTemplateModel>> updateEffortTemplate(@RequestBody List<EffortTrackerTemplateModel> effortTemplateList) {
+		boolean saveValidate = this.effortTrackService.updateTemplate(effortTemplateList);
+		List<EffortTrackerTemplateModel> efforts = new ArrayList<EffortTrackerTemplateModel>();
+		if(saveValidate)
+			efforts = this.effortTrackService.findAllEfforts();
 		
+		if(efforts.isEmpty())
+			return new ResponseEntity<List<EffortTrackerTemplateModel>>(HttpStatus.NO_CONTENT);
+	    else {
+	    	return new ResponseEntity<List<EffortTrackerTemplateModel>>(efforts, HttpStatus.OK);  
+	    }
 		
-        
 	}
 	
 }

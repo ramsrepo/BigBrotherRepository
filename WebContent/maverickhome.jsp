@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap-datetime.css">
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap-custom.css">
+	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/toaster.css">
 	<link rel="stylesheet" type="text/css" href="lib/angular-1.4.3/xeditable.css">
 	<link href="css/maverix.css" rel="stylesheet">
     
@@ -74,30 +75,33 @@
 
 
 		<div class="heading-bar">
-			<!--  <div class="user-bar">
-        Hi, Username | <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Sign out</a>
-    </div> -->
+			<div class="user-bar">
+				Hi, Sriram | <a href="#" data-toggle="modal" data-target="#logoutModal">Sign out</a>
+			</div>
 			<span class="heading-one" ng-bind="title"> <!-- <img ng-src="{{img}}" width="30" height="30"> -->
 			</span>
 
 			<!-- <div id="top-switch" class="osx-switch" ng-if="showTopToggle">
-        <span class="osx-switch-label osx-switch-label-active">ON</span>
-        <span class="osx-switch-label osx-switch-label-inactive">OFF</span>
-        <label class="switch-light switch-candy" onclick="">
-            <input type="checkbox">
-            <a></a>
-        </label>
-    </div> -->
-			<div class="modal bs-example-modal-sm" tabindex="-1" role="dialog"
-				aria-hidden="true">
+        			<span class="osx-switch-label osx-switch-label-active">ON</span>
+        			<span class="osx-switch-label osx-switch-label-inactive">OFF</span>
+			        <label class="switch-light switch-candy" onclick="">
+			            <input type="checkbox">
+			            <a></a>
+			        </label>
+   			</div> -->
+			<div class="modal bs-example-modal-sm" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
 				<div class="modal-dialog modal-sm">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h4>Logout</h4>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title" id="myModalLabel">
+								Logout
+							</h4>
 						</div>
 						<div class="modal-body">Are you sure you want to log-off ?</div>
 						<div class="modal-footer">
-							<a href="/BigB/logout" class="btn btn-primary btn-block">Logout</a>
+							<a href="/BigB/logout" class="btn btn-default">Logout</a>
 						</div>
 					</div>
 				</div>
@@ -107,6 +111,9 @@
 		<div class="content">
 			<div class="container-fluid container-maverix" ui-view></div>
 		</div>
+		
+		<toaster-container toaster-options="{'time-out': 5000, 'close-button':true}"></toaster-container>
+		
 	</div>
 
 
@@ -136,6 +143,11 @@
 <script src="lib/angular-1.4.3/xeditable.js"></script>
 <script src="lib/angular-1.4.3/xeditable.min.js"></script>
 <script src="lib/underscore.js"></script>
+
+<script src="lib/angular-1.4.3/angular-animate.min.js"></script>
+<script src="lib/angular-1.4.3/toaster.js"></script>
+
+
 	
 <script src="app/js/app.js"></script>
 <script src="app/js/services.js"></script>
@@ -161,13 +173,13 @@
             console.log("Focussed");
         });
 
-        $(window).on('focus', function () {
+        /* $(window).on('focus', function () {
             $("body").removeClass("blur");
         });
 
         $(window).on('blur', function () {
             $("body").addClass("blur");
-        });
+        }); */
 
         // Rangeslider
         /* $('input[type="range"]').rangeslider({

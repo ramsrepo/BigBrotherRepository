@@ -32,6 +32,12 @@ public class EffortTrackerServiceImpl implements EffortTrackerService{
 	public Boolean saveTemplate(List<EffortTrackerTemplateModel> effortsList) {
 		return  this.effortTrackerDao.saveTemplateList(effortsList); 
 	}
+	
+	@Override
+	@Transactional
+	public Boolean updateTemplate(List<EffortTrackerTemplateModel> effortsList) {
+		return  this.effortTrackerDao.updateTemplateList(effortsList); 
+	}
 
 	public EffortTrackerDAO getEffortTrackerDao() {
 		return effortTrackerDao;

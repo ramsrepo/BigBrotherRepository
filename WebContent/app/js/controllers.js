@@ -125,10 +125,11 @@ angular.module('myApp.controllers', [])
 			alert($scope.selecteddate);
 		}	 
 	})
-    .controller('effortTrackController',function($scope, $window , $http, $filter, effortTrackerService, loadApplications, loadEfforts){
+    .controller('effortTrackController',function($scope, toaster, $window , $http, $filter, 
+    											effortTrackerService, loadApplications, loadEfforts){
     	$scope.$parent.title = "Effort Tracker Template";
         $scope.$parent.showTopToggle = false;
-        
+        $scope.editRowFormStateObjects = [];
     	$scope.tasks = []; 
     	$scope.updatedTasks = [];
     	$scope.selecteddate = new Date();
@@ -173,34 +174,74 @@ angular.module('myApp.controllers', [])
     		} 
     	  };
     	  
+
+    	$scope.enableCurrentRow = function(rowform) {
+    		if(_.isEmpty($scope.editRowFormStateObjects)) {
+    			$scope.editRowFormStateObjects.push(rowform);
+    			rowform.$show();
+    		}
+    		else {
+    			angular.forEach($scope.editRowFormStateObjects, function(row,index) {
+    				row.$cancel();
+    				$scope.editRowFormStateObjects.splice(index,1);
+    			});
+    			$scope.editRowFormStateObjects.push(rowform);
+    			rowform.$show();
+    		}
+    	}; 	
+			    	  
+    	$scope.updateEffort = function(modifiedEffort, originalEffort ) {
+    		
+    		modifiedEffort.id = originalEffort.id;
+    		modifiedEffort.activityDate = originalEffort.activityDate;
+    		modifiedEffort.week = originalEffort.week;
+    		
+			if (_.findWhere($scope.updatedTasks, { id : originalEffort.id })) {
+				$scope.updatedTasks = _.without($scope.updatedTasks, _.findWhere($scope.updatedTasks, { id : originalEffort.id }));
+				$scope.updatedTasks.push(modifiedEffort);
+			} else {
+				$scope.updatedTasks.push(modifiedEffort);
+			}
+			
+			if($scope.updatedTasks.length>0) {
+				var responseCatalog = effortTrackerService.updateEfforts($scope.updatedTasks);
+				responseCatalog.success(function (response) {
+					$scope.effortList = response;
+					$scope.updatedTasks.length = 0;
+					toaster.pop('success', "Efforts Updated Successfully");
+				});
+				responseCatalog.error(function (data,status) {
+					if(status == 400 || status == 403) {
+						alert('Error while processing!');
+					}
+				});
+			 } else {
+				 alert("Please modify effort to Update");
+			 }
+    	}
     	  
-    	  $scope.updateEffort = function(effort, effortId) {
-    		  $scope.updatedTasks.push(effort);
-    		  /*alert(JSON.stringify($scope.updatedTasks)+"--------------"+effortId);*/
-    	  }
+    	$scope.deleteTask = function(taskIndexToDelete) {
+    		$scope.tasks.splice(taskIndexToDelete,1);
+    	};
     	  
-    	  $scope.deleteTask = function(taskIndexToDelete) {
-    		  $scope.tasks.splice(taskIndexToDelete,1);
-    	  };
-    	  
-    	  $scope.saveTemplate = function() {
-    		 if($scope.tasks.length>0) {
-    			 var responseCatalog = effortTrackerService.saveEfforts($scope.tasks);
-    				responseCatalog.success(function (response) {
-    					$scope.effortList = response;
-    					$scope.tasks.length = 0;
-    				});
-    				responseCatalog.error(function (data,status) {
-    					if(status == 400 || status == 403) {
-    						alert('Error while processing!');
-    					}
-    				});
-    		 } else {
-    			 alert("Please add effort to Save");
-    		 }
-    		  
-    	  };
-    	  
+    	$scope.saveTemplate = function() {
+			 if($scope.tasks.length>0) {
+				 var responseCatalog = effortTrackerService.saveEfforts($scope.tasks);
+					responseCatalog.success(function (response) {
+						$scope.effortList = response;
+						$scope.tasks.length = 0;
+					    toaster.pop('success', "Efforts Saved Successfully");
+					});
+					responseCatalog.error(function (data,status) {
+						if(status == 400 || status == 403) {
+							alert('Error while processing!');
+						}
+					});
+			 } else {
+				 alert("Please add effort to Save");
+		 }
+		  
+    	};
     })
    .controller('homeController', function($scope, $location) {
 	   $scope.$parent.title = "Dashboard";
@@ -212,3 +253,8 @@ angular.module('myApp.controllers', [])
 	.controller('passwordController', function($scope, $window, $http, $location) {
 		$scope.$parent.title = "Change Password";
 	});
+
+function getWeekInaMonth(month, day) {
+	var weekNumber = Math.ceil((day + 1) / 7)
+	return weekNumber;
+}
