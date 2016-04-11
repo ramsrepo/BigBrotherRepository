@@ -31,6 +31,12 @@ public class UserServiceImpl implements UserService {
 		return this.userDao.findAll();
 	}
 	
+	@Override
+	@Transactional
+	public List<UserModel> findAllByGroupCode(String groupCode){
+		return this.userDao.findByGroupCode(groupCode);
+	}
+	
 	
 	public UserDAO getUserDao() {
 		return userDao;

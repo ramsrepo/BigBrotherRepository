@@ -11,5 +11,7 @@ public interface UserDAO {
 	public Integer updateUser(UserModel user);
 	public void removeUser(UserModel user);
 	public List<UserModel> findAll();
+	public List<UserModel> findByGroupCode(String groupCode);
+	
 
 }

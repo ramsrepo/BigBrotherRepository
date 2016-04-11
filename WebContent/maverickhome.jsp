@@ -66,8 +66,10 @@
 						ui-sref="createuser"> User</a></li>
 					<li ng-class="{ selected: isActive('/trackingtemplate')}"><a
 						ui-sref="trackingtemplate"> Effort Tracker Template</a></li>
-					<li ng-class="{ selected: isActive('/dailyreport')}"><a
-						ui-sref="dailyreport">Reports</a></li>
+					<li ng-class="{ selected: isActive('/status')}"><a
+						ui-sref="status">Effort Status</a></li>
+					<li ng-class="{ selected: isActive('/validateEfforts')}"><a
+						ui-sref="validateEfforts">Validte Efforts</a></li>
 				</ul>
 			</div>
 
@@ -169,23 +171,6 @@
             $nextUl.slideToggle("fast", "swing");
         });
 
-        $(document).on("focus", function (e) {
-            console.log("Focussed");
-        });
-
-        /* $(window).on('focus', function () {
-            $("body").removeClass("blur");
-        });
-
-        $(window).on('blur', function () {
-            $("body").addClass("blur");
-        }); */
-
-        // Rangeslider
-        /* $('input[type="range"]').rangeslider({
-            // Feature detection
-            polyfill: false
-        }); */
     });
 </script>
 </body>

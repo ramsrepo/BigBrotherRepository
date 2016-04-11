@@ -53,5 +53,13 @@ public class UserDaoImpl implements UserDAO{
 		List<UserModel> userList = session.createQuery("from UserModel ORDER BY ID DESC").list();
 		return userList;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<UserModel> findByGroupCode(String groupCode) {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<UserModel> userList = session.createQuery("from UserModel where UPPER(project)='"+groupCode.toUpperCase()+"' ORDER BY ID DESC").list();
+		return userList;
+	}
 
 }

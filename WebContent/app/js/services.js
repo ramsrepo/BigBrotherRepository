@@ -40,13 +40,19 @@ factory('userService', function($http) {
 		var theUrl = '/BigB/user/delete';
 		return $http.post(theUrl, data);
 	};
+	
+	// Service to find all the existing Users based on User Group Code.
+	userService.loadUsersByGroup = function(data) {
+		var theUrl = '/BigB/user/findUsersByGroup';
+		return $http.post(theUrl,data);
+	};	
 
 	// Service to find all the existing User Groups.
 	userService.loadUserGroups = function() {
 		var theUrl = '/BigB/group/findAll';
 		return $http.get(theUrl);
 	};
-
+	
 	// Service to Add the User Group.
 	userService.addUserGroup = function(data) {
 		var theUrl = '/BigB/group/add';
@@ -93,4 +99,11 @@ factory('effortTrackerService', function($http) {
 
 	return effortTrackerService;
 
+}).
+
+factory('reportService', function($http) {
+	
+	var reportService = {};
+
+	return reportService;
 });

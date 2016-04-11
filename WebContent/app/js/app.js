@@ -54,10 +54,13 @@ myApp.config([ '$stateProvider', '$urlRouterProvider',
 				}
 			})
 
-			.state('dailyreport', {
-				url : '/dailyreport',
-				templateUrl : 'app/partials/report.html',
-				controller : 'reportController'
+			.state('status', {
+				url : '/status',
+				templateUrl : 'app/partials/trackrffortstatus.html',
+				controller : 'effortStatusController',
+				resolve : {
+					loadUserGroups: loadUserGroups
+				}
 			})
 
 			.state('trackingtemplate', {
@@ -68,7 +71,15 @@ myApp.config([ '$stateProvider', '$urlRouterProvider',
 					loadApplications : loadApplications,
 					loadEfforts : loadEfforts
 				}
+			})
+			
+			.state('validateEfforts', {
+				url : '/validateEfforts',
+				templateUrl : 'app/partials/validateEfforts.html',
+				controller : 'effortValidateController'
 			});
+			
+			
 
 		} ]);
 

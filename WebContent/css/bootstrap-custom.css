@@ -151,6 +151,7 @@ td,th {
 
 .table tbody>tr {
 	height: 25px;
+	/* cursor: pointer; */
 }
 
 .table tbody>tr>td {
@@ -170,4 +171,12 @@ td,th {
 .table-bordered>thead>tr>th {
 	border: 1px solid #a4bed4;
 	height: 5px !important;
+}
+
+.table tbody>tr:hover  {
+  cursor: pointer;
+}
+
+.selected {
+	 background-color: #FFE5B4;
 }

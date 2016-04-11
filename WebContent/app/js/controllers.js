@@ -118,13 +118,34 @@ angular.module('myApp.controllers', [])
 					 * }); }
 					 */
 	})
-	.controller('reportController', function($scope, $window , $http){
-		$scope.$parent.title = "Reports";
+	.controller('effortStatusController', function($scope, $window , $http, loadUserGroups, userService){
+		$scope.$parent.title = "Track Efforts Status";
 		$scope.$parent.showTopToggle = false;
-		$scope.alertDate = function() {
-			alert($scope.selecteddate);
-		}	 
+		$scope.groups = loadUserGroups.data;
+		$scope.selectedRow = null;
+		
+		$scope.showMembers = function(group, rowIndex) {
+			$scope.selectedRow = rowIndex;
+			var responseCatalog = userService.loadUsersByGroup(group.groupCode);
+    		responseCatalog.success(function (response) {
+    			$scope.members = response;
+    		});
+    		responseCatalog.error(function (data,status) {
+    			if(status == 400 || status == 403) {
+    				toaster.pop('error', "Error while getting Members!");
+    			}
+    		});
+			
+		}
+		
+		
 	})
+	
+	.controller('effortValidateController', function($scope, toaster, $window , $http, $filter) {
+		
+	})
+	
+	
     .controller('effortTrackController',function($scope, toaster, $window , $http, $filter, 
     											effortTrackerService, loadApplications, loadEfforts){
     	$scope.$parent.title = "Effort Tracker Template";
@@ -153,14 +174,14 @@ angular.module('myApp.controllers', [])
     		});
     		responseCatalog.error(function (data,status) {
     			if(status == 400 || status == 403) {
-    				alert('Error while getting Efforts!');
+    				toaster.pop('error', "Error while getting Efforts!");
     			}
     		});
     	}
     	
     	$scope.addNewTask = function() {
     		if($scope.selecteddate === "" || $scope.selecteddate === undefined) {
-    			alert("Please select Activity Date first");
+    			toaster.pop('warning', "Please select Activity Date first");
     		} else {
     			var weekNumber = getWeekInaMonth(new Date($scope.selecteddate).getMonth(), new Date($scope.selecteddate).getDate());
     			for(var i=0;i<$scope.noOfTasks;i++) {
@@ -212,11 +233,11 @@ angular.module('myApp.controllers', [])
 				});
 				responseCatalog.error(function (data,status) {
 					if(status == 400 || status == 403) {
-						alert('Error while processing!');
+						toaster.pop('error', "Error while Updating Efforts!");
 					}
 				});
 			 } else {
-				 alert("Please modify effort to Update");
+				 toaster.pop('warning', "Please modify Effort to Update");
 			 }
     	}
     	  
@@ -234,11 +255,11 @@ angular.module('myApp.controllers', [])
 					});
 					responseCatalog.error(function (data,status) {
 						if(status == 400 || status == 403) {
-							alert('Error while processing!');
+							toaster.pop('error', "Error while Updating Efforts!");
 						}
 					});
 			 } else {
-				 alert("Please add effort to Save");
+				 toaster.pop('warning', "Please add Effort to Save");
 		 }
 		  
     	};
