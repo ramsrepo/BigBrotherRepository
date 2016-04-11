@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-var myApp = angular.module( 'myApp', [ 'ui.router', 'ui.bootstrap', 'xeditable', 'ngAnimate', 'toaster',
+var myApp = angular.module( 'myApp', [ 'ui.router', 'ui.bootstrap', 'xeditable', 'ngAnimate', 'toaster', 'ngSanitize',
 		  'myApp.filters', 
 		  'myApp.services', 
 		  'myApp.directives',
@@ -56,7 +56,7 @@ myApp.config([ '$stateProvider', '$urlRouterProvider',
 
 			.state('status', {
 				url : '/status',
-				templateUrl : 'app/partials/trackrffortstatus.html',
+				templateUrl : 'app/partials/trackeffortstatus.html',
 				controller : 'effortStatusController',
 				resolve : {
 					loadUserGroups: loadUserGroups
@@ -76,7 +76,10 @@ myApp.config([ '$stateProvider', '$urlRouterProvider',
 			.state('validateEfforts', {
 				url : '/validateEfforts',
 				templateUrl : 'app/partials/validateEfforts.html',
-				controller : 'effortValidateController'
+				controller : 'effortValidateController',
+				resolve: {
+					loadUsers : loadUsers
+				}
 			});
 			
 			

@@ -1,1 +1,83 @@
-<p>Validating efforts</p>
+
+<form class="form-horizontal" role="form">
+	<!-- <button type="button" ng-model="collapsed" ng-click="collapsed=!collapsed" class="pull-right"> 
+		show / hide
+	</button> -->
+	<!-- <div ng-show="!collapsed">
+		<div class="form-group">
+			<label for="searchName" class="col-md-1 control-label">Name</label>
+			<div class="col-md-3">
+				<input type="text" class="form-control clearField" id="searchName">
+			</div>
+			<label for="hubId" class="col-md-1 control-label">Hub Id</label>
+			<div class="col-md-3">
+				<input type="text" class="form-control clearField" id="hubId">
+			</div>
+
+		</div>
+		<div class="form-group">
+			<label for="personalId" class="col-md-1 control-label">Sap Id</label>
+			<div class="col-md-3">
+				<input type="number" class="form-control clearField" id="personalId">
+			</div>
+			<label for="email" class="col-md-1 control-label">Email</label>
+			<div class="col-md-3">
+				<input type="email" class="form-control clearField" id="email">
+			</div>
+			<div>
+				<button type="button" onclick="$('.clearField').val('');">Clear</button>
+			</div>
+		</div>
+
+	</div> -->
+	<div ng-show="!collapsed">
+		<table class="table">
+		<caption class="text-left"> <strong>Search Criteria</strong> </caption>
+			<tr>
+				<td>Name</td>
+				<td>Sap Id</td>
+				<td>Hub Id</td>
+				<td>Email</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+				<script type="text/ng-template" id="customTemplate.html">
+  					<a>
+      					<span ng-bind-html="match.label | typeaheadHighlight:query"></span>
+      						<i>({{match.model.capital}})</i>
+  					</a>
+				</script> 
+				<input 	type="text" ng-model="searchName" placeholder="Type Name for Search..."   style="color: red"
+						typeahead="user as user.name for user in members | filter:$viewValue | limitTo:10" 
+						typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)' 
+						typeahead-template-url="customTemplate.html" class="form-control clearField" id="searchName">
+				
+				</td>
+				<td><input type="number" class="form-control clearField" id="personalId"  
+							placeholder="Give Sap-Id for Search..."style="color: red"></td>
+				<td>
+					<input 	type="text" ng-model="searchHubId" placeholder="Type Hub-Id for Search..."  style="color: red" 
+						typeahead="user as user.hubId for user in members | filter:$viewValue | limitTo:10" 
+						typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)' 
+						typeahead-template-url="customTemplate.html" class="form-control clearField" id="hubId">
+					
+				</td>
+				<td><input type="email" class="form-control clearField" id="email" 
+							placeholder="Type e-mail for Search..." style="color: red"></td>
+				<td>
+					<button type="button">Go</button>
+					<button type="button" onclick="$('.clearField').val('');">Clear</button>
+				</td>
+				
+			</tr>
+			
+		</table>
+	</div>
+	
+</form>
+
+
+
+
+

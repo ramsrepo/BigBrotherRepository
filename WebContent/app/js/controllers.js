@@ -120,7 +120,6 @@ angular.module('myApp.controllers', [])
 	})
 	.controller('effortStatusController', function($scope, $window , $http, loadUserGroups, userService){
 		$scope.$parent.title = "Track Efforts Status";
-		$scope.$parent.showTopToggle = false;
 		$scope.groups = loadUserGroups.data;
 		$scope.selectedRow = null;
 		
@@ -141,8 +140,9 @@ angular.module('myApp.controllers', [])
 		
 	})
 	
-	.controller('effortValidateController', function($scope, toaster, $window , $http, $filter) {
-		
+	.controller('effortValidateController', function($scope, toaster, $window , $http, $filter, loadUsers) {
+		$scope.$parent.title = "Validate Efforts";
+		$scope.members = loadUsers.data;
 	})
 	
 	

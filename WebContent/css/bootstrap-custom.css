@@ -52,7 +52,7 @@ label {
 }
 
 .form-control {
-	font-size: 12px;
+	font-size: 11px;
 	height: 25px;
 	min-height: 25px;
 	padding-bottom: 4px;
@@ -125,7 +125,7 @@ td,th {
 }
 
 .table {
-	border-width: 1px 1px 2px;
+	border-width: 1px 1px 1px;
     border-style: solid;
     border-color: #a4bed4;
     border-top: none !important;
@@ -180,3 +180,11 @@ td,th {
 .selected {
 	 background-color: #FFE5B4;
 }
+
+hr {
+	margin-top: 15px;
+    margin-bottom: 15px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+   

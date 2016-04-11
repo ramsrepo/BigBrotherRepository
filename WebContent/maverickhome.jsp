@@ -69,7 +69,7 @@
 					<li ng-class="{ selected: isActive('/status')}"><a
 						ui-sref="status">Effort Status</a></li>
 					<li ng-class="{ selected: isActive('/validateEfforts')}"><a
-						ui-sref="validateEfforts">Validte Efforts</a></li>
+						ui-sref="validateEfforts">Validate Efforts</a></li>
 				</ul>
 			</div>
 
@@ -147,6 +147,7 @@
 <script src="lib/underscore.js"></script>
 
 <script src="lib/angular-1.4.3/angular-animate.min.js"></script>
+<script src="lib/angular-1.4.3/angular-sanitize.min.js"></script>
 <script src="lib/angular-1.4.3/toaster.js"></script>
 
 
