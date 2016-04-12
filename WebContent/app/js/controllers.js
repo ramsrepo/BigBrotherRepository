@@ -119,7 +119,7 @@ angular.module('myApp.controllers', [])
 					 */
 	})
 	.controller('effortStatusController', function($scope, $window , $http, loadUserGroups, userService){
-		$scope.$parent.title = "Track Efforts Status";
+		$scope.$parent.title = "Efforts Status";
 		$scope.groups = loadUserGroups.data;
 		$scope.selectedRow = null;
 		
@@ -140,9 +140,25 @@ angular.module('myApp.controllers', [])
 		
 	})
 	
-	.controller('effortValidateController', function($scope, toaster, $window , $http, $filter, loadUsers) {
+	.controller('effortValidateController', function($scope, toaster, $window , $http, $filter, loadUsers, effortTrackerService) {
+		$scope.searchParam = {};
 		$scope.$parent.title = "Validate Efforts";
 		$scope.members = loadUsers.data;
+		$scope.searchParam.dt = Date.today();
+		
+		$scope.searchEfforts = function(searchParam) {
+			$scope.loading = true;
+			var responseCatalog = effortTrackerService.loadEffortsList();
+    		responseCatalog.success(function (response) {
+    			$scope.tasks = response;
+    			$scope.loading = false;
+    		});
+    		responseCatalog.error(function (data,status) {
+    			if(status == 400 || status == 403) {
+    				toaster.pop('error', "Error while getting Efforts!");
+    			}
+    		});
+		}
 	})
 	
 	

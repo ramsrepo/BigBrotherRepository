@@ -188,3 +188,6 @@ hr {
     border-top: 1px solid #eee;
 }
    
+.dropdown-menu {
+	min-width: 210px;
+}

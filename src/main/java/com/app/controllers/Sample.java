@@ -9,12 +9,8 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
-import com.ximpleware.AutoPilot;
-import com.ximpleware.VTDGen;
-import com.ximpleware.VTDNav;
 
 import java.io.File;
-import java.io.FileInputStream;
 
 public class Sample {
 

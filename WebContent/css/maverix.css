@@ -1403,8 +1403,6 @@ div.heading-bar .heading-one {
 	font-size: 12px;
 	color: #23527c;
 	line-height: 15px;
-	letter-spacing: -1px;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.46) !important
 }
 
 div.heading-bar .heading-one img {
@@ -1766,7 +1764,6 @@ table.table-maverix p.info-sub {
 	font-size: 11px;
 	color: #000;
 	line-height: 13px;
-	letter-spacing: 0
 }
 
 .table-maverix-small td {
@@ -2212,11 +2209,9 @@ ul.entypo-ul li {
 	line-height: 28px !important
 }
 
-/* button {
-	background-image: -o-linear-gradient(-89deg, #69b1e5 0, #3485d0 100%);
-	background-image: -moz-linear-gradient(-89deg, #69b1e5 0, #3485d0 100%);
-	background-image: -ms-linear-gradient(-89deg, #69b1e5 0, #3485d0 100%);
-	background-image: linear-gradient(-179deg, #69b1e5 0, #3485d0 100%);
-	border: 1px solid #a4bed4;
-	color: #fff;
-} */
+.loading {
+	position: absolute;
+	top: 300px;
+	left: 450px;
+	z-index: 100;
+}

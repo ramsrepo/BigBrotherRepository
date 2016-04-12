@@ -78,7 +78,8 @@ myApp.config([ '$stateProvider', '$urlRouterProvider',
 				templateUrl : 'app/partials/validateEfforts.html',
 				controller : 'effortValidateController',
 				resolve: {
-					loadUsers : loadUsers
+					loadUsers : loadUsers,
+					loadEfforts : loadEfforts
 				}
 			});
 			

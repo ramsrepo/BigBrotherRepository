@@ -48,25 +48,24 @@
       						<i>({{match.model.capital}})</i>
   					</a>
 				</script> 
-				<input 	type="text" ng-model="searchName" placeholder="Type Name for Search..."   style="color: red"
-						typeahead="user as user.name for user in members | filter:$viewValue | limitTo:10" 
+				<input 	type="text" ng-model="searchParam.name" placeholder="Type Name for Search..."   style="color: blue"
+						typeahead="user.name as user.name for user in members | filter:$viewValue | limitTo:10" 
 						typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)' 
-						typeahead-template-url="customTemplate.html" class="form-control clearField" id="searchName">
+						typeahead-template-url="customTemplate.html" class="form-control clearField">
 				
 				</td>
-				<td><input type="number" class="form-control clearField" id="personalId"  
-							placeholder="Give Sap-Id for Search..."style="color: red"></td>
+				<td><input type="number" class="form-control clearField" ng-model="searchParam.sapId"  
+							placeholder="Give Sap-Id for Search..."style="color: blue"></td>
 				<td>
-					<input 	type="text" ng-model="searchHubId" placeholder="Type Hub-Id for Search..."  style="color: red" 
-						typeahead="user as user.hubId for user in members | filter:$viewValue | limitTo:10" 
+					<input 	type="text" ng-model="searchParam.hubId" placeholder="Type Hub-Id for Search..."  style="color: blue" 
+						typeahead="user.hubId as user.hubId for user in members | filter:$viewValue | limitTo:10" 
 						typeahead-min-length='1' typeahead-on-select='onSelectPart($item, $model, $label)' 
-						typeahead-template-url="customTemplate.html" class="form-control clearField" id="hubId">
+						typeahead-template-url="customTemplate.html" class="form-control clearField">
 					
 				</td>
-				<td><input type="email" class="form-control clearField" id="email" 
-							placeholder="Type e-mail for Search..." style="color: red"></td>
+				<td><input type="date" class="form-control clearField" ng-model="searchParam.dt" /></td>
 				<td>
-					<button type="button">Go</button>
+					<button type="button" ng-click="searchEfforts(searchParam);">Go</button>
 					<button type="button" onclick="$('.clearField').val('');">Clear</button>
 				</td>
 				
@@ -74,7 +73,31 @@
 			
 		</table>
 	</div>
-	
+	<div>
+		<table class="table table-bordered table-condensed">
+		<thead>
+			<tr class="thStyle">
+				<th>Application</th>
+				<th>Activity</th>
+				<th>Date</th>
+				<th>Week</th>
+				<th>Hours</th>
+				<th>Comments</th>
+			</tr>
+		</thead>
+			<tbody>
+				<loading></loading>
+				<tr data-ng-repeat="task in tasks">
+				<td style="width: 22%;">{{  task.appCode}}</td>
+				<td>{{ task.activity }}</td>
+				<td>{{ task.activityDate | date: 'MM-dd-yyyy' }}</td>
+				<td>{{ task.week }}</td>
+				<td>{{ task.spentHours }}</td>
+				<td>{{ task.comments}}</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
 </form>
 
 

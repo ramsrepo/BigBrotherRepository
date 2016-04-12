@@ -67,7 +67,7 @@
 					<li ng-class="{ selected: isActive('/trackingtemplate')}"><a
 						ui-sref="trackingtemplate"> Effort Tracker Template</a></li>
 					<li ng-class="{ selected: isActive('/status')}"><a
-						ui-sref="status">Effort Status</a></li>
+						ui-sref="status">Check Effort Status</a></li>
 					<li ng-class="{ selected: isActive('/validateEfforts')}"><a
 						ui-sref="validateEfforts">Validate Efforts</a></li>
 				</ul>
