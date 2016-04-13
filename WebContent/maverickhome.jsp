@@ -8,6 +8,7 @@
   
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>e_Tracker</title>
+    <link rel="shortcut icon" href="./images/loginPageIcon.png" />
 
     <!-- Bootstrap core CSS -->
 	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.min.css">
