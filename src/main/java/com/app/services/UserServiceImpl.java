@@ -2,15 +2,18 @@ package com.app.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.UserDAO;
 import com.app.model.UserModel;
 
-@Service
+@Component
 public class UserServiceImpl implements UserService {
 
+	@Autowired
 	private UserDAO userDao;
 
 	@Override
@@ -42,9 +45,9 @@ public class UserServiceImpl implements UserService {
 		return userDao;
 	}
 
-	public void setUserDao(UserDAO userDao) {
+	/*public void setUserDao(UserDAO userDao) {
 		this.userDao = userDao;
-	}
+	}*/
 	
 	
 	

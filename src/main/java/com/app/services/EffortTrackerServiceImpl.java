@@ -2,16 +2,18 @@ package com.app.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.EffortTrackerDAO;
 import com.app.model.EffortTrackerApplicationsModel;
 import com.app.model.EffortTrackerTemplateModel;
 
-@Service
+@Component
 public class EffortTrackerServiceImpl implements EffortTrackerService{
 	
+	@Autowired
 	private EffortTrackerDAO effortTrackerDao;
 	
 	@Override
@@ -41,10 +43,6 @@ public class EffortTrackerServiceImpl implements EffortTrackerService{
 
 	public EffortTrackerDAO getEffortTrackerDao() {
 		return effortTrackerDao;
-	}
-
-	public void setEffortTrackerDao(EffortTrackerDAO effortTrackerDao) {
-		this.effortTrackerDao = effortTrackerDao;
 	}
 
 }

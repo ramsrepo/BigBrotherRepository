@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
 	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.min.css">
 	<!-- Bootstrap Theme css -->
-	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap-theme.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap-theme.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap-datetime.css">
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap-custom.css">
 	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/toaster.css">
@@ -79,7 +79,7 @@
 
 		<div class="heading-bar">
 			<div class="user-bar">
-				Hi, Sriram | <a href="#" data-toggle="modal" data-target="#logoutModal">Sign out</a>
+				Hi, Sriram | <a href="#" data-toggle="modal" data-target="#logoutModal" style="outline: none;text-decoration: none; ">Logout</a>
 			</div>
 			<span class="heading-one" ng-bind="title"> <!-- <img ng-src="{{img}}" width="30" height="30"> -->
 			</span>
@@ -102,7 +102,7 @@
 								Logout
 							</h4>
 						</div>
-						<div class="modal-body">Are you sure you want to log-off ?</div>
+						<div class="modal-body">Are you sure you want to log-out ?</div>
 						<div class="modal-footer">
 							<a href="/BigB/logout" class="btn btn-default">Logout</a>
 						</div>

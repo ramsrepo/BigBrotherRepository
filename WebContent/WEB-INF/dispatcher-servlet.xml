@@ -17,7 +17,7 @@ xsi:schemaLocation="
     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     
 
-	<context:component-scan base-package="com.app.controllers" />
+	<context:component-scan base-package="com.app" />
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
 	<tx:annotation-driven transaction-manager="transactionManager"/>
@@ -73,28 +73,6 @@ xsi:schemaLocation="
             </props>
         </property>
     </bean>
-    
-    <bean id="userDao" class="com.app.dao.UserDaoImpl">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-    </bean>
-    <bean id="userService" class="com.app.services.UserServiceImpl">
-        <property name="userDao" ref="userDao"></property>
-    </bean>
-    
-    <bean id="userGroupDao" class="com.app.dao.UserGroupDaoImpl">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-    </bean>
-    <bean id="userGroupService" class="com.app.services.UserGroupServiceImpl">
-        <property name="userGroupDao" ref="userGroupDao"></property>
-    </bean>
-    
-    <bean id="effortTrackerDao" class="com.app.dao.EffortTrackerDaoImpl">
-    	<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-    </bean>
-    <bean id="effortTrackService" class="com.app.services.EffortTrackerServiceImpl">
-    	<property name="effortTrackerDao" ref="effortTrackerDao"></property>
-    </bean>
-    
     
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />

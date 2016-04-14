@@ -2,17 +2,17 @@ package com.app.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.app.dao.UserDAO;
 import com.app.dao.UserGroupDAO;
 import com.app.model.UserGroup;
-import com.app.model.UserModel;
 
-@Service
+@Component
 public class UserGroupServiceImpl implements UserGroupService {
 
+	@Autowired
 	private UserGroupDAO userGroupDao;
 
 	@Override
@@ -36,15 +36,5 @@ public class UserGroupServiceImpl implements UserGroupService {
 	public UserGroupDAO getUserGroupDao() {
 		return userGroupDao;
 	}
-
-	public void setUserGroupDao(UserGroupDAO userGroupDao) {
-		this.userGroupDao = userGroupDao;
-	}
-	
-	
-	
-	
-	
-	
 	
 }

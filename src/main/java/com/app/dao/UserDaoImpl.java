@@ -5,16 +5,20 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.app.model.UserModel;
 
+@Repository
 public class UserDaoImpl implements UserDAO{
 
+	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public void setSessionFactory(SessionFactory sf){
+	/*public void setSessionFactory(SessionFactory sf){
         this.sessionFactory = sf;
-    }
+    }*/
 	
 	@Override
 	public void addUser(UserModel user) {

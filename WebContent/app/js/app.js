@@ -1,12 +1,10 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-var myApp = angular.module( 'myApp', [ 'ui.router', 'ui.bootstrap', 'xeditable', 'ngAnimate', 'toaster', 'ngSanitize',
-		  'myApp.filters', 
-		  'myApp.services', 
-		  'myApp.directives',
-		  'myApp.controllers' ])
-		  
+var myApp = angular.module('myApp', [ 'ui.router', 'ui.bootstrap', 'xeditable',
+		'ngAnimate', 'toaster', 'ngSanitize', 'myApp.filters',
+		'myApp.services', 'myApp.directives', 'myApp.controllers' ])
+
 myApp.config(function($httpProvider) {
 	$httpProvider.interceptors.push('httpRequestInterceptor');
 });
@@ -15,7 +13,7 @@ myApp.config(function($httpProvider) {
 //as they are in default browser theme.
 //bootstrap3 theme. Can be also 'bs2', 'default'
 myApp.run(function(editableOptions) {
-	  editableOptions.theme = 'bs3'; 
+	editableOptions.theme = 'bs3';
 });
 
 myApp.config([ '$stateProvider', '$urlRouterProvider',
@@ -28,7 +26,7 @@ myApp.config([ '$stateProvider', '$urlRouterProvider',
 				templateUrl : 'app/partials/partial1.html',
 				controller : 'homeController'
 			})
-			
+
 			.state('changepassword', {
 				url : '/changepassword',
 				templateUrl : 'app/partials/changepassword.html',
@@ -59,7 +57,7 @@ myApp.config([ '$stateProvider', '$urlRouterProvider',
 				templateUrl : 'app/partials/trackeffortstatus.html',
 				controller : 'effortStatusController',
 				resolve : {
-					loadUserGroups: loadUserGroups
+					loadUserGroups : loadUserGroups
 				}
 			})
 
@@ -72,18 +70,16 @@ myApp.config([ '$stateProvider', '$urlRouterProvider',
 					loadEfforts : loadEfforts
 				}
 			})
-			
+
 			.state('validateEfforts', {
 				url : '/validateEfforts',
 				templateUrl : 'app/partials/validateEfforts.html',
 				controller : 'effortValidateController',
-				resolve: {
+				resolve : {
 					loadUsers : loadUsers,
 					loadEfforts : loadEfforts
 				}
 			});
-			
-			
 
 		} ]);
 

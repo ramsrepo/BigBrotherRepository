@@ -191,3 +191,7 @@ hr {
 .dropdown-menu {
 	min-width: 210px;
 }
+
+.modal-dialog {
+	margin: 200px auto !important;
+}

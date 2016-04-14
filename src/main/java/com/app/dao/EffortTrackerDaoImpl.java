@@ -6,17 +6,17 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.app.model.EffortTrackerApplicationsModel;
 import com.app.model.EffortTrackerTemplateModel;
 
+@Repository
 public class EffortTrackerDaoImpl implements EffortTrackerDAO {
-
-private SessionFactory sessionFactory;
 	
-	public void setSessionFactory(SessionFactory sf){
-        this.sessionFactory = sf;
-    }
+	@Autowired
+	private SessionFactory sessionFactory;
 	
 	@SuppressWarnings("unchecked")
 	@Override
