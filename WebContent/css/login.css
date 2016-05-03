@@ -36,10 +36,6 @@ label {  display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight
     margin-bottom: 25px;
 }
 
-#login input[type=text], input[type=password] {
-	text-align: center;
-}
-
 #login .button {
     font-size: 12px;
 	margin-bottom: 20px;

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.model.UserGroup;
 import com.app.services.UserGroupService;
 
-@Component
 @RestController
 @RequestMapping("/group")
 public class UserGroupController {

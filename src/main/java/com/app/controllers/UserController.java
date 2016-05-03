@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.model.UserModel;
 import com.app.services.UserService;
 
-@Component
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -32,7 +30,7 @@ public class UserController {
     }*/
 	
 	
-	@RequestMapping( value = "/add", method = RequestMethod.POST)
+	/*@RequestMapping( value = "/add", method = RequestMethod.POST)
 	public ResponseEntity<List<UserModel>> addUser(@RequestBody UserModel user){
 		System.out.println("ApplicationUser Data from Screen FN: "+ user.getName());
 		this.userService.addUser(user);
@@ -70,7 +68,7 @@ public class UserController {
             return new ResponseEntity<List<UserModel>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
         }
         return new ResponseEntity<List<UserModel>>(users, HttpStatus.OK);
-    }
+    }*/
 	
 	
 }

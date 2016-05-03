@@ -15,10 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.model.EffortTrackerApplicationsModel;
 import com.app.model.EffortTrackerTemplateModel;
-import com.app.model.UserModel;
 import com.app.services.EffortTrackerService;
 
-@Component
 @RestController
 @RequestMapping("/eft")
 public class EffortTrackerController {

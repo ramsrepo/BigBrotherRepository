@@ -286,10 +286,29 @@ angular.module('myApp.controllers', [])
 	   $scope.isActive = function (viewLocation) {
            return viewLocation === $location.path();
        };
+       
+       $scope.checked = false; 
+       $scope.toggle = function(loadTemplate,title){
+    	   $scope.slideWindowTitle = title;
+    	   if(loadTemplate != undefined && loadTemplate.length>0) {
+    		   if(!$scope.checked) {
+    			   $scope.template = loadTemplate;
+    			   $scope.checked = !$scope.checked
+    		   } else
+    			   $scope.template = loadTemplate;
+    	   } else {
+    		   $scope.checked = !$scope.checked
+    		   
+    	   }
+    		   
+       }
+       
 	})
 	.controller('passwordController', function($scope, $window, $http, $location) {
 		$scope.$parent.title = "Change Password";
 	});
+	
+	
 
 function getWeekInaMonth(month, day) {
 	var weekNumber = Math.ceil((day + 1) / 7)

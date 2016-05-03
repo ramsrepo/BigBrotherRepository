@@ -27,7 +27,7 @@
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header" style="float: left;">
-					<a class="navbar-brand" href="/BigB/inme#">e-Tracker</a>
+					<a class="navbar-brand" href="/EffortTracker/inme#">e-Tracker</a>
 				</div>
 				<div class="menu-bar" id="menu">
 					<ul id="menu">
@@ -121,7 +121,7 @@
 							</div>
 							<div class="modal-body">Are you sure you want to log-out ?</div>
 							<div class="modal-footer">
-								<a href="/BigB/logout" class="btn btn-default">Logout</a>
+								<a href="/EffortTracker/logout" class="btn btn-default">Logout</a>
 							</div>
 						</div>
 					</div>

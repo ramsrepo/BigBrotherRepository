@@ -1323,6 +1323,7 @@ html,body {
 	text-decoration: none;
 	color: #000 !important;
 	padding: 0;
+	outline: none;
 }
 
 .sidebar ul.nav li a:hover {
@@ -1349,13 +1350,12 @@ html,body {
 	text-shadow: none
 }
 
-.content {
+.mainContentDiv {
 	position: absolute;
 	left: 254px;
 	right: 0;
-	top: 60px;
+	top: 30px;
 	bottom: 0;
-	overflow-y: scroll;
 }
 
 .content .container-fluid {
@@ -1367,6 +1367,8 @@ html,body {
 	font-family: Tahoma, Helvetica;
 	font-size: 11px;
 	color: #000;
+	overflow-y: auto;
+	max-height: 570px;
 }
 
 div.heading-bar {
@@ -1377,25 +1379,26 @@ div.heading-bar {
     		progid:DXImageTransform.Microsoft.Alpha(opacity=100);
 	_background-image: none;
 	border: 1px solid #a4bed4;
-	position: absolute;
+	/* position: absolute; */
 	top: 30px;
 	left: 254px;
 	right: 0;
 	/* z-index: 2; */
 	height: 30px;
-	padding: 6px;
+	padding: 0px;
 }
 
-div.heading-bar .user-bar {
+div.user-bar {
 	position: absolute;
 	top: 0;
 	right: 10px;
 	font-size: 11px;
-	line-height: 30px
+	line-height: 30px;
+	color: #fff;
 }
 
 div.heading-bar .heading-one {
-	display: table-cell;
+	/* display: table-cell; */
 	vertical-align: middle;
 	font-family: Tahoma, Helvetica;
 	font-weight: bold;
@@ -1416,13 +1419,11 @@ div.heading-bar .heading-one img {
     		progid:DXImageTransform.Microsoft.Alpha(opacity=100);
 	_background-image: none;
 	border: 1px solid #a4bed4;
-	border-left: none;
-	border-right: none;
 	height: 25px;
 	position: fixed;
 	top: 59px;
-	left: 0px;
-	right: 0
+	left: 254px;
+	right: 0px;
 }
 
 .sub-nav ul {
@@ -1688,22 +1689,16 @@ div.heading-bar .heading-one img {
 	font-family: Tahoma, Helvetica;
 	font-size: 11px;
 	color: #000;
-	line-height: 16px
+	line-height: 16px;
+	height: 540px;
+	overflow-y: auto;
 }
 
 .panel .panel-heading {
-	/* background-image: -o-linear-gradient(-89deg, #ededed 0, #d8d8d8 100%);
-	background-image: -moz-linear-gradient(-89deg, #ededed 0, #d8d8d8 100%);
-	background-image: -ms-linear-gradient(-89deg, #ededed 0, #d8d8d8 100%);
-	background-image: linear-gradient(-179deg, #ededed 0, #d8d8d8 100%);
-	-moz-box-shadow: 0 1px 0 0 #bfbfbf; */
 	background-image: linear-gradient(-179deg, #69b1e5 0, #3485d0 100%);
-    -moz-box-shadow: 0 -1px 0 0 #5ca4df, inset 0 -1px 0 0 #327ac2, inset 0 1px 0 0 #71b9ea;
-    box-shadow: 0 -1px 0 0 #5ca4df, inset 0 -1px 0 0 #327ac2, inset 0 1px 0 0 #71b9ea;
     height: 26px;
     color: #fff;
     padding: 5px;
-	/* box-shadow: 0 1px 0 0 #bfbfbf */
 }
 
 .panel .panel-heading .panel-title {
@@ -1712,6 +1707,11 @@ div.heading-bar .heading-one img {
 	color: #2f2f2f;
 	line-height: 16px;
 	text-shadow: 0 1px 0 rgba(254, 255, 255, 0.49)
+}
+
+.panel .panel-footer {
+    background: none !important;
+    height: 26px;
 }
 
 div.table-cell {
@@ -2273,3 +2273,120 @@ ul.entypo-ul li {
   -webkit-box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 0 96px rgba(0, 0, 0, 0.2);
 }
+
+.moveLeft {
+	left: 0;
+	/* transition-duration: 0.1s;
+    transition-timing-function: linear; */
+}
+
+
+div.menu-bar {
+	position: absolute;
+	top: 6px;
+	right: 220px;
+	font-size: 12px;
+	color: #fff;
+}
+
+/**Page Slide Css*/ 
+.slideWindow {
+	background: white;
+	top: 33px !important;
+	border-left: 1px solid #1e81c7;
+	box-shadow: 1px 1px 1px #888888 !important;
+}
+
+body.ng-pageslide-body-open::before {
+    content: '.';
+    display: block;
+    position: absolute;
+    top: 0;
+    background-color: rgb(0,0,0);
+    left: 30;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0.5;
+    transition: opacity 1s;
+}
+body.ng-pageslide-body-closed::before {
+    transition: opacity 1s;
+    opacity: 0;
+    content: '.';
+    display: block;
+    position: absolute;
+    top: 30;
+    background-color: rgb(0,0,0);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+/*Page Slide Css Ends*/
+
+
+#menu {
+    overflow: visible;
+    color: #FFF;
+}
+
+#menu ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+#menu ul li {
+	background: #0771be;
+    float:none;
+    border-bottom: 1px solid #1e81c7;
+}
+
+
+#menu li {
+    display: inline-block;
+    padding: 0;
+}
+
+#menu a {
+    display:block;
+    text-decoration: none;
+    font-size: 11px;
+    color: #fff;
+    padding:3px;
+}
+
+#menu li ul { 
+    overflow: visible;
+    position: absolute;  
+    display: none; 
+    margin:0;
+    padding:0;
+} 
+
+#menu li:hover ul { 
+    display: block; 
+    overflow: visible;
+}
+ 
+#menu li ul li { 
+    overflow: hidden;
+    float: none; 
+    display: block; 
+    z-index:1000;
+}
+
+#menu li ul li a { 
+    overflow: hidden;
+    width: 150px;
+    z-index:1000;
+}
+
+#menu li a:hover, #menu li ul li a:hover { 
+    background:#087bcf;
+    z-index:1000;
+    text-decoration: underline;
+    cursor: pointer;
+} 
