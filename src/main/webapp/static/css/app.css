@@ -1,83 +1,180 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
 
-html{
-	background-color:#2F2F2F;
+html, body {
+	overflow-x: hidden!important;
+	-webkit-font-smoothing: antialiased;
+  	min-height: 100%;
+	padding-top: 50px;
+	line-height: 0.5cm;
+	font-style: normal;
+	color: #333333;
+	margin-top: 10px;
+	font-family: Tahoma,Helvetica;
+	font-size: 11px;
+	color: #131313;
 }
 
-body, #mainWrapper {
+h4 {
+	font-size: 15px !important;
+	font-weight: bold !important;
+	color: #245269 !important;
+}
+
+a,input,button:focus {
+	outline: none !important;
+}
+
+@media ( min-width : 768px) {
+	.sidebar {
+		position: fixed;
+		top: 30px;
+		bottom: 0;
+		left: 0;
+		display: block;
+		overflow-x: hidden;
+		overflow-y: auto;
+		background-color: #ebf3ff;
+		font-size: 11px !important;
+		padding: 0px;
+		border-style: solid;
+		border-color: #a4bed4;
+		border-width: 1px 1px 0 1px;
+		border-right: 1px solid #a4bed4;
+	}
+	.main {
+		position: fixed;
+		top: 30px;
+		bottom: 0;
+		left: 0;
+		display: block;
+		overflow-x: hidden;
+		overflow-y: auto;
+		border-top: 0px;
+		padding: 2px;
+	}
+		
+}
+
+.sidebar a {
+	color: black !important;
+}
+
+.pageHeader {
+	font-weight: normal !important;
+    background-color: #e2efff;
+    background: linear-gradient(#e2efff,#d3e7ff);
+    background: -webkit-linear-gradient(#e2efff,#d3e7ff);
+    filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#e2efff,endColorStr=#d3e7ff) 
+    		progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+	_background-image: none;
+	border: 1px solid #a4bed4;
+	height: 30px;
+}
+
+.pageHeader>p{
+	padding-left: 10px;
+	padding-top: 4px;
+	font-size: 13px;
+}
+.pageHeader div {
+	color: #000000;
+	padding: 5px 0px 0px 5px;
+	font-size: 12px;
+	font-weight: bold;
+	float: left;
+}
+
+.pageHeader div>span>img:hover {
+	cursor: pointer;
+	border-top: 2px solid black;
+	padding-top: 2px;
+}
+
+.pageHeader div>span {
+	padding-left: 5px;
+	height: 25px;
+	width: 25px;
+}
+
+#verticalSeperator {
+	margin-top: -2px;
+	margin-left: 5px;
+	float: left;
+	text-align: center;
+}
+
+#verticalSeperator hr {
+	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#verticalSeperator span {
+	margin: 0;
+}
+
+#button {
+	border-right: 1px;
+	padding: 0 0 0 0;
+}
+
+#button ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	/* border-bottom: 1px solid #a4bed4; */
+}
+
+#button li {
+	margin: 0;
+	list-style: none;
+	list-style-image: none;
+	font-size: 11px;
+	height: 25px;
+	/* border-top: 1px solid #a4bed4; */
+}
+
+/* #menuList li:hover {
+	border-color: #a4bed4;
+	background-color: #b5deff
+} */
+
+#button li a {
+	display: block;
+	padding: 4px 4px 4px 1.5em;
+	/* border-left: 5px solid #039BE6; */
+	text-decoration: none;
+	width: 100%;
+}
+
+#button li a>span {
 	height: 100%;
-	background-image: -webkit-gradient(
-	linear,
-	right bottom,
-	right top,
-	color-stop(0, #EDEDED),
-	color-stop(0.08, #EAEAEA),
-	color-stop(1, #2F2F2F),
-	color-stop(1, #AAAAAA)
-);
-background-image: -o-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: -moz-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: -webkit-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: -ms-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: linear-gradient(to top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
+	padding: 10px;
 }
 
-body, #mainWrapper, .form-control{
-	font-size:12px!important;
+.selected {
+	border-color: #a4bed4;
+	background-color: #b5deff
 }
 
-#mainWrapper {
-	/*height: 720px; Without explicit px values, % in children's does not work*/
-	height: 100vh; /*with Viewport-Percentage, we can handles all devices screens  */
-	padding-left:10px;
-	padding-right:10px;
-	padding-bottom:10px;
+.formButtons {
+	border: 1px solid #759dc0;
+	padding: 2px 2px 2px 2px;
+	color: #000000;
+	border-radius: 1px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	background-color: #bcd8f4;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
+		3px, rgba(255, 255, 255, 0.75) 100%);
+	background-image: -webkit-linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
+		3px, rgba(255, 255, 255, 0.75) 100%);
+	background-image: -o-linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
+		3px, rgba(255, 255, 255, 0.75) 100%);
+	background-image: linear-gradient(#ffffff 0px, rgba(255, 255, 255, 0)
+		3px, rgba(255, 255, 255, 0.75) 100%);
+	_background-image: none;
 }
 
-.login-container {
-    margin-top: 100px;
-    background-color: floralwhite;
-    width: 40%;
-    left: 30%;
-    position: absolute;
-}
-
-.login-card {
-    width: 80%;
-    margin: auto;
-}
-.login-form {
-    padding: 10%;
-}
-
-.form-container {
-  position:fiexd;
-  width:50%;
-  margin-left: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 20px;
-  background-color: #E8E1E1;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.floatRight{
-	float:right;
-	margin-right: 18px;
-}
-
-.has-error{
-	color:red;
-}
-
-
-.success{
-  position:fiexd;
-  width:50%;
-  margin-left: 50px;
-  margin-top:20px;
-  padding: 20px;
-  background-color: #E8E1E1;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}

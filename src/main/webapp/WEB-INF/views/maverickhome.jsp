@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en" ng-app="myApp" ng-controller="homeController">
 <head>
@@ -8,17 +10,16 @@
   
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>e_Tracker</title>
-    <link rel="shortcut icon" href="./images/loginPageIcon.png" />
+    <link href=<c:url value="/static/images/loginPageIcon.png"/> rel="shortcut icon" />
 
     <!-- Bootstrap core CSS -->
-	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap.min.css">
+	<link href=<c:url value="/static/lib/bootstrap/css/bootstrap.min.css"/> rel="stylesheet" type="text/css">
 	<!-- Bootstrap Theme css -->
-	<!-- <link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap-theme.min.css"> -->
-	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/bootstrap-datetime.css">
-	<link rel="stylesheet" type="text/css" href="./css/bootstrap-custom.css">
-	<link rel="stylesheet" type="text/css" href="./lib/bootstrap/css/toaster.css">
-	<link rel="stylesheet" type="text/css" href="lib/angular-1.4.3/xeditable.css">
-	<link href="css/maverix.css" rel="stylesheet">
+	<link href=<c:url value="/static/lib/bootstrap/css/bootstrap-datetime.css"/> rel="stylesheet" type="text/css" >
+	<link href=<c:url value="/static/css/bootstrap-custom.css"/> rel="stylesheet" type="text/css" >
+	<link href=<c:url value="/static/lib/bootstrap/css/toaster.css"/> rel="stylesheet" type="text/css" >
+	<link href=<c:url value="/static/lib/angular-1.4.3/xeditable.css"/> rel="stylesheet" type="text/css" >
+	<link href=<c:url value="/static/css/maverix.css"/> rel="stylesheet">
     
 </head>
 <body>
@@ -27,7 +28,7 @@
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header" style="float: left;">
-					<a class="navbar-brand" href="/EffortTracker/inme#">e-Tracker</a>
+					<a class="navbar-brand" href="/EffortTracker/home#">e-Tracker</a>
 				</div>
 				<div class="menu-bar" id="menu">
 					<ul id="menu">
@@ -42,8 +43,8 @@
 									ui-sref="createuser"> User</a></li>
 								<li ng-class="{ selected: isActive('/trackingtemplate')}"><a
 									ui-sref="trackingtemplate"> Effort Tracker Template</a></li>
-								<li><a ng-click="toggle('app/partials/user.html','User')">User Demo</a></li>
-								<li><a ng-click="toggle('app/partials/changepassword.html','Change Password')">Change Password Demo</a></li>
+								<li><a ng-click="toggle('./static/app/partials/user.html','User')">User Demo</a></li>
+								<li><a ng-click="toggle('./static/app/partials/changepassword.html','Change Password')">Change Password Demo</a></li>
 					        </ul>
 					    </li>
 					    
@@ -97,7 +98,7 @@
 			<div class="heading-bar">
 				
 				<span style="cursor: pointer;" id="hidemenu" ng-click="yesMove=!yesMove" title="Toggle Menu">
-					<img ng-src="././images/three.png" width="30" height="30">
+					<img ng-src=<c:url value="/static/images/three.png"/> width="30" height="30">
 				</span>
 				<span class="heading-one" ng-bind="title"></span>
 	
@@ -154,44 +155,44 @@
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="./lib/jquery/jquery-1.10.js"></script>
+<script src=<c:url value="/static/lib/jquery/jquery-1.10.js"/> ></script>
 
 <!-- Date.js -->
-<script src="lib/date/date.js"></script>
+<script src=<c:url value="/static/lib/date/date.js"/> ></script>
 
 <!-- Scripts to support HTML5 date input -->
-<script src="lib/date/better-dom.js"></script>
-<script src="lib/date/better-i18n-plugin.js"></script>
-<script src="lib/date/better-dateinput-polyfill.js"></script>
+<script src=<c:url value="/static/lib/date/better-dom.js"/> ></script>
+<script src=<c:url value="/static/lib/date/better-i18n-plugin.js"/> ></script>
+<script src=<c:url value="/static/lib/date/better-dateinput-polyfill.js"/> ></script>
 
 
 <!-- AngularJS, Bootstrap & Application related Scripts -->
-<script src="./lib/angular-1.4.3/angular.js"></script>
-<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src=<c:url value="/static/lib/angular-1.4.3/angular.js"/> ></script>
+<script src=<c:url value="/static/lib/bootstrap/js/bootstrap.min.js"/> ></script>
 
-<script src="./lib/bootstrap/js/moment.js"></script>
-<script src="./lib/bootstrap/js/bootstrap-datetime.js"></script>
+<script src=<c:url value="/static/lib/bootstrap/js/moment.js"/> ></script>
+<script src=<c:url value="/static/lib/bootstrap/js/bootstrap-datetime.js"/> ></script>
 
-<script src="./lib/angular-1.4.3/ui-bootstrap-tpls-0.13.3.js"></script>
-<script src="./lib/angular-1.4.3/angular-ui-router.js"></script>
+<script src=<c:url value="/static/lib/angular-1.4.3/ui-bootstrap-tpls-0.13.3.js"/> ></script>
+<script src=<c:url value="/static/lib/angular-1.4.3/angular-ui-router.js"/> ></script>
 
 <!-- Angular Editable Grid -->
-<script src="lib/angular-1.4.3/xeditable.js"></script>
-<script src="lib/angular-1.4.3/xeditable.min.js"></script>
-<script src="lib/underscore.js"></script>
+<script src=<c:url value="/static/lib/angular-1.4.3/xeditable.js"/> ></script>
+<script src=<c:url value="/static/lib/angular-1.4.3/xeditable.min.js"/> ></script>
+<script src=<c:url value="/static/lib/underscore.js"/> ></script>
 
-<script src="lib/angular-1.4.3/angular-animate.min.js"></script>
-<script src="lib/angular-1.4.3/angular-sanitize.min.js"></script>
-<script src="lib/angular-1.4.3/toaster.js"></script>
+<script src=<c:url value="/static/lib/angular-1.4.3/angular-animate.min.js"/> ></script>
+<script src=<c:url value="/static/lib/angular-1.4.3/angular-sanitize.min.js"/> ></script>
+<script src=<c:url value="/static/lib/angular-1.4.3/toaster.js"/> ></script>
 
 
 	
-<script src="app/js/app.js"></script>
-<script src="app/js/services.js"></script>
-<script src="app/js/controllers.js"></script>
-<script src="app/js/filters.js"></script>
-<script src="app/js/directives.js"></script>
-<script src="app/js/pageslide.js"></script>
+<script src=<c:url value="/static/app/js/app.js"/> ></script>
+<script src=<c:url value="/static/app/js/services.js"/> ></script>
+<script src=<c:url value="/static/app/js/controllers.js"/> ></script>
+<script src=<c:url value="/static/app/js/filters.js"/> ></script>
+<script src=<c:url value="/static/app/js/directives.js"/> ></script>
+<script src=<c:url value="/static/app/js/pageslide.js"/> ></script>
 
 
 <script>

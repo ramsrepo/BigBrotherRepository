@@ -1,6 +1,6 @@
 'use strict';
 
-/* Services */
+// Services 
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
@@ -25,43 +25,43 @@ factory('userService', function($http) {
 
 	// Service to find all the existing Users.
 	userService.loadUsers = function() {
-		var theUrl = '/BigB/user/findAll';
+		var theUrl = '/EffortTracker/user/findAll';
 		return $http.get(theUrl);
 	};
 
 	// Service to Add the New User.
 	userService.addUser = function(data) {
-		var theUrl = '/BigB/user/add';
+		var theUrl = '/EffortTracker/user/add';
 		return $http.post(theUrl, data);
 	};
 
 	// Service to Delete the Existing User.
 	userService.deleteUser = function(data) {
-		var theUrl = '/BigB/user/delete';
+		var theUrl = '/EffortTracker/user/delete';
 		return $http.post(theUrl, data);
 	};
 	
 	// Service to find all the existing Users based on User Group Code.
 	userService.loadUsersByGroup = function(data) {
-		var theUrl = '/BigB/user/findUsersByGroup';
+		var theUrl = '/EffortTracker/user/findUsersByGroup';
 		return $http.post(theUrl,data);
 	};	
 
 	// Service to find all the existing User Groups.
 	userService.loadUserGroups = function() {
-		var theUrl = '/BigB/group/findAll';
+		var theUrl = '/EffortTracker/group/findAll';
 		return $http.get(theUrl);
 	};
 	
 	// Service to Add the User Group.
 	userService.addUserGroup = function(data) {
-		var theUrl = '/BigB/group/add';
+		var theUrl = '/EffortTracker/group/add';
 		return $http.post(theUrl, data);
 	};
 
 	// Service to Delete the Existing Group.
 	userService.deleteUserGroup = function(data) {
-		var theUrl = '/BigB/group/delete';
+		var theUrl = '/EffortTracker/group/delete';
 		return $http.post(theUrl, data);
 	};
 
@@ -74,25 +74,25 @@ factory('effortTrackerService', function($http) {
 
 	// Service to Get all the Tower based applications.
 	effortTrackerService.loadApplicationsList = function() {
-		var theUrl = '/BigB/eft/findAllApps';
+		var theUrl = '/EffortTracker/eft/findAllApps';
 		return $http.get(theUrl);
 	};
 
 	// Service to Get all the Tower based applications.
 	effortTrackerService.loadEffortsList = function() {
-		var theUrl = '/BigB/eft/findAllEfforts';
+		var theUrl = '/EffortTracker/eft/findAllEfforts';
 		return $http.get(theUrl);
 	};
 
 	// Service to Get all the Tower based applications.
 	effortTrackerService.saveEfforts = function(postData) {
-		var theUrl = '/BigB/eft/saveEfforts';
+		var theUrl = '/EffortTracker/eft/saveEfforts';
 		return $http.post(theUrl, postData);
 	};
 	
 	// Service to Get all the Tower based applications.
 	effortTrackerService.updateEfforts = function(postData) {
-		var theUrl = '/BigB/eft/updateEfforts';
+		var theUrl = '/EffortTracker/eft/updateEfforts';
 		return $http.post(theUrl, postData);
 	};
 

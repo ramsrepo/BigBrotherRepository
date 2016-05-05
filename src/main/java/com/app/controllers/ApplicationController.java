@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,10 +25,8 @@ import com.app.model.UserProfile;
 import com.app.services.UserProfileService;
 import com.app.services.UserService;
 
-
-
 @Controller
-public class HelloWorldController {
+public class ApplicationController {
 
 	@Autowired
 	UserProfileService userProfileService;
@@ -34,42 +34,31 @@ public class HelloWorldController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping(value = { "/", "/inme" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
 	public String homePage(ModelMap model) {
 		model.addAttribute("greeting", "Hi, Welcome to mysite");
-		return "login";
-	}
-
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String adminPage(ModelMap model) {
-		model.addAttribute("user", getPrincipal());
 		return "maverickhome";
 	}
-
-	@RequestMapping(value = "/db", method = RequestMethod.GET)
-	public String dbaPage(ModelMap model) {
-		model.addAttribute("user", getPrincipal());
-		return "maverickhome";
-	}
-
+	
 	@RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
 	public String accessDeniedPage(ModelMap model) {
 		model.addAttribute("user", getPrincipal());
 		return "accessDenied";
 	}
-
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage() {
-		return "maverickhome";
+		System.out.println("login page is redirecting from here");
+		return "login";
 	}
-
+	
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null){    
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
-		return "redirect:/inme?logout";
+		return "redirect:/login?logout";
 	}
 
 	
@@ -80,10 +69,11 @@ public class HelloWorldController {
 		return "newuser";
 	}
 
-	/*
-	 * This method will be called on form submission, handling POST request It
+	
+	 /* This method will be called on form submission, handling POST request It
 	 * also validates the user input
 	 */
+	 
 	@RequestMapping(value = "/newUser", method = RequestMethod.POST)
 	public String saveRegistration(@Valid User user,
 			BindingResult result, ModelMap model) {

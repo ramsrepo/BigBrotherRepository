@@ -1,54 +1,37 @@
 package com.app.services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.app.dao.UserDAO;
-import com.app.model.UserModel;
+import com.app.dao.UserDao;
+import com.app.model.User;
 
-@Service
-public class UserServiceImpl implements UserService {
+
+
+@Service("userService")
+@Transactional
+public class UserServiceImpl implements UserService{
 
 	@Autowired
-	private UserDAO userDao;
+	private UserDao dao;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
-	@Override
-	@Transactional
-	public void addUser(UserModel user){
-		this.userDao.addUser(user);
+	
+	public void save(User user){
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		dao.save(user);
 	}
 	
-	@Override
-	@Transactional
-	public void removeUser(UserModel user){
-		this.userDao.removeUser(user);
-	}
-	
-	@Override
-	@Transactional
-	public List<UserModel> findAll(){
-		return this.userDao.findAll();
-	}
-	
-	@Override
-	@Transactional
-	public List<UserModel> findAllByGroupCode(String groupCode){
-		return this.userDao.findByGroupCode(groupCode);
-	}
-	
-	
-	public UserDAO getUserDao() {
-		return userDao;
+	public User findById(int id) {
+		return dao.findById(id);
 	}
 
-	/*public void setUserDao(UserDAO userDao) {
-		this.userDao = userDao;
-	}*/
-	
-	
-	
+	public User findBySso(String sso) {
+		return dao.findBySSO(sso);
+	}
 	
 }

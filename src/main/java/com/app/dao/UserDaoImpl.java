@@ -1,69 +1,27 @@
 package com.app.dao;
 
-import java.util.List;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import com.app.model.UserModel;
+import com.app.model.User;
 
-@Repository
-public class UserDaoImpl implements UserDAO{
 
-	@Autowired
-	private SessionFactory sessionFactory;
-	
-	/*public void setSessionFactory(SessionFactory sf){
-        this.sessionFactory = sf;
-    }*/
-	
-	@Override
-	public void addUser(UserModel user) {
-		Session session = this.sessionFactory.getCurrentSession();
-		session.persist(user);
-		
-	}
+@Repository("userDao")
+public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 
-	@Override
-	public UserModel getUserById(Integer id) {
-		Session session = this.sessionFactory.getCurrentSession();
-		UserModel user = (UserModel)session.load(UserModel.class,new Integer(id));
-		return user;
-	}
-
-	@Override
-	public Integer updateUser(UserModel user) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void removeUser(UserModel user) {
-		
-		Session session = this.sessionFactory.getCurrentSession();
-		UserModel userTobeDelete = (UserModel)session.load(UserModel.class, user.getId());
-        session.delete(userTobeDelete);
-        System.out.println("Object Deleted successfully.....!!");
-        
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<UserModel> findAll() {
-		Session session = this.sessionFactory.getCurrentSession();
-		List<UserModel> userList = session.createQuery("from UserModel ORDER BY ID DESC").list();
-		return userList;
+	public void save(User user) {
+		persist(user);
 	}
 	
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<UserModel> findByGroupCode(String groupCode) {
-		Session session = this.sessionFactory.getCurrentSession();
-		List<UserModel> userList = session.createQuery("from UserModel where UPPER(project)='"+groupCode.toUpperCase()+"' ORDER BY ID DESC").list();
-		return userList;
+	public User findById(int id) {
+		return getByKey(id);
+	}
+
+	public User findBySSO(String sso) {
+		Criteria crit = createEntityCriteria();
+		crit.add(Restrictions.eq("ssoId", sso));
+		return (User) crit.uniqueResult();
 	}
 
 }

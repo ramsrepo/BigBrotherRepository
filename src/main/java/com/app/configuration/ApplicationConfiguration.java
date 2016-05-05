@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.app")
-public class HelloWorldConfiguration extends WebMvcConfigurerAdapter {
+public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
 	
 	@Autowired
 	RoleToUserProfileConverter roleToUserProfileConverter;

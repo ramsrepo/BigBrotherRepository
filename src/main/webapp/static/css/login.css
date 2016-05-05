@@ -87,3 +87,10 @@ label {  display: inline-block; max-width: 100%; margin-bottom: 5px; font-weight
   background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
 }
+
+.alert {
+   height:30%;
+   font-size: 12px;
+   font-weight: bold;
+   padding: 7px;    
+}
